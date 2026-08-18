@@ -216,14 +216,29 @@
 
   /* ---------- experience: swatch cards ---------- */
   .swatches{ display:flex; flex-direction:column; gap:20px; }
-  .swatch-card-link{
-    display:block;
-    text-decoration:none;
-    color:inherit;
-    transition: opacity 0.2s ease;
-  }
-  .swatch-card-link:hover{ opacity:0.9; }
+.swatch-card-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  transition: opacity 0.2s ease, transform 0.3s ease;
+}
+.swatch-card-link:hover{ 
+  opacity:1; 
+  transform: translateY(-8px);
+}
 
+.swatch-card{
+  display:grid;
+  grid-template-columns: 220px 1fr;
+  border:2px solid var(--ink);
+  min-height:220px;
+  cursor:pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.swatch-card-link:hover .swatch-card{
+  border-color: var(--signal);
+  box-shadow: 0 12px 28px rgba(20,18,16,0.12);
+}
   .swatch-card{
     display:grid;
     grid-template-columns: 220px 1fr;
