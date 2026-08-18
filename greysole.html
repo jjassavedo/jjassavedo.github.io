@@ -12,7 +12,7 @@
   :root{
     --ink:#141210;
     --paper:#F1EEE5;
-    --cobalt:#2748FF;
+    --brand:#FFED4E;
     --line: rgba(20,18,16,0.16);
     --maxw: 1180px;
   }
@@ -78,7 +78,7 @@
     font-weight:700; font-size:14px;
     letter-spacing:0.03em;
   }
-  .nav .mark span{ color:var(--cobalt); }
+  .nav .mark span{ color:var(--brand); }
   .nav .back{
     font-family:'Space Mono', monospace;
     font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
@@ -140,6 +140,10 @@
     padding:18px;
     background:rgba(255,237,78,0.08);
   }
+  
+  .work-item .label{
+    color: var(--ink);
+  }
 
   .work-item .label{
     font-family:'Space Mono', monospace;
@@ -178,7 +182,7 @@
     font-size:clamp(28px,4vw,42px);
     line-height:1;
     margin-bottom:6px;
-    color:#FFED4E;
+    color:var(--brand);
   }
 
   .stat-card .label{
@@ -191,7 +195,7 @@
 
   .callout{
     background:rgba(255,237,78,0.12);
-    border-left:3px solid #FFED4E;
+    border-left:3px solid var(--brand);
     padding:28px 24px;
     margin:clamp(40px,6vw,60px) 0;
   }
@@ -227,7 +231,7 @@
     color:var(--ink);
   }
 
-  .case-nav a:hover .title{ color:#FFED4E; }
+  .case-nav a:hover .title{ color:var(--brand); }
 
   footer{
     padding:20px clamp(20px,5vw,56px) 40px;
@@ -310,6 +314,11 @@
           <h3>Brand Building</h3>
           <p class="desc">Managed community engagement, responded to customers, coordinated product launches, and built a culture around Greysole's philosophy of casual, intentional living.</p>
         </div>
+        <div class="work-item">
+          <div class="label">Web</div>
+          <h3>Website Management</h3>
+          <p class="desc">Managed Greysole's web presence, including site updates, product pages, and digital presence across platforms.</p>
+        </div>
       </div>
 
       <div class="stats reveal">
@@ -329,6 +338,22 @@
 
       <div class="callout reveal">
         <p><strong>Philosophy:</strong> Greysole isn't just about selling apparel—it's about positioning a lifestyle. The visual identity needed to reflect minimalism and intentionality. Every photo, every post, every caption reinforced the idea that Greysole products were for people who value quality, comfort, and a no-nonsense approach to getting dressed.</p>
+      </div>
+
+      <div style="margin:clamp(48px,7vw,80px) 0; padding:28px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+        <h3 style="font-size:20px; margin-bottom:24px;" class="reveal">Selected Work</h3>
+        <p style="opacity:0.75; margin-bottom:32px;" class="reveal">Product photography, lifestyle content, and social strategy across Instagram feed and Reels.</p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px;" class="reveal">
+          <div style="background:#f0f0f0; aspect-ratio:1; border:1px solid var(--line); padding:8px;">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23fafafa' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23999'%3EGreysole Product Photography%3C/text%3E%3C/svg%3E" alt="Greysole apparel photography" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div style="background:#f0f0f0; aspect-ratio:1; border:1px solid var(--line); padding:8px;">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23fafafa' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23999'%3ELifestyle Content%3C/text%3E%3C/svg%3E" alt="Greysole lifestyle content" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div style="background:#f0f0f0; aspect-ratio:1; border:1px solid var(--line); padding:8px;">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%23fafafa' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' fill='%23999'%3ESocial Strategy%3C/text%3E%3C/svg%3E" alt="Greysole social content" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+        </div>
       </div>
     </div>
   </section>
