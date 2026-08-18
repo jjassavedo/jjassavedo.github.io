@@ -216,11 +216,20 @@
 
   /* ---------- experience: swatch cards ---------- */
   .swatches{ display:flex; flex-direction:column; gap:20px; }
+  .swatch-card-link{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+    transition: opacity 0.2s ease;
+  }
+  .swatch-card-link:hover{ opacity:0.9; }
+
   .swatch-card{
     display:grid;
     grid-template-columns: 220px 1fr;
     border:1px solid var(--ink);
     min-height:220px;
+    cursor:pointer;
   }
   .swatch-face{
     padding:20px;
@@ -415,7 +424,7 @@
       </div>
       <div class="swatches">
 
-        <a href="casestody.html" style="text-decoration:none; color:inherit;">
+        <a href="casestody.html" class="swatch-card-link">
           <div class="swatch-card reveal">
             <div class="swatch-face" style="background:var(--signal);">
               <span class="code">CS.01</span>
@@ -436,7 +445,7 @@
           </div>
         </a>
 
-        <a href="greysole.html" style="text-decoration:none; color:inherit;">
+        <a href="greysole.html" class="swatch-card-link">
           <div class="swatch-card reveal">
             <div class="swatch-face" style="background:var(--cobalt);">
               <span class="code">GS.02</span>
