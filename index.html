@@ -216,36 +216,30 @@
 
   /* ---------- experience: swatch cards ---------- */
   .swatches{ display:flex; flex-direction:column; gap:20px; }
-.swatch-card-link{
-  display:block;
-  text-decoration:none;
-  color:inherit;
-  transition: opacity 0.2s ease, transform 0.3s ease;
-}
-.swatch-card-link:hover{ 
-  opacity:1; 
-  transform: translateY(-8px);
-}
+  .swatch-card-link{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+    transition: opacity 0.2s ease, transform 0.3s ease;
+  }
+  .swatch-card-link:hover{ 
+    opacity:1; 
+    transform: translateY(-8px);
+  }
 
-.swatch-card{
-  display:grid;
-  grid-template-columns: 220px 1fr;
-  border:2px solid var(--ink);
-  min-height:220px;
-  cursor:pointer;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.swatch-card-link:hover .swatch-card{
-  border-color: var(--signal);
-  box-shadow: 0 12px 28px rgba(20,18,16,0.12);
-}
   .swatch-card{
     display:grid;
     grid-template-columns: 220px 1fr;
-    border:1px solid var(--ink);
+    border:2px solid var(--ink);
     min-height:220px;
     cursor:pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
+  .swatch-card-link:hover .swatch-card{
+    border-color: var(--signal);
+    box-shadow: 0 12px 28px rgba(20,18,16,0.12);
+  }
+
   .swatch-face{
     padding:20px;
     display:flex; flex-direction:column; justify-content:space-between;
@@ -485,77 +479,85 @@
           </div>
         </a>
 
-        <div class="swatch-card reveal">
-          <div class="swatch-face" style="background:var(--violet);">
-            <span class="code">BB.03</span>
-            <span class="brandname">Buzz &amp; Bloom</span>
-          </div>
-          <div class="swatch-body">
-            <span class="role">Graphic Designer, Content Creator &amp; Social Media Manager · Beverage Startup</span>
-            <p class="desc">Handle the brand's creative and social media presence from concept through execution — shoot planning, content production and Instagram strategy.</p>
-            <div class="tags">
-              <span class="tag">Shoot Planning</span>
-              <span class="tag">Photography</span>
-              <span class="tag">Instagram Management</span>
-              <span class="tag">Creative Concepts</span>
+        <a href="buzzandbloom.html" class="swatch-card-link">
+          <div class="swatch-card reveal">
+            <div class="swatch-face" style="background:var(--violet);">
+              <span class="code">BB.03</span>
+              <span class="brandname">Buzz &amp; Bloom</span>
             </div>
-            <span class="focus">Focus — building a consistent visual and social presence for a growing beverage brand</span>
+            <div class="swatch-body">
+              <span class="role">Graphic Designer, Content Creator &amp; Social Media Manager · Beverage Startup</span>
+              <p class="desc">Handle the brand's creative and social media presence from concept through execution — shoot planning, content production and Instagram strategy.</p>
+              <div class="tags">
+                <span class="tag">Shoot Planning</span>
+                <span class="tag">Photography</span>
+                <span class="tag">Instagram Management</span>
+                <span class="tag">Creative Concepts</span>
+              </div>
+              <span class="focus">Focus — building a consistent visual and social presence for a growing beverage brand</span>
+            </div>
           </div>
-        </div>
+        </a>
 
-        <div class="swatch-card reveal">
-          <div class="swatch-face" style="background:#1F8A5C;">
-            <span class="code">TB.04</span>
-            <span class="brandname">TropiBite</span>
-          </div>
-          <div class="swatch-body">
-            <span class="role">Graphic Designer, Content Creator &amp; Social Media Manager · Beverage Startup</span>
-            <p class="desc">Manage the brand's creative production and social media presence, from product content through to campaign development.</p>
-            <div class="tags">
-              <span class="tag">Creative Concepts</span>
-              <span class="tag">Video Editing</span>
-              <span class="tag">Content Strategy</span>
-              <span class="tag">Social Management</span>
+        <a href="tropibite.html" class="swatch-card-link">
+          <div class="swatch-card reveal">
+            <div class="swatch-face" style="background:#1F8A5C;">
+              <span class="code">TB.04</span>
+              <span class="brandname">TropiBite</span>
             </div>
-            <span class="focus">Focus — beverage branding, product content, social-first creative, campaigns</span>
+            <div class="swatch-body">
+              <span class="role">Graphic Designer, Content Creator &amp; Social Media Manager · Beverage Startup</span>
+              <p class="desc">Manage the brand's creative production and social media presence, from product content through to campaign development.</p>
+              <div class="tags">
+                <span class="tag">Creative Concepts</span>
+                <span class="tag">Video Editing</span>
+                <span class="tag">Content Strategy</span>
+                <span class="tag">Social Management</span>
+              </div>
+              <span class="focus">Focus — beverage branding, product content, social-first creative, campaigns</span>
+            </div>
           </div>
-        </div>
+        </a>
 
-        <div class="swatch-card reveal">
-          <div class="swatch-face" style="background:#B08C2E;">
-            <span class="code">GW.05</span>
-            <span class="brandname">Greywith the Sign</span>
-          </div>
-          <div class="swatch-body">
-            <span class="role">Social Media Manager &amp; Creative Support</span>
-            <p class="desc">Manage the social media presence of a content creator while handling the creative and logistical side of producing content.</p>
-            <div class="tags">
-              <span class="tag">Content Ideation</span>
-              <span class="tag">Shoot Planning</span>
-              <span class="tag">Content Logistics</span>
-              <span class="tag">Publishing</span>
+        <a href="greywithsign.html" class="swatch-card-link">
+          <div class="swatch-card reveal">
+            <div class="swatch-face" style="background:#B08C2E;">
+              <span class="code">GW.05</span>
+              <span class="brandname">Greywith the Sign</span>
             </div>
-            <span class="focus">Focus — personal brand management, creative concepts, social media growth</span>
+            <div class="swatch-body">
+              <span class="role">Social Media Manager &amp; Creative Support</span>
+              <p class="desc">Manage the social media presence of a content creator while handling the creative and logistical side of producing content.</p>
+              <div class="tags">
+                <span class="tag">Content Ideation</span>
+                <span class="tag">Shoot Planning</span>
+                <span class="tag">Content Logistics</span>
+                <span class="tag">Publishing</span>
+              </div>
+              <span class="focus">Focus — personal brand management, creative concepts, social media growth</span>
+            </div>
           </div>
-        </div>
+        </a>
 
-        <div class="swatch-card reveal">
-          <div class="swatch-face" style="background:var(--ink);">
-            <span class="code">HM.00</span>
-            <span class="brandname">Harmatan</span>
-          </div>
-          <div class="swatch-body">
-            <span class="role">Founder — Creative &amp; Marketing Agency</span>
-            <p class="desc">My own creative and marketing agency, built around helping brands develop their visual identity, content and marketing presence — bringing design, content, direction and marketing together under one roof.</p>
-            <div class="tags">
-              <span class="tag">Brand Identity</span>
-              <span class="tag">Creative Direction</span>
-              <span class="tag">Content Strategy</span>
-              <span class="tag">Client Management</span>
+        <a href="harmatan.html" class="swatch-card-link">
+          <div class="swatch-card reveal">
+            <div class="swatch-face" style="background:var(--ink);">
+              <span class="code">HM.00</span>
+              <span class="brandname">Harmatan</span>
             </div>
-            <span class="focus">Focus — bringing design, content, creative direction and marketing together to build stronger brands</span>
+            <div class="swatch-body">
+              <span class="role">Founder — Creative &amp; Marketing Agency</span>
+              <p class="desc">My own creative and marketing agency, built around helping brands develop their visual identity, content and marketing presence — bringing design, content, direction and marketing together under one roof.</p>
+              <div class="tags">
+                <span class="tag">Brand Identity</span>
+                <span class="tag">Creative Direction</span>
+                <span class="tag">Content Strategy</span>
+                <span class="tag">Client Management</span>
+              </div>
+              <span class="focus">Focus — bringing design, content, creative direction and marketing together to build stronger brands</span>
+            </div>
           </div>
-        </div>
+        </a>
 
       </div>
     </div>
