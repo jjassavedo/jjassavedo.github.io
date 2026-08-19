@@ -231,12 +231,12 @@
     display:grid;
     grid-template-columns: 220px 1fr;
     border:2px solid var(--ink);
-    min-height:220px;
+    min-height:180px;
     cursor:pointer;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
   .swatch-card-link:hover .swatch-card{
-    border-color: var(--signal);
+    border-color:var(--signal);
     box-shadow: 0 12px 28px rgba(20,18,16,0.12);
   }
 
@@ -261,24 +261,39 @@
   .swatch-body{
     padding:26px 28px;
     display:flex; flex-direction:column; gap:14px;
+    justify-content:center;
   }
   .swatch-body .role{
     font-family:'Space Mono', monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.06em; opacity:0.7;
   }
-  .swatch-body .desc{ font-size:15.5px; max-width:640px; }
-  .swatch-body .tags{
-    display:flex; flex-wrap:wrap; gap:8px; margin-top:2px;
+  .swatch-body .card-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    width:max-content;
+    margin-top:4px;
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-weight:700;
+    border-bottom:1px solid currentColor;
+    padding-bottom:4px;
+    transition:color .2s ease, gap .2s ease;
   }
-  .swatch-body .tag{
-    font-family:'Space Mono', monospace; font-size:11px; text-transform:uppercase;
-    border:1px solid var(--line); padding:5px 10px; opacity:0.8;
-  }
-  .swatch-body .focus{
-    font-size:13px; font-family:'Space Mono', monospace; opacity:0.6; margin-top:auto; padding-top:10px; border-top:1px dashed var(--line);
-  }
+  .swatch-card-link:hover .card-cta{ color:var(--signal); gap:12px; }
   @media (max-width:700px){
-    .swatch-card{ grid-template-columns:1fr; }
+    .swatch-card{ grid-template-columns:1fr; min-height:0; }
     .swatch-face{ flex-direction:row; align-items:center; gap:14px; min-height:80px; }
+    .swatch-body{ padding:20px; gap:10px; }
+    .swatch-card-link.mobile-focus{
+      transform:scale(1.025);
+      position:relative;
+      z-index:3;
+    }
+    .swatch-card-link.mobile-focus .swatch-card{
+      box-shadow:0 16px 32px rgba(20,18,16,0.14);
+    }
   }
 
   /* ---------- tools ---------- */
@@ -445,15 +460,7 @@
             </div>
             <div class="swatch-body">
               <span class="role">Graphic Designer, Content Creator &amp; Social Media Manager · 1+ Year</span>
-              <p class="desc">Worked across Casestody's creative, content and social media operations, supporting both its online presence and wider marketing activities — from product launches to promotional campaigns.</p>
-              <div class="tags">
-                <span class="tag">Product Photography</span>
-                <span class="tag">Short-form Video</span>
-                <span class="tag">Social Management</span>
-                <span class="tag">Campaigns</span>
-                <span class="tag">Influencer Concepts</span>
-              </div>
-              <span class="focus">Focus — product marketing, visual communication, social media, long-term brand development</span>
+              <span class="card-cta">Read more →</span>
             </div>
           </div>
         </a>
@@ -466,15 +473,7 @@
             </div>
             <div class="swatch-body">
               <span class="role">Graphic Designer, Content Creator &amp; Social Media Manager · 1+ Year</span>
-              <p class="desc">Worked across Greysole's visual communication, social media and product marketing as the brand expanded its apparel range.</p>
-              <div class="tags">
-                <span class="tag">Product Storytelling</span>
-                <span class="tag">Video Editing</span>
-                <span class="tag">Colour Grading</span>
-                <span class="tag">Content Planning</span>
-                <span class="tag">Creative Direction</span>
-              </div>
-              <span class="focus">Focus — fashion &amp; lifestyle content, product storytelling, visual branding</span>
+              <span class="card-cta">Read more →</span>
             </div>
           </div>
         </a>
@@ -487,14 +486,7 @@
             </div>
             <div class="swatch-body">
               <span class="role">Graphic Designer, Content Creator &amp; Social Media Manager · Beverage Startup</span>
-              <p class="desc">Handle the brand's creative and social media presence from concept through execution — shoot planning, content production and Instagram strategy.</p>
-              <div class="tags">
-                <span class="tag">Shoot Planning</span>
-                <span class="tag">Photography</span>
-                <span class="tag">Instagram Management</span>
-                <span class="tag">Creative Concepts</span>
-              </div>
-              <span class="focus">Focus — building a consistent visual and social presence for a growing beverage brand</span>
+              <span class="card-cta">Read more →</span>
             </div>
           </div>
         </a>
@@ -507,14 +499,7 @@
             </div>
             <div class="swatch-body">
               <span class="role">Graphic Designer, Content Creator &amp; Social Media Manager · Beverage Startup</span>
-              <p class="desc">Manage the brand's creative production and social media presence, from product content through to campaign development.</p>
-              <div class="tags">
-                <span class="tag">Creative Concepts</span>
-                <span class="tag">Video Editing</span>
-                <span class="tag">Content Strategy</span>
-                <span class="tag">Social Management</span>
-              </div>
-              <span class="focus">Focus — beverage branding, product content, social-first creative, campaigns</span>
+              <span class="card-cta">Read more →</span>
             </div>
           </div>
         </a>
@@ -527,14 +512,7 @@
             </div>
             <div class="swatch-body">
               <span class="role">Social Media Manager &amp; Creative Support</span>
-              <p class="desc">Manage the social media presence of a content creator while handling the creative and logistical side of producing content.</p>
-              <div class="tags">
-                <span class="tag">Content Ideation</span>
-                <span class="tag">Shoot Planning</span>
-                <span class="tag">Content Logistics</span>
-                <span class="tag">Publishing</span>
-              </div>
-              <span class="focus">Focus — personal brand management, creative concepts, social media growth</span>
+              <span class="card-cta">Read more →</span>
             </div>
           </div>
         </a>
@@ -547,14 +525,7 @@
             </div>
             <div class="swatch-body">
               <span class="role">Founder — Creative &amp; Marketing Agency</span>
-              <p class="desc">My own creative and marketing agency, built around helping brands develop their visual identity, content and marketing presence — bringing design, content, direction and marketing together under one roof.</p>
-              <div class="tags">
-                <span class="tag">Brand Identity</span>
-                <span class="tag">Creative Direction</span>
-                <span class="tag">Content Strategy</span>
-                <span class="tag">Client Management</span>
-              </div>
-              <span class="focus">Focus — bringing design, content, creative direction and marketing together to build stronger brands</span>
+              <span class="card-cta">Read more →</span>
             </div>
           </div>
         </a>
@@ -638,6 +609,19 @@
     });
   }, { threshold: 0.12 });
   els.forEach(el=>io.observe(el));
+
+  const mobileCards = document.querySelectorAll('.swatch-card-link');
+  if (window.matchMedia('(max-width: 700px)').matches && mobileCards.length) {
+    const cardObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          mobileCards.forEach(card=>card.classList.remove('mobile-focus'));
+          entry.target.classList.add('mobile-focus');
+        }
+      });
+    }, { threshold: 0.65, rootMargin: '-8% 0px -8% 0px' });
+    mobileCards.forEach(card=>cardObserver.observe(card));
+  }
 </script>
 
 </body>
