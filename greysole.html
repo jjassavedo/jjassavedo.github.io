@@ -24,7 +24,7 @@
     background:var(--paper);
     color:var(--ink);
     font-family:'Poppins', sans-serif;
-    font-size:16px;
+    font-weight:400;font-size:16px;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
@@ -41,7 +41,7 @@
 
   h1,h2,h3{
     font-family:'Poppins', sans-serif;
-    font-weight:400;
+    font-weight:800;
     text-transform:uppercase;
     letter-spacing:0.01em;
     margin:0;
@@ -415,5 +415,29 @@
 </script>
 
 <script id="portfolio-polish-js">(()=>{const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const g=e.target;if(g.matches('.work-grid'))g.classList.add('polished-in');if(g.matches('.stats-grid,.stats'))g.querySelectorAll('.stat strong,.stat .num').forEach(el=>{const raw=el.textContent.trim();const m=raw.match(/^([+$]?)([0-9,.]+)(.*)$/);if(!m||reduce)return;const target=parseFloat(m[2].replace(/,/g,''));if(!isFinite(target))return;const suffix=m[3],prefix=m[1],start=performance.now(),dur=1400;function tick(t){const p=Math.min(1,(t-start)/dur),v=target*(1-Math.pow(1-p,3));el.textContent=prefix+(target>=100?Math.round(v).toLocaleString():v.toFixed(target%1?1:0))+suffix;if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)});io.unobserve(g)},{threshold:.12});document.querySelectorAll('.work-grid,.stats-grid,.stats').forEach(x=>io.observe(x));if(!reduce)addEventListener('scroll',()=>{document.querySelectorAll('.hero').forEach(h=>{const r=h.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)h.style.setProperty('--hero-shift',((innerHeight-r.top)*-.018)+'px')})},{passive:true})})();</script>
+
+<script id="portfolio-polish-script">
+(()=>{
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const grids=document.querySelectorAll('.work-grid');
+  grids.forEach(grid=>grid.querySelectorAll('.work-item').forEach((item,i)=>{
+    item.style.transitionDelay=reduce?'0ms':`${i*100}ms`;
+  }));
+  const revealItems=document.querySelectorAll('.work-grid .work-item');
+  if(!reduce&&'IntersectionObserver' in window){
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('polished-in');io.unobserve(e.target)}}),{threshold:.08});
+    revealItems.forEach(e=>io.observe(e));
+  }else revealItems.forEach(e=>e.classList.add('polished-in'));
+
+  const stats=document.querySelectorAll('.stat .num,.stat strong');
+  const parse=(text)=>{const m=text.trim().match(/^([^0-9]*)([0-9][0-9,.]*)(.*)$/);if(!m)return null;return {pre:m[1],num:parseFloat(m[2].replace(/,/g,'')),suffix:m[3],dec:(m[2].includes('.')?m[2].split('.')[1].length:0),comma:m[2].includes(',')}};
+  const animateStat=(el)=>{if(el.dataset.counted)return;const x=parse(el.textContent);if(!x)return;el.dataset.counted='1';const start=performance.now(),dur=1500;const tick=t=>{const p=Math.min((t-start)/dur,1),e=1-Math.pow(1-p,3),v=x.num*e;let out=x.dec?v.toFixed(x.dec):Math.round(v).toLocaleString();if(x.comma&&x.dec===0)out=Math.round(v).toLocaleString();el.textContent=x.pre+out+x.suffix;if(p<1)requestAnimationFrame(tick)};requestAnimationFrame(tick)};
+  if(!reduce&&'IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){animateStat(e.target);io.unobserve(e.target)}}),{threshold:.5});stats.forEach(s=>io.observe(s))}else stats.forEach(s=>{s.dataset.counted='1'});
+
+  const hero=document.querySelector('.hero');
+  if(hero&&!reduce){let ticking=false;const update=()=>{hero.style.setProperty('--hero-shift',`${Math.min(window.scrollY*.035,18)}px`);ticking=false};window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(update);ticking=true}},{passive:true});}
+})();
+</script>
+
 </body>
 </html>
