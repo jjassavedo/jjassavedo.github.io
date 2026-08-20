@@ -43,7 +43,6 @@
   .disciplines.reveal { animation-delay: .1s; }
   .swatch-card.reveal { animation-delay: .12s; }
 
-  /* Remove the attempted colour change from CREATIVE; retain its existing site styling. */
   .hero h1 em {
     transition: none;
   }
@@ -58,6 +57,43 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Section titles should not animate when hovered. */
+.section-head h2,
+.section-head:hover h2 {
+  transition: none !important;
+  letter-spacing: .01em !important;
+}
+
+/* Use dark green #023020 for hover accents that were previously red. */
+.hero h1:hover em,
+.hero h1:focus-within em,
+.swatch-card-link:hover .card-cta,
+.tools-col li:hover,
+.email:hover {
+  color: #023020;
+}
+
+.hero h1:hover em {
+  -webkit-text-stroke-color: #023020;
+}
+
+.swatch-card-link:hover .swatch-card {
+  border-color: #023020;
+}
+
+.swatch-card-link:hover .card-cta,
+.email:hover {
+  border-color: #023020;
+}
+
+.cta:hover {
+  background: #023020;
+}
+
+.about-side:hover {
+  border-color: #023020;
 }
 
 @media (prefers-reduced-motion: reduce) {
