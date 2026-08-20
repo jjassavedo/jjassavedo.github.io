@@ -14,3 +14,49 @@
     letter-spacing: -0.03em;
   }
 }
+
+/* Main portfolio only: restore the entrance motion on mobile. */
+@media (max-width: 760px) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    animation: mainMobileReveal .7s ease both;
+  }
+
+  .hero-kicker.reveal { animation-delay: .05s; }
+  .hero h1.reveal { animation-delay: .15s; }
+  .hero .role.reveal { animation-delay: .25s; }
+  .hero-strip.reveal { animation-delay: .35s; }
+  .section-head.reveal { animation-delay: .05s; }
+  .about-grid .reveal { animation-delay: .12s; }
+  .disciplines.reveal { animation-delay: .1s; }
+  .swatch-card.reveal { animation-delay: .12s; }
+
+  /* Forest green accent for the animated "CREATIVE" word. */
+  .hero h1 em {
+    --creative-green: #1f5b3a;
+    transition: color .35s ease, -webkit-text-stroke-color .35s ease;
+  }
+  .hero h1:hover em,
+  .hero h1 em:focus {
+    color: #1f5b3a;
+    -webkit-text-stroke-color: #1f5b3a;
+  }
+}
+
+@keyframes mainMobileReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none !important;
+  }
+}
