@@ -21,17 +21,20 @@ jobs:
               p=Path(name)
               if not p.exists(): continue
               s=p.read_text()
-              s=re.sub(r'https://fonts\.googleapis\.com/css2\?family=[^"\']+', 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap', s)
+              s=re.sub(r'https://fonts\\.googleapis\\.com/css2\\?family=[^"\\\']+', 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap', s)
               for old in ["Anton","Archivo","Space Mono"]:
                   s=s.replace(f"font-family:'{old}'", "font-family:'Poppins'")
                   s=s.replace(f'font-family:{old}', 'font-family:Poppins')
-              s=re.sub(r'(h1,h2,h3\{font-family:[^;]+;)font-weight:\s*400', r'\1font-weight:700', s)
-              s=re.sub(r'<span[^>]*class="num"[^>]*>\s*\d+\s*</span>', '', s, flags=re.I)
-              s=re.sub(r'<(?:div|span)[^>]*class="code"[^>]*>\s*[^<]*\s*</(?:div|span)>', '', s, flags=re.I)
-              s=re.sub(r'<(?:div|span)[^>]*class="d-num"[^>]*>\s*[^<]*\s*</(?:div|span)>', '', s, flags=re.I)
-              s=re.sub(r'\b(?:CS|GS|BB|TB|GW|UW)\.\d{2}\b', lambda m:m.group(0).split('.')[0], s)
-              s=re.sub(r'(>\s*)\d{1,2}\s*[·•/]\s*', r'\1', s)
-              s=re.sub(r'(>\s*)\d{1,2}\s*/\s*\d{1,2}(\s*<)', r'\1\2', s)
+              s=re.sub(r'(h1,h2,h3\\{font-family:[^;]+;)font-weight:\\s*400', r'\\1font-weight:700', s)
+              s=re.sub(r'<span[^>]*class="num"[^>]*>\\s*\\d+\\s*</span>', '', s, flags=re.I)
+              s=re.sub(r'<(?:div|span)[^>]*class="code"[^>]*>\\s*[^<]*\\s*</(?:div|span)>', '', s, flags=re.I)
+              s=re.sub(r'<(?:div|span)[^>]*class="d-num"[^>]*>\\s*[^<]*\\s*</(?:div|span)>', '', s, flags=re.I)
+              s=re.sub(r'\\b(?:CS|GS|BB|TB|GW|UW)\\.\\d{2}\\b', lambda m:m.group(0).split('.')[0], s)
+              s=re.sub(r'(>\\s*)\\d{1,2}\\s*[·•/]\\s*', r'\\1', s)
+              s=re.sub(r'(>\\s*)\\d{1,2}\\s*/\\s*\\d{1,2}(\\s*<)', r'\\1\\2', s)
+              # Remove decorative numeric placeholder labels from Favorite Works; keep the 9 slides.
+              s=re.sub(r'(<div\\s+class="fav-placeholder"[^>]*>)\\s*\\d{1,2}\\s*(</div>)', r'\\1WORK\\2', s, flags=re.I)
+              s=re.sub(r'(<span[^>]*>)\\s*\\d{1,2}\\s*(</span>)', lambda m: m.group(1)+'WORK'+m.group(2) if 'fav' in s[max(0,m.start()-120):m.start()].lower() else m.group(0), s, flags=re.I)
               p.write_text(s)
           PY
       - name: Add interaction CSS and JS
