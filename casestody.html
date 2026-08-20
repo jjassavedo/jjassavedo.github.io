@@ -7,7 +7,7 @@
 <meta name="description" content="Casestody case study — graphic design, content creation & social media for a phone accessories brand.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#141210;
@@ -23,7 +23,7 @@
     margin:0;
     background:var(--paper);
     color:var(--ink);
-    font-family:'Archivo', sans-serif;
+    font-family:'Poppins', sans-serif;
     font-size:16px;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
@@ -40,7 +40,7 @@
   }
 
   h1,h2,h3{
-    font-family:'Anton', sans-serif;
+    font-family:'Poppins', sans-serif;
     font-weight:400;
     text-transform:uppercase;
     letter-spacing:0.01em;
@@ -48,7 +48,7 @@
   }
 
   .eyebrow{
-    font-family:'Space Mono', monospace;
+    font-family:'Poppins', monospace;
     font-size:12px;
     letter-spacing:0.12em;
     text-transform:uppercase;
@@ -74,13 +74,13 @@
     padding:16px clamp(20px,5vw,56px);
   }
   .nav .mark{
-    font-family:'Space Mono', monospace;
+    font-family:'Poppins', monospace;
     font-weight:700; font-size:14px;
     letter-spacing:0.03em;
   }
   .nav .mark span{ color:var(--signal); }
   .nav .back{
-    font-family:'Space Mono', monospace;
+    font-family:'Poppins', monospace;
     font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
     opacity:0.75; border-bottom:1px solid transparent;
     padding-bottom:2px;
@@ -100,7 +100,7 @@
     margin-bottom:12px;
   }
   .hero .role{
-    font-family:'Space Mono', monospace;
+    font-family:'Poppins', monospace;
     font-size:clamp(13px,1.6vw,15px);
     text-transform:uppercase; letter-spacing:0.08em;
     opacity:0.9;
@@ -142,7 +142,7 @@
   }
 
   .work-item .label{
-    font-family:'Space Mono', monospace;
+    font-family:'Poppins', monospace;
     font-size:11px;
     text-transform:uppercase;
     letter-spacing:0.06em;
@@ -174,7 +174,7 @@
   }
 
   .stat-card .num{
-    font-family:'Anton', sans-serif;
+    font-family:'Poppins', sans-serif;
     font-size:clamp(28px,4vw,42px);
     line-height:1;
     margin-bottom:6px;
@@ -182,7 +182,7 @@
   }
 
   .stat-card .label{
-    font-family:'Space Mono', monospace;
+    font-family:'Poppins', monospace;
     font-size:12px;
     text-transform:uppercase;
     letter-spacing:0.06em;
@@ -213,7 +213,7 @@
     display:flex;
     flex-direction:column;
     gap:6px;
-    font-family:'Space Mono', monospace;
+    font-family:'Poppins', monospace;
     font-size:12px;
     text-transform:uppercase;
     letter-spacing:0.06em;
@@ -221,7 +221,7 @@
   }
 
   .case-nav a .title{
-    font-family:'Anton', sans-serif;
+    font-family:'Poppins', sans-serif;
     font-size:clamp(18px,2.4vw,24px);
     text-transform:uppercase;
     color:var(--ink);
@@ -231,7 +231,7 @@
 
   footer{
     padding:20px clamp(20px,5vw,56px) 40px;
-    font-family:'Space Mono', monospace;
+    font-family:'Poppins', monospace;
     font-size:11px;
     opacity:0.55;
     display:flex;
@@ -240,6 +240,8 @@
     gap:8px;
   }
 </style>
+<style id="portfolio-polish">
+.work-grid>*{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease,box-shadow .35s ease}.work-grid.polished-in>*{opacity:1;transform:none}.work-grid.polished-in>*:nth-child(1){transition-delay:.05s}.work-grid.polished-in>*:nth-child(2){transition-delay:.15s}.work-grid.polished-in>*:nth-child(3){transition-delay:.25s}.work-grid.polished-in>*:nth-child(4){transition-delay:.35s}.work-grid.polished-in>*:nth-child(5){transition-delay:.45s}.work-grid.polished-in>*:nth-child(6){transition-delay:.55s}.work-grid>*:hover{transform:translateY(-5px) scale(1.015);box-shadow:0 12px 28px rgba(20,18,16,.12)}.gallery-item,.gallery-item img,[class*="gallery"] img{transition:transform .45s ease,box-shadow .45s ease;cursor:pointer}.gallery-item:hover,.gallery-item:hover img,[class*="gallery"] img:hover{transform:scale(1.025);box-shadow:0 12px 28px rgba(20,18,16,.14)}a{transition:opacity .3s ease,color .3s ease}a:not(.mark):not(.cta){text-decoration-thickness:1px;text-underline-offset:4px}a:not(.mark):not(.cta):hover{text-decoration:underline}.hero{--hero-shift:0px}.hero .wrap{transform:translateY(var(--hero-shift))}@media(prefers-reduced-motion:reduce){.work-grid>*,.gallery-item,.gallery-item img,[class*="gallery"] img{transition:none!important}.hero .wrap{transform:none!important}}</style>
 </head>
 <body>
 
@@ -404,5 +406,6 @@
   els.forEach(el=>io.observe(el));
 </script>
 
+<script id="portfolio-polish-js">(()=>{const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const g=e.target;if(g.matches('.work-grid'))g.classList.add('polished-in');if(g.matches('.stats-grid,.stats'))g.querySelectorAll('.stat strong,.stat .num').forEach(el=>{const raw=el.textContent.trim();const m=raw.match(/^([+$]?)([0-9,.]+)(.*)$/);if(!m||reduce)return;const target=parseFloat(m[2].replace(/,/g,''));if(!isFinite(target))return;const suffix=m[3],prefix=m[1],start=performance.now(),dur=1400;function tick(t){const p=Math.min(1,(t-start)/dur),v=target*(1-Math.pow(1-p,3));el.textContent=prefix+(target>=100?Math.round(v).toLocaleString():v.toFixed(target%1?1:0))+suffix;if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)});io.unobserve(g)},{threshold:.12});document.querySelectorAll('.work-grid,.stats-grid,.stats').forEach(x=>io.observe(x));if(!reduce)addEventListener('scroll',()=>{document.querySelectorAll('.hero').forEach(h=>{const r=h.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)h.style.setProperty('--hero-shift',((innerHeight-r.top)*-.018)+'px')})},{passive:true})})();</script>
 </body>
 </html>
