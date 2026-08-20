@@ -1,4 +1,4 @@
-name: Portfolio polish
+name: Portfolio polish — typography and interactions
 on:
   push:
     branches: [main]
@@ -32,7 +32,6 @@ jobs:
               s=re.sub(r'\\b(?:CS|GS|BB|TB|GW|UW)\\.\\d{2}\\b', lambda m:m.group(0).split('.')[0], s)
               s=re.sub(r'(>\\s*)\\d{1,2}\\s*[·•/]\\s*', r'\\1', s)
               s=re.sub(r'(>\\s*)\\d{1,2}\\s*/\\s*\\d{1,2}(\\s*<)', r'\\1\\2', s)
-              # Remove decorative numeric placeholder labels from Favorite Works; keep the 9 slides.
               s=re.sub(r'(<div\\s+class="fav-placeholder"[^>]*>)\\s*\\d{1,2}\\s*(</div>)', r'\\1WORK\\2', s, flags=re.I)
               s=re.sub(r'(<span[^>]*>)\\s*\\d{1,2}\\s*(</span>)', lambda m: m.group(1)+'WORK'+m.group(2) if 'fav' in s[max(0,m.start()-120):m.start()].lower() else m.group(0), s, flags=re.I)
               p.write_text(s)
@@ -61,7 +60,7 @@ jobs:
           p=Path('index.html');s=p.read_text()
           if 'id="favorite-works"' not in s:
               block='<section id="favorite-works" class="favorite-works"><div class="wrap"><div class="section-head"><h2 class="reveal">Favorite Works</h2></div><div class="favorite-slider" aria-label="Favorite works carousel"><button class="fav-arrow fav-prev" type="button" aria-label="Previous work">←</button><div class="fav-track">'
-              for i in range(1,10): block+=f'<article class="fav-slide{" active" if i==1 else ""}" data-slide="{i}"><div class="fav-placeholder" role="img" aria-label="Favorite work placeholder {i}"><span>WORK {i}</span></div><div class="fav-caption"><strong>Selected Work {i}</strong><span>Graphic Design · Creative</span></div></article>'
+              for i in range(1,10): block+=f'<article class="fav-slide{" active" if i==1 else ""}" data-slide="{i}"><div class="fav-placeholder" role="img" aria-label="Favorite work placeholder {i}"><span>WORK</span></div><div class="fav-caption"><strong>Selected Work</strong><span>Graphic Design · Creative</span></div></article>'
               block+='</div><button class="fav-arrow fav-next" type="button" aria-label="Next work">→</button></div><div class="fav-dots" aria-label="Carousel navigation">'
               for i in range(1,10): block+=f'<button type="button" class="fav-dot{" active" if i==1 else ""}" data-to="{i}" aria-label="Go to work {i}"></button>'
               block+='</div></div></section>'
