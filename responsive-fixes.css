@@ -6,6 +6,17 @@
   #experience .swatch-face {
     min-height: 116px;
   }
+
+  /* On mobile, the card currently in focus gets a tiny lift/zoom to invite a tap. */
+  #experience .swatch-card:focus,
+  #experience .swatch-card:focus-within {
+    transform: scale(1.025);
+    z-index: 2;
+  }
+
+  #experience .swatch-card {
+    transition: transform .3s ease;
+  }
 }
 
 @media (max-width: 520px) {
@@ -32,31 +43,9 @@
   .disciplines.reveal { animation-delay: .1s; }
   .swatch-card.reveal { animation-delay: .12s; }
 
-  /* Forest-green hover/focus treatment for the CREATIVE word. */
+  /* Remove the attempted colour change from CREATIVE; retain its existing site styling. */
   .hero h1 em {
-    color: var(--paper);
-    -webkit-text-stroke-color: var(--ink);
-    transition: color .35s ease, -webkit-text-stroke-color .35s ease;
-  }
-
-  .hero h1:hover em,
-  .hero h1:focus-within em,
-  .hero h1 em:active {
-    color: #1f5b3a;
-    -webkit-text-stroke-color: #1f5b3a;
-  }
-}
-
-/* Touch devices do not have a reliable :hover state, so tapping/focusing
-   the hero gives CREATIVE the same forest-green treatment. */
-@media (hover: none) and (pointer: coarse) {
-  .hero h1 em {
-    transition: color .35s ease, -webkit-text-stroke-color .35s ease;
-  }
-  .hero h1:active em,
-  .hero h1:focus-within em {
-    color: #1f5b3a;
-    -webkit-text-stroke-color: #1f5b3a;
+    transition: none;
   }
 }
 
@@ -75,6 +64,10 @@
   .reveal {
     animation: none !important;
     opacity: 1 !important;
+    transform: none !important;
+  }
+  #experience .swatch-card {
+    transition: none !important;
     transform: none !important;
   }
 }
