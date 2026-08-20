@@ -1,0 +1,85 @@
+name: Standardize portfolio case studies
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  standardize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Standardize case-study pages
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          pages = ['casestody.html','greysole.html','buzzandbloom.html','tropibite.html','greywithsign.html','upwork.html']
+
+          common_css = r'''\n<style id="case-study-standard">\n.stats{padding:clamp(28px,4vw,42px) 0 0;border-bottom:0;background:var(--paper)}\n.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}\n.stat-card{border:1px solid var(--line);padding:24px;text-align:center;background:rgba(255,255,255,.38);border-radius:4px;box-shadow:0 4px 16px rgba(20,18,16,.04)}\n.stat-card .num{font-family:'Poppins',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1;margin-bottom:8px}\n.stat-card .label{font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.7}\n.case-work-title{font-family:'Poppins',sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(34px,6vw,64px);margin:0 0 32px}\n@media(max-width:760px){.stats-grid{grid-template-columns:1fr}.stat-card{padding:22px}}\n</style>\n'''
+
+          known_work = {
+            'buzzandbloom.html': '''<section class="section"><div class="wrap"><h2 class="case-work-title reveal">What I Worked On</h2><div class="work-grid reveal"><article class="work-item"><div class="label">Content</div><h3>Content Creation</h3><p>Created social content around cocktails, mocktails, products and the moments people associate with the brand.</p></article><article class="work-item"><div class="label">Social</div><h3>Social Media Management</h3><p>Managed social content and kept the brand's presence consistent across its platforms.</p></article><article class="work-item"><div class="label">Campaigns</div><h3>Promotional Campaigns</h3><p>Built promotional content around initiatives such as Buzz Airways and Taste the Buzz.</p></article><article class="work-item"><div class="label">Product</div><h3>Product Storytelling</h3><p>Turned cocktails and mocktails into visual content designed to make the products easy to discover and remember.</p></article></div></div></section>''',
+            'tropibite.html': '''<section class="section"><div class="wrap"><h2 class="case-work-title reveal">What I Worked On</h2><div class="work-grid reveal"><article class="work-item"><div class="label">Product</div><h3>Product Photography</h3><p>Created clean, bright product visuals using tropical backgrounds and fruit-led compositions.</p></article><article class="work-item"><div class="label">Video</div><h3>Video Reels</h3><p>Created short-form video content designed around products, people and community moments.</p></article><article class="work-item"><div class="label">UGC</div><h3>User-Generated Content</h3><p>Built content around real people enjoying the drinks and sharing the product in everyday settings.</p></article><article class="work-item"><div class="label">Lifestyle</div><h3>Lifestyle Content</h3><p>Created social content around events, parties and the moments where the drinks naturally fit in.</p></article><article class="work-item"><div class="label">Campaigns</div><h3>Launch Campaigns</h3><p>Developed campaign content including “YES WE ARE BACK” and countdown posts.</p></article><article class="work-item"><div class="label">Social</div><h3>Social Media Management</h3><p>Managed Instagram strategy and posting while keeping the brand's visual and content direction consistent.</p></article><article class="work-item"><div class="label">Community</div><h3>Community Engagement</h3><p>Used feedback-led content to encourage interaction and build familiarity with the brand.</p></article><article class="work-item"><div class="label">Promotion</div><h3>Promotional Campaigns</h3><p>Created promotional communication with direct calls to action such as “ORDER NOW”.</p></article></div></div></section>''',
+            'greywithsign.html': '''<section class="section"><div class="wrap"><h2 class="case-work-title reveal">What I Worked On</h2><div class="work-grid reveal"><article class="work-item"><div class="label">Ideas</div><h3>Content Ideation</h3><p>Developed simple, relatable sign concepts around humour, opinions and everyday life.</p></article><article class="work-item"><div class="label">Production</div><h3>Content Direction</h3><p>Helped shape the format and execution of the sign-based content.</p></article><article class="work-item"><div class="label">Social</div><h3>Social Media Management</h3><p>Managed the social side of the content and kept the page consistent.</p></article><article class="work-item"><div class="label">Publishing</div><h3>Publishing</h3><p>Turned finished ideas into posts built for engagement and shareability.</p></article></div></div></section>''',
+            'upwork.html': '''<section class="section"><div class="wrap"><h2 class="case-work-title reveal">What I Worked On</h2><div class="work-grid reveal"><article class="work-item"><div class="label">AI</div><h3>Data Annotation</h3><p>Completed AI-related data annotation tasks across freelance projects.</p></article><article class="work-item"><div class="label">Video</div><h3>Video Editing</h3><p>Handled video editing tasks for freelance clients and projects.</p></article><article class="work-item"><div class="label">Editorial</div><h3>Proofreading</h3><p>Reviewed and proofread written content for clarity and accuracy.</p></article><article class="work-item"><div class="label">Language</div><h3>Translation</h3><p>Completed translation tasks as part of freelance work on the platform.</p></article></div></div></section>'''
+          }
+
+          def stats_from(html):
+              patterns = [
+                r'<div class="stat-card"[^>]*>\s*<div class="num">(.*?)</div>\s*<div class="label">(.*?)</div>',
+                r'<div class="stat"[^>]*>\s*<strong>(.*?)</strong>\s*<span>(.*?)</span>',
+              ]
+              out=[]
+              for pat in patterns:
+                  out += re.findall(pat, html, re.S)
+              seen=[]
+              for x in out:
+                  if x not in seen: seen.append(x)
+              return seen[:3]
+
+          for fn in pages:
+              p=Path(fn)
+              if not p.exists(): continue
+              html=p.read_text()
+              stats=stats_from(html)
+              if len(stats) < 3:
+                  continue
+              hero_end=html.find('</section>', html.find('<section class="hero"'))
+              brief_match=re.search(r'<section[^>]*>\s*<div[^>]*>\s*<div class="(?:section-intro|intro)"[^>]*>.*?<h2>The Brief</h2>', html[hero_end+10:], re.S)
+              if hero_end < 0 or not brief_match: continue
+              brief_start=hero_end+10+brief_match.start()
+              stats_html='<section class="stats"><div class="wrap"><div class="stats-grid reveal">' + ''.join(f'<div class="stat-card"><div class="num">{a}</div><div class="label">{b}</div></div>' for a,b in stats) + '</div></div></section>\n'
+              html=html[:hero_end+10] + '\n' + stats_html + html[brief_start:]
+
+              # TropiBite: keep the brief concise and use the same metadata rhythm as the other case studies.
+              if fn=='tropibite.html':
+                  html=re.sub(r'<div>\s*<p><strong>Positioning:</strong>.*?</div>\s*</div>', '<div><p><strong>Role:</strong> Graphic Designer, Content Creator &amp; Social Media Manager</p><p><strong>Scope:</strong> Product content, social strategy, campaigns &amp; community</p></div></div>', html, count=1, flags=re.S)
+                  html=re.sub(r'<div class="products">.*?</div>', '', html, count=1, flags=re.S)
+
+              # Restore What I Worked On if the rebuild removed it.
+              if fn in known_work and 'What I Worked On' not in html:
+                  marker=re.search(r'<section[^>]*>\s*<div[^>]*>\s*<h2[^>]*>(?:Results|Content|Selected Work)', html, re.I)
+                  if marker: html=html[:marker.start()]+known_work[fn]+'\n'+html[marker.start():]
+                  else: html=html.replace('</main>', known_work[fn]+'</main>')
+
+              # Remove decorative numbered labels, but never touch real stats/performance numbers.
+              html=re.sub(r'\b(?:CS|GS|BB|TB|GW|UW)\.(?:0[1-9]|1[0-9])\b', '', html, flags=re.I)
+              html=re.sub(r'<(?:span|div|p)[^>]*(?:badge|number|index|eyebrow|label)[^>]*>\s*(?:0[1-9]|1[0-9])\s*</(?:span|div|p)>', '', html, flags=re.I)
+
+              if 'id="case-study-standard"' not in html:
+                  html=html.replace('</head>', common_css+'</head>',1)
+              p.write_text(html)
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add casestody.html greysole.html buzzandbloom.html tropibite.html greywithsign.html upwork.html
+          git diff --cached --quiet || git commit -m "Standardize case study stats and restore work sections"
+          git push
