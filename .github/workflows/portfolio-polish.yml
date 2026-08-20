@@ -1,0 +1,77 @@
+name: Portfolio polish
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  polish:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply portfolio changes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          pages = ['index.html','casestody.html','greysole.html','buzzandbloom.html','tropibite.html','greywithsign.html','harmatan.html','upwork.html']
+          for name in pages:
+              p=Path(name)
+              if not p.exists(): continue
+              s=p.read_text()
+              s=re.sub(r'https://fonts\.googleapis\.com/css2\?family=[^"\']+', 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap', s)
+              for old in ["Anton","Archivo","Space Mono"]:
+                  s=s.replace(f"font-family:'{old}'", "font-family:'Poppins'")
+                  s=s.replace(f'font-family:{old}', 'font-family:Poppins')
+              s=re.sub(r'<span[^>]*class="num"[^>]*>\s*\d+\s*</span>', '', s, flags=re.I)
+              s=re.sub(r'<(?:div|span)[^>]*class="d-num"[^>]*>\s*[^<]*\s*</(?:div|span)>', '', s, flags=re.I)
+              s=re.sub(r'\b(?:CS|GS|BB|TB|GW|UW)\.\d{2}\b', lambda m:m.group(0).split('.')[0], s)
+              s=re.sub(r'(>\s*)\d{1,2}\s*[·•/]\s*', r'\1', s)
+              s=re.sub(r'(>\s*)\d{1,2}\s*/\s*\d{1,2}(\s*<)', r'\1\2', s)
+              p.write_text(s)
+          PY
+      - name: Add interaction CSS and JS
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          pages=['casestody.html','greysole.html','buzzandbloom.html','tropibite.html','greywithsign.html','harmatan.html','upwork.html']
+          css='''<style id="portfolio-polish">\n.work-grid>*{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease,box-shadow .35s ease}.work-grid.polished-in>*{opacity:1;transform:none}.work-grid.polished-in>*:nth-child(1){transition-delay:.05s}.work-grid.polished-in>*:nth-child(2){transition-delay:.15s}.work-grid.polished-in>*:nth-child(3){transition-delay:.25s}.work-grid.polished-in>*:nth-child(4){transition-delay:.35s}.work-grid.polished-in>*:nth-child(5){transition-delay:.45s}.work-grid.polished-in>*:nth-child(6){transition-delay:.55s}.work-grid>*:hover{transform:translateY(-5px) scale(1.015);box-shadow:0 12px 28px rgba(20,18,16,.12)}.gallery-item,.gallery-item img,[class*="gallery"] img{transition:transform .45s ease,box-shadow .45s ease;cursor:pointer}.gallery-item:hover,.gallery-item:hover img,[class*="gallery"] img:hover{transform:scale(1.025);box-shadow:0 12px 28px rgba(20,18,16,.14)}a{transition:opacity .3s ease,color .3s ease}a:not(.mark):not(.cta){text-decoration-thickness:1px;text-underline-offset:4px}a:not(.mark):not(.cta):hover{text-decoration:underline}.hero{--hero-shift:0px}.hero .wrap{transform:translateY(var(--hero-shift))}@media(prefers-reduced-motion:reduce){.work-grid>*,.gallery-item,.gallery-item img,[class*="gallery"] img{transition:none!important}.hero .wrap{transform:none!important}}</style>'''
+          js='''<script id="portfolio-polish-js">(()=>{const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const g=e.target;if(g.matches('.work-grid'))g.classList.add('polished-in');if(g.matches('.stats-grid,.stats'))g.querySelectorAll('.stat strong,.stat .num').forEach(el=>{const raw=el.textContent.trim();const m=raw.match(/^([+$]?)([0-9,.]+)(.*)$/);if(!m||reduce)return;const target=parseFloat(m[2].replace(/,/g,''));if(!isFinite(target))return;const suffix=m[3],prefix=m[1],start=performance.now(),dur=1400;function tick(t){const p=Math.min(1,(t-start)/dur),v=target*(1-Math.pow(1-p,3));el.textContent=prefix+(target>=100?Math.round(v).toLocaleString():v.toFixed(target%1?1:0))+suffix;if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)});io.unobserve(g)},{threshold:.12});document.querySelectorAll('.work-grid,.stats-grid,.stats').forEach(x=>io.observe(x));if(!reduce)addEventListener('scroll',()=>{document.querySelectorAll('.hero').forEach(h=>{const r=h.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)h.style.setProperty('--hero-shift',((innerHeight-r.top)*-.018)+'px')})},{passive:true})})();</script>'''
+          for name in pages:
+              p=Path(name)
+              if not p.exists(): continue
+              s=p.read_text()
+              if 'id="portfolio-polish"' not in s:s=s.replace('</head>',css+'\n</head>')
+              if 'id="portfolio-polish-js"' not in s:s=s.replace('</body>',js+'\n</body>')
+              p.write_text(s)
+          PY
+      - name: Add Favorite Works carousel to main page
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html');s=p.read_text()
+          if 'id="favorite-works"' not in s:
+              block='<section id="favorite-works" class="favorite-works"><div class="wrap"><div class="section-head"><h2 class="reveal">Favorite Works</h2></div><div class="favorite-slider" aria-label="Favorite works carousel"><button class="fav-arrow fav-prev" type="button" aria-label="Previous work">←</button><div class="fav-track">'
+              for i in range(1,10): block+=f'<article class="fav-slide{" active" if i==1 else ""}" data-slide="{i}"><div class="fav-placeholder" role="img" aria-label="Favorite work placeholder {i}"><span>WORK {i}</span></div><div class="fav-caption"><strong>Selected Work {i}</strong><span>Graphic Design · Creative</span></div></article>'
+              block+='</div><button class="fav-arrow fav-next" type="button" aria-label="Next work">→</button></div><div class="fav-dots" aria-label="Carousel navigation">'
+              for i in range(1,10): block+=f'<button type="button" class="fav-dot{" active" if i==1 else ""}" data-to="{i}" aria-label="Go to work {i}"></button>'
+              block+='</div></div></section>'
+              marker='</section>\n<section id="contact">'
+              s=s.replace(marker,'</section>\n'+block+'\n<section id="contact">',1) if marker in s else s.replace('<section id="contact">',block+'<section id="contact">',1)
+          style='''<style id="favorite-works-style">.favorite-works{background:var(--ink);color:var(--paper);overflow:hidden}.favorite-slider{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px}.fav-track{position:relative;min-height:420px}.fav-slide{display:none;animation:favIn .55s ease}.fav-slide.active{display:block}.fav-placeholder{aspect-ratio:16/9;border:1px solid rgba(245,240,232,.28);background:linear-gradient(135deg,var(--signal),var(--cobalt));display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:800;font-size:clamp(28px,7vw,90px);transition:transform .5s ease}.fav-slide:hover .fav-placeholder{transform:scale(1.015)}.fav-caption{display:flex;justify-content:space-between;gap:20px;padding:16px 0;font-family:Poppins,sans-serif}.fav-caption strong{font-weight:700}.fav-caption span{font-weight:500;opacity:.65}.fav-arrow{width:46px;height:46px;border:1px solid rgba(245,240,232,.5);background:transparent;color:var(--paper);border-radius:50%;font-size:20px;cursor:pointer;transition:transform .3s ease,background .3s ease}.fav-arrow:hover{background:var(--paper);color:var(--ink);transform:scale(1.05)}.fav-dots{display:flex;justify-content:center;gap:8px;margin-top:18px}.fav-dot{width:8px;height:8px;border-radius:50%;border:0;background:rgba(245,240,232,.3);padding:0;cursor:pointer;transition:transform .3s ease,background .3s ease}.fav-dot.active{background:var(--paper);transform:scale(1.35)}@keyframes favIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}@media(max-width:700px){.favorite-slider{grid-template-columns:1fr;position:relative}.fav-track{min-height:260px}.fav-arrow{position:absolute;top:40%;z-index:2}.fav-prev{left:10px}.fav-next{right:10px}.fav-caption{display:block}.fav-caption span{display:block;margin-top:4px}}@media(prefers-reduced-motion:reduce){.fav-slide{animation:none}.fav-placeholder,.fav-arrow{transition:none}}</style>'''
+          s=s.replace('</head>',style+'\n</head>')
+          js='''<script id="favorite-works-js">(()=>{const slides=[...document.querySelectorAll('.fav-slide')],dots=[...document.querySelectorAll('.fav-dot')];if(!slides.length)return;let i=0,timer;const show=n=>{i=(n+slides.length)%slides.length;slides.forEach((x,j)=>x.classList.toggle('active',j===i));dots.forEach((x,j)=>x.classList.toggle('active',j===i))};document.querySelector('.fav-prev')?.addEventListener('click',()=>show(i-1));document.querySelector('.fav-next')?.addEventListener('click',()=>show(i+1));dots.forEach((d,j)=>d.addEventListener('click',()=>show(j)));const start=()=>timer=setInterval(()=>show(i+1),4500);const stop=()=>clearInterval(timer);const slider=document.querySelector('.favorite-slider');slider?.addEventListener('mouseenter',stop);slider?.addEventListener('mouseleave',start);slider?.addEventListener('touchstart',stop,{passive:true});start()})();</script>'''
+          s=s.replace('</body>',js+'\n</body>')
+          p.write_text(s)
+          PY
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html casestody.html greysole.html buzzandbloom.html tropibite.html greywithsign.html harmatan.html upwork.html
+          git diff --cached --quiet || git commit -m "Polish portfolio typography interactions and favorite works"
+          git push
