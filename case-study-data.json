@@ -1,0 +1,266 @@
+{
+  "template": {
+    "note": "Use casestody.html as the structural template. Replace content values below for each project.",
+    "files_to_create": ["buzzandbloom.html", "tropibite.html", "greywithsign.html", "upwork.html"]
+  },
+  
+  "buzzandbloom": {
+    "filename": "buzzandbloom.html",
+    "title": "Buzz & Bloom — Jeffrey Assavedo",
+    "meta_description": "Buzz & Bloom case study — creative direction, content creation and social media management for a cocktails and mocktails brand.",
+    "brand_color": "#8A5CF6",
+    "hero": {
+      "h1": "Buzz & Bloom",
+      "role": "Graphic Designer, Content Creator & Social Media Manager · Cocktails & Mocktails",
+      "lede": "A creative and social media partnership built from concept through execution — shaping the visual presence, content production and Instagram strategy for a growing cocktails and mocktails brand."
+    },
+    "stats": [
+      { "num": "582+", "label": "Followers" },
+      { "num": "10+", "label": "Posts Created" },
+      { "num": "25.3K", "label": "Views" }
+    ],
+    "brief": {
+      "h2": "The Brief",
+      "intro": "Buzz & Bloom is a growing cocktails and mocktails brand focused on its products and social-first content.",
+      "details": "The work centered on building a consistent visual presence and turning the brand's products and ideas into content people could actually engage with.",
+      "details_column": [
+        "Role: Graphic Designer, Content Creator & Social Media Manager",
+        "Scope: Shoot planning, photography, creative concepts, content production and Instagram management",
+        "Content: Product showcases, lifestyle content, promotions and campaign-led social posts"
+      ]
+    },
+    "work_section": {
+      "h2": "What I Worked On",
+      "items": [
+        {
+          "label": "Planning",
+          "h3": "Shoot Planning",
+          "desc": "Planned creative shoots around the brand's content needs, moving ideas from concept into production."
+        },
+        {
+          "label": "Content",
+          "h3": "Photography",
+          "desc": "Produced visual content designed to give the cocktails and mocktails brand a recognizable and consistent presence."
+        },
+        {
+          "label": "Direction",
+          "h3": "Creative Concepts",
+          "desc": "Developed concepts around the products, lifestyle and promotional moments shown across the brand's social channels."
+        },
+        {
+          "label": "Social",
+          "h3": "Instagram Management",
+          "desc": "Managed the brand's Instagram presence and translated the creative direction into consistent social output."
+        }
+      ],
+      "callout": "Approach: Keep the creative process connected — plan the shoot, produce the assets, then carry the same thinking through the social platform."
+    },
+    "outcome": {
+      "h2": "The Outcome",
+      "text": "Over a year of consistent content creation and community engagement, Buzz & Bloom developed a recognizable Instagram presence with strong product imagery, engaged followers and a clear visual direction."
+    },
+    "nav": {
+      "prev_link": "greysole.html",
+      "prev_label": "Previous",
+      "prev_title": "Greysole",
+      "next_link": "tropibite.html",
+      "next_label": "Next Project",
+      "next_title": "TropiBite"
+    }
+  },
+
+  "tropibite": {
+    "filename": "tropibite.html",
+    "title": "TropiBite — Jeffrey Assavedo",
+    "meta_description": "TropiBite case study — graphic design, content creation and social media management for a tropical juice and wellness brand.",
+    "brand_color": "#1F8A5C",
+    "hero": {
+      "h1": "TropiBite",
+      "role": "Graphic Designer & Social Media Manager · Food & Beverage",
+      "lede": "Building a visual presence and social strategy for a tropical juice and wellness brand focused on fresh, natural products and community engagement."
+    },
+    "stats": [
+      { "num": "97", "label": "Followers" },
+      { "num": "17", "label": "Posts" },
+      { "num": "2.3K", "label": "Views (30 days)" }
+    ],
+    "brief": {
+      "h2": "The Brief",
+      "intro": "TropiBite is a food and beverage brand specializing in tropical coconut water, pineapple and mango products.",
+      "details": "The project focused on building a recognizable brand presence from the ground up — creating consistent visual identity, product photography, and social content strategy.",
+      "details_column": [
+        "Role: Graphic Designer & Social Media Manager",
+        "Scope: Product photography, brand design, content creation, social media strategy and community management",
+        "Content: Product showcases, launch campaigns, lifestyle content, UGC and promotional material"
+      ]
+    },
+    "work_section": {
+      "h2": "What I Worked On",
+      "items": [
+        {
+          "label": "Brand Design",
+          "h3": "Visual Identity",
+          "desc": "Developed the brand color palette (mint green, bright yellow, peach, cream) and visual system for consistent product presentation."
+        },
+        {
+          "label": "Photography",
+          "h3": "Product Photography",
+          "desc": "Created product photography showcasing coconut water, pineapple, mango and lifestyle imagery."
+        },
+        {
+          "label": "Campaigns",
+          "h3": "Launch Campaigns",
+          "desc": "Designed promotional campaigns and countdowns for product launches with engaging CTAs."
+        },
+        {
+          "label": "Content",
+          "h3": "Social Content Strategy",
+          "desc": "Built content calendar with Reels, product features, UGC and lifestyle content."
+        }
+      ],
+      "callout": "Strategy: Build a recognizable brand presence across social by connecting visual design, product storytelling and community engagement."
+    },
+    "outcome": {
+      "h2": "The Outcome",
+      "text": "TropiBite established a fresh, cohesive brand presence across social platforms with consistent visual identity, engaged community and growing product visibility."
+    },
+    "nav": {
+      "prev_link": "buzzandbloom.html",
+      "prev_label": "Previous",
+      "prev_title": "Buzz & Bloom",
+      "next_link": "greywithsign.html",
+      "next_label": "Next Project",
+      "next_title": "Greywith the Sign"
+    }
+  },
+
+  "greywithsign": {
+    "filename": "greywithsign.html",
+    "title": "Greywith the Sign — Jeffrey Assavedo",
+    "meta_description": "Greywith the Sign case study — social media management and creative support for a Ghanaian content creator.",
+    "brand_color": "#B08C2E",
+    "hero": {
+      "h1": "Greywith the Sign",
+      "role": "Social Media Manager & Creative Support",
+      "lede": "A social media project built around simple signs, everyday Ghanaian humour and ideas people can instantly relate to."
+    },
+    "stats": [
+      { "num": "1,002", "label": "Followers shown" },
+      { "num": "482.5K", "label": "Views · Last 30 days" },
+      { "num": "39", "label": "Posts shown" }
+    ],
+    "brief": {
+      "h2": "The Brief",
+      "intro": "Help build and manage a social presence where the content is simple, funny and rooted in everyday observations.",
+      "details": "The project centered on sign-holding street content that captures Ghanaian humour and universal relatability.",
+      "details_column": [
+        "Role: Social Media Manager & Creative Support",
+        "Content format: Sign-holding street content, short-form social posts and topical humour",
+        "Audience: Ghanaian and wider social-media audiences"
+      ]
+    },
+    "work_section": {
+      "h2": "What I Worked On",
+      "items": [
+        {
+          "label": "Ideas",
+          "h3": "Content Ideation",
+          "desc": "Developed simple, relatable sign concepts around humour, opinions and everyday life."
+        },
+        {
+          "label": "Production",
+          "h3": "Content Direction",
+          "desc": "Helped shape the format and execution of the sign-based content."
+        },
+        {
+          "label": "Social",
+          "h3": "Social Media Management",
+          "desc": "Managed the social side of the content and kept the page consistent."
+        },
+        {
+          "label": "Publishing",
+          "h3": "Publishing",
+          "desc": "Turned finished ideas into posts built for engagement and shareability."
+        }
+      ],
+      "callout": "The idea: Put a simple sign in a real place, give people something worth reacting to, and let the moment do the work."
+    },
+    "outcome": {
+      "h2": "The Outcome",
+      "text": "Greywith the Sign built a loyal following through simple, relatable content that connected Ghanaian audience with universal observations, humour and authentic everyday moments."
+    },
+    "nav": {
+      "prev_link": "tropibite.html",
+      "prev_label": "Previous",
+      "prev_title": "TropiBite",
+      "next_link": "harmatan.html",
+      "next_label": "Next Project",
+      "next_title": "HARMATAN"
+    }
+  },
+
+  "upwork": {
+    "filename": "upwork.html",
+    "title": "Upwork — Jeffrey Assavedo",
+    "meta_description": "Jeffrey Assavedo — freelance work on Upwork across AI data annotation and creative tasks.",
+    "brand_color": "#14A800",
+    "hero": {
+      "h1": "Upwork",
+      "role": "AI Jobs · Creative Freelance · Remote",
+      "lede": "A freelance track I've kept alongside my creative work — taking on AI and creative tasks through Upwork when projects fit."
+    },
+    "stats": [
+      { "num": "$1K+", "label": "Earned" },
+      { "num": "3 Years", "label": "On the platform" },
+      { "num": "Leisurely", "label": "Freelance pace" }
+    ],
+    "brief": {
+      "h2": "The Brief",
+      "intro": "Upwork has been a flexible freelance lane alongside my creative work.",
+      "details": "Taking on AI data annotation, video editing, proofreading and translation projects across a range of clients.",
+      "details_column": [
+        "Role: Freelancer",
+        "Scope: AI annotation, video editing, proofreading, translation",
+        "Pace: Selective, project-based work"
+      ]
+    },
+    "work_section": {
+      "h2": "What I Worked On",
+      "items": [
+        {
+          "label": "AI Data",
+          "h3": "AI Data Annotation",
+          "desc": "Annotation and evaluation work for AI-related projects."
+        },
+        {
+          "label": "Video",
+          "h3": "Video Editing",
+          "desc": "Editing and preparing video content for project needs."
+        },
+        {
+          "label": "Proofreading",
+          "h3": "Proofreading",
+          "desc": "Reviewing text for clarity, accuracy and consistency."
+        },
+        {
+          "label": "Translation",
+          "h3": "Translation",
+          "desc": "Translation work across project-specific content."
+        }
+      ],
+      "callout": "Approach: Keep freelancing flexible—take on work that builds different skills without making it the primary focus."
+    },
+    "outcome": {
+      "h2": "Another lane. Same discipline.",
+      "text": "Upwork gave me a way to build experience across different kinds of digital work, without making freelancing my main focus. It's a skill-building track that runs parallel to creative projects."
+    },
+    "nav": {
+      "prev_link": "greywithsign.html",
+      "prev_label": "Previous",
+      "prev_title": "Greywith the Sign",
+      "next_link": "index.html",
+      "next_label": "Back",
+      "next_title": "Portfolio"
+    }
+  }
+}

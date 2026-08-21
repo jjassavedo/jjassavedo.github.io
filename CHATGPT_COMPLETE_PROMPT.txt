@@ -1,0 +1,377 @@
+========================================
+COPY EVERYTHING BELOW AND PASTE TO CHATGPT
+========================================
+
+I need you to generate 4 HTML case study pages for a portfolio.
+
+TASK: Create 4 complete, readable HTML files using the template and data provided below.
+
+FILES TO GENERATE:
+1. buzzandbloom.html
+2. tropibite.html
+3. greywithsign.html
+4. upwork.html
+
+RULES:
+✓ Use the template structure below (casestody.html)
+✓ Replace ONLY the content values using the data JSON below
+✓ Keep ALL CSS, scripts, and HTML structure identical to the template
+✓ Output READABLE HTML (not minified)
+✓ Keep all class names: work-grid, work-item, reveal, stat-card, etc.
+✓ Include ALL scripts and animations
+
+DELIVERABLE:
+Provide all 4 complete HTML files in your response, ready to use.
+
+---
+
+## TEMPLATE STRUCTURE (casestody.html)
+
+```html
+<!DOCTYPE html>
+<script defer src="case-study.js">
+
+
+</script>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Casestody — Jeffrey Assavedo</title>
+<meta name="description" content="Casestody case study — graphic design, content creation and social media.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141210;--paper:#F1EEE5;--brand:#FF3D2E;--line:rgba(20,18,16,.16);--maxw:1180px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Poppins,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,56px)}h1,h2,h3{font-family:Poppins,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.01em;margin:0}header.site{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}.nav{display:flex;align-items:center;justify-content:space-between;padding:16px clamp(20px,5vw,56px)}.mark{font-weight:700;letter-spacing:.03em}.mark span{color:var(--brand)}.back{font-size:12px;text-transform:uppercase;letter-spacing:.08em;opacity:.7}.hero{padding:clamp(56px,10vw,100px) 0 clamp(40px,7vw,70px);border-bottom:1px solid var(--line);background:var(--brand);color:var(--paper)}.hero h1{font-size:clamp(48px,9vw,96px);line-height:.95;margin-bottom:12px}.role{font-size:clamp(13px,1.6vw,15px);text-transform:uppercase;letter-spacing:.08em;opacity:.9;margin-bottom:24px}.lede{font-size:clamp(16px,2vw,20px);max-width:620px;font-weight:500}section{padding:clamp(56px,9vw,100px) 0;border-bottom:1px solid var(--line)}.stats{padding:clamp(28px,4vw,42px) 0 0;border-bottom:0;background:var(--paper)}.stats-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;width:100%;align-items:stretch}.stat-card{border:1px solid var(--line);padding:24px;text-align:center;background:rgba(255,255,255,.38);border-radius:4px;box-shadow:0 4px 16px rgba(20,18,16,.04)}.stat-card .num{font-family:Poppins,sans-serif;font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1;margin-bottom:8px}.stat-card .label{font-family:Poppins,sans-serif;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.7}.section-intro{display:grid;grid-template-columns:1fr 1fr;gap:56px}.section-intro h2{font-size:clamp(32px,5vw,56px);margin-bottom:16px}.section-intro p{font-size:clamp(16px,2vw,18px);margin:0 0 14px}.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:40px}.work-item{border:1px solid var(--line);padding:18px;background:rgba(255,61,46,.04)}.work-item h3{font-size:20px;margin-bottom:6px}.desc{font-size:14px;opacity:.8}.callout{background:rgba(255,61,46,.08);border-left:3px solid var(--brand);padding:28px 24px;margin:48px 0}.callout p{font-size:clamp(16px,2vw,18px);margin:0}.case-nav{display:flex;justify-content:space-between;padding:28px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.case-nav a{display:flex;flex-direction:column;gap:6px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;opacity:.75}.case-nav .title{font-size:clamp(18px,2.4vw,24px);font-weight:800;opacity:1}.case-nav a:hover{color:var(--brand)}footer{padding:20px clamp(20px,5vw,56px) 40px;font-size:11px;opacity:.55;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}@media(max-width:760px){.stats-grid{grid-template-columns:1fr}.stat-card{padding:22px}.section-intro{grid-template-columns:1fr;gap:20px}.case-nav{flex-direction:column;gap:20px}}
+</style>
+<style id="case-study-standard">
+.stats{padding:clamp(28px,4vw,42px) 0 0;border-bottom:0;background:var(--paper)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.stat-card{border:1px solid var(--line);padding:24px;text-align:center;background:rgba(255,255,255,.38);border-radius:4px;box-shadow:0 4px 16px rgba(20,18,16,.04)}
+.stat-card .num{font-family:'Poppins',sans-serif;font-size:clamp(32px,5vw,52px);font-weight:700;line-height:1;margin-bottom:8px}
+.stat-card .label{font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.7}
+.case-work-title{font-family:'Poppins',sans-serif;font-weight:800;text-transform:uppercase;font-size:clamp(34px,6vw,64px);margin:0 0 32px}
+@media(max-width:760px){.stats-grid{grid-template-columns:1fr}.stat-card{padding:22px}}
+</style>
+</head>
+<body>
+<header class="site">
+<div class="nav">
+<a href="index.html" class="mark">JEFFREY<span>.</span>ASSAVEDO</a>
+<a href="index.html#experience" class="back">← Back to portfolio</a>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="wrap">
+<h1>Casestody</h1>
+<p class="role">Professional Experience · Graphic Design, Content Creation &amp; Social Media</p>
+<p class="lede">Building a visual identity and social presence for a phone accessories brand that competes on design, not just durability.</p>
+</div>
+</section>
+<section class="stats"><div class="wrap"><div class="stats-grid reveal"><div class="stat-card"><div class="num">34.4K</div><div class="label">Instagram Followers</div></div><div class="stat-card"><div class="num">470</div><div class="label">Posts Created</div></div><div class="stat-card"><div class="num">53.3K</div><div class="label">Peak Reel Views</div></div></div></div></section>
+<section>
+<div class="wrap">
+<div class="section-intro">
+<div>
+<h2>The Brief</h2>
+<p>Casestody is a phone case and protective accessories brand selling through an online store and physical retail locations. The challenge was to stand out by positioning design and lifestyle—not just protection—as the selling point.</p>
+</div>
+<div>
+<p><strong>Timeline:</strong> 1+ year</p>
+<p><strong>Role:</strong> Graphic Designer, Content Creator &amp; Social Media Manager</p>
+<p><strong>Scope:</strong> Product design, brand visuals, content creation, social strategy &amp; community management</p>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="wrap">
+<h2 style="font-size:clamp(32px,5vw,56px);margin-bottom:32px">What I Worked On</h2>
+<div class="work-grid">
+<div class="work-item">
+<div class="label">Visual Design</div>
+<h3>Product Photography</h3>
+<p class="desc">Styled, shot, and edited product photography for case launches, displays, and social content.</p>
+</div>
+<div class="work-item">
+<div class="label">Content Strategy</div>
+<h3>Social-First Content</h3>
+<p class="desc">Developed Reels, carousels, and static posts mixing UGC-style content with polished product shots.</p>
+</div>
+<div class="work-item">
+<div class="label">Campaign Design</div>
+<h3>Promotional Campaigns</h3>
+<p class="desc">Designed promotional flyers and social assets for campaigns including a World Cup bundle promotion.</p>
+</div>
+<div class="work-item">
+<div class="label">Brand Direction</div>
+<h3>Visual Identity</h3>
+<p class="desc">Shaped the brand's visual consistency across colour, typography, layouts and visual hierarchy.</p>
+</div>
+<div class="work-item">
+<div class="label">Community</div>
+<h3>Social Media Management</h3>
+<p class="desc">Managed the Instagram presence, community, product launches and content planning.</p>
+</div>
+<div class="work-item">
+<div class="label">Collaboration</div>
+<h3>Influencer &amp; Event Content</h3>
+<p class="desc">Coordinated influencer unboxings, in-store events and user-generated content.</p>
+</div>
+<div class="work-item">
+<div class="label">Web</div>
+<h3>Website Management</h3>
+<p class="desc">Managed web updates, e-commerce product pages and digital platforms.</p>
+</div>
+</div>
+<div class="callout">
+<p><strong>Strategy:</strong> Position Casestody as an accessory and lifestyle choice, not simply a protection commodity.</p>
+</div>
+</div>
+</section>
+<section>
+<div class="wrap">
+<div class="section-intro">
+<div>
+<h2>The Outcome</h2>
+<p>Over a year of consistent content creation and community engagement, Casestody developed a recognizable Instagram presence with strong product imagery, engaged followers and a clear visual direction.</p>
+</div>
+<div>
+<p>The mix of lifestyle content, product-focused Reels, UGC-style posts and promotional campaigns kept the feed fresh while showing how the cases fit into everyday life.</p>
+</div>
+</div>
+<div class="case-nav">
+<a href="index.html">
+<span>Back</span>
+<span class="title">Portfolio</span>
+</a>
+<a href="greysole.html" style="text-align:right">
+<span>Next Project</span>
+<span class="title">Greysole</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<span>© 2026 Jeffrey Assavedo</span>
+<span>Accra, Ghana</span>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el=>io.observe(el));
+</script>
+
+<script id="portfolio-polish-js">(()=>{const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const g=e.target;if(g.matches('.work-grid'))g.classList.add('polished-in');if(g.matches('.stats-grid,.stats'))g.querySelectorAll('.stat strong,.stat .num').forEach(el=>{const raw=el.textContent.trim();const m=raw.match(/^([+$]?)([0-9,.]+)(.*)$/);if(!m||reduce)return;const target=parseFloat(m[2].replace(/,/g,''));if(!isFinite(target))return;const suffix=m[3],prefix=m[1],start=performance.now(),dur=1400;function tick(t){const p=Math.min(1,(t-start)/dur),v=target*(1-Math.pow(1-p,3));el.textContent=prefix+(target>=100?Math.round(v).toLocaleString():v.toFixed(target%1?1:0))+suffix;if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick)});io.unobserve(g)},{threshold:.12});document.querySelectorAll('.work-grid,.stats-grid,.stats').forEach(x=>io.observe(x));if(!reduce)addEventListener('scroll',()=>{document.querySelectorAll('.hero').forEach(h=>{const r=h.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)h.style.setProperty('--hero-shift',((innerHeight-r.top)*-.018)+'px')})},{passive:true})})();</script>
+</body>
+</html>
+```
+
+---
+
+## DATA FOR ALL 4 PROJECTS
+
+Use this data to populate the template for each project. Replace the template content values with these:
+
+### PROJECT 1: BUZZANDBLOOM
+
+filename: buzzandbloom.html
+title: Buzz & Bloom — Jeffrey Assavedo
+meta_description: Buzz & Bloom case study — creative direction, content creation and social media management for a cocktails and mocktails brand.
+brand_color: #8A5CF6
+
+hero:
+  h1: Buzz & Bloom
+  role: Graphic Designer, Content Creator & Social Media Manager · Cocktails & Mocktails
+  lede: A creative and social media partnership built from concept through execution — shaping the visual presence, content production and Instagram strategy for a growing cocktails and mocktails brand.
+
+stats:
+  1. num: 582+, label: Followers
+  2. num: 10+, label: Posts Created
+  3. num: 25.3K, label: Views
+
+brief:
+  h2: The Brief
+  intro: Buzz & Bloom is a growing cocktails and mocktails brand focused on its products and social-first content.
+  details: The work centered on building a consistent visual presence and turning the brand's products and ideas into content people could actually engage with.
+  column_items:
+    - Role: Graphic Designer, Content Creator & Social Media Manager
+    - Scope: Shoot planning, photography, creative concepts, content production and Instagram management
+    - Content: Product showcases, lifestyle content, promotions and campaign-led social posts
+
+work_items:
+  1. label: Planning, h3: Shoot Planning, desc: Planned creative shoots around the brand's content needs, moving ideas from concept into production.
+  2. label: Content, h3: Photography, desc: Produced visual content designed to give the cocktails and mocktails brand a recognizable and consistent presence.
+  3. label: Direction, h3: Creative Concepts, desc: Developed concepts around the products, lifestyle and promotional moments shown across the brand's social channels.
+  4. label: Social, h3: Instagram Management, desc: Managed the brand's Instagram presence and translated the creative direction into consistent social output.
+
+callout: Approach: Keep the creative process connected — plan the shoot, produce the assets, then carry the same thinking through the social platform.
+
+outcome:
+  h2: The Outcome
+  text: Over a year of consistent content creation and community engagement, Buzz & Bloom developed a recognizable Instagram presence with strong product imagery, engaged followers and a clear visual direction.
+
+nav:
+  prev_link: greysole.html, prev_label: Previous, prev_title: Greysole
+  next_link: tropibite.html, next_label: Next Project, next_title: TropiBite
+
+---
+
+### PROJECT 2: TROPIBITE
+
+filename: tropibite.html
+title: TropiBite — Jeffrey Assavedo
+meta_description: TropiBite case study — graphic design, content creation and social media management for a tropical juice and wellness brand.
+brand_color: #1F8A5C
+
+hero:
+  h1: TropiBite
+  role: Graphic Designer & Social Media Manager · Food & Beverage
+  lede: Building a visual presence and social strategy for a tropical juice and wellness brand focused on fresh, natural products and community engagement.
+
+stats:
+  1. num: 97, label: Followers
+  2. num: 17, label: Posts
+  3. num: 2.3K, label: Views (30 days)
+
+brief:
+  h2: The Brief
+  intro: TropiBite is a food and beverage brand specializing in tropical coconut water, pineapple and mango products.
+  details: The project focused on building a recognizable brand presence from the ground up — creating consistent visual identity, product photography, and social content strategy.
+  column_items:
+    - Role: Graphic Designer & Social Media Manager
+    - Scope: Product photography, brand design, content creation, social media strategy and community management
+    - Content: Product showcases, launch campaigns, lifestyle content, UGC and promotional material
+
+work_items:
+  1. label: Brand Design, h3: Visual Identity, desc: Developed the brand color palette (mint green, bright yellow, peach, cream) and visual system for consistent product presentation.
+  2. label: Photography, h3: Product Photography, desc: Created product photography showcasing coconut water, pineapple, mango and lifestyle imagery.
+  3. label: Campaigns, h3: Launch Campaigns, desc: Designed promotional campaigns and countdowns for product launches with engaging CTAs.
+  4. label: Content, h3: Social Content Strategy, desc: Built content calendar with Reels, product features, UGC and lifestyle content.
+
+callout: Strategy: Build a recognizable brand presence across social by connecting visual design, product storytelling and community engagement.
+
+outcome:
+  h2: The Outcome
+  text: TropiBite established a fresh, cohesive brand presence across social platforms with consistent visual identity, engaged community and growing product visibility.
+
+nav:
+  prev_link: buzzandbloom.html, prev_label: Previous, prev_title: Buzz & Bloom
+  next_link: greywithsign.html, next_label: Next Project, next_title: Greywith the Sign
+
+---
+
+### PROJECT 3: GREYWITHSIGN
+
+filename: greywithsign.html
+title: Greywith the Sign — Jeffrey Assavedo
+meta_description: Greywith the Sign case study — social media management and creative support for a Ghanaian content creator.
+brand_color: #B08C2E
+
+hero:
+  h1: Greywith the Sign
+  role: Social Media Manager & Creative Support
+  lede: A social media project built around simple signs, everyday Ghanaian humour and ideas people can instantly relate to.
+
+stats:
+  1. num: 1,002, label: Followers shown
+  2. num: 482.5K, label: Views · Last 30 days
+  3. num: 39, label: Posts shown
+
+brief:
+  h2: The Brief
+  intro: Help build and manage a social presence where the content is simple, funny and rooted in everyday observations.
+  details: The project centered on sign-holding street content that captures Ghanaian humour and universal relatability.
+  column_items:
+    - Role: Social Media Manager & Creative Support
+    - Content format: Sign-holding street content, short-form social posts and topical humour
+    - Audience: Ghanaian and wider social-media audiences
+
+work_items:
+  1. label: Ideas, h3: Content Ideation, desc: Developed simple, relatable sign concepts around humour, opinions and everyday life.
+  2. label: Production, h3: Content Direction, desc: Helped shape the format and execution of the sign-based content.
+  3. label: Social, h3: Social Media Management, desc: Managed the social side of the content and kept the page consistent.
+  4. label: Publishing, h3: Publishing, desc: Turned finished ideas into posts built for engagement and shareability.
+
+callout: The idea: Put a simple sign in a real place, give people something worth reacting to, and let the moment do the work.
+
+outcome:
+  h2: The Outcome
+  text: Greywith the Sign built a loyal following through simple, relatable content that connected Ghanaian audience with universal observations, humour and authentic everyday moments.
+
+nav:
+  prev_link: tropibite.html, prev_label: Previous, prev_title: TropiBite
+  next_link: harmatan.html, next_label: Next Project, next_title: HARMATAN
+
+---
+
+### PROJECT 4: UPWORK
+
+filename: upwork.html
+title: Upwork — Jeffrey Assavedo
+meta_description: Jeffrey Assavedo — freelance work on Upwork across AI data annotation and creative tasks.
+brand_color: #14A800
+
+hero:
+  h1: Upwork
+  role: AI Jobs · Creative Freelance · Remote
+  lede: A freelance track I've kept alongside my creative work — taking on AI and creative tasks through Upwork when projects fit.
+
+stats:
+  1. num: $1K+, label: Earned
+  2. num: 3 Years, label: On the platform
+  3. num: Leisurely, label: Freelance pace
+
+brief:
+  h2: The Brief
+  intro: Upwork has been a flexible freelance lane alongside my creative work.
+  details: Taking on AI data annotation, video editing, proofreading and translation projects across a range of clients.
+  column_items:
+    - Role: Freelancer
+    - Scope: AI annotation, video editing, proofreading, translation
+    - Pace: Selective, project-based work
+
+work_items:
+  1. label: AI Data, h3: AI Data Annotation, desc: Annotation and evaluation work for AI-related projects.
+  2. label: Video, h3: Video Editing, desc: Editing and preparing video content for project needs.
+  3. label: Proofreading, h3: Proofreading, desc: Reviewing text for clarity, accuracy and consistency.
+  4. label: Translation, h3: Translation, desc: Translation work across project-specific content.
+
+callout: Approach: Keep freelancing flexible—take on work that builds different skills without making it the primary focus.
+
+outcome:
+  h2: Another lane. Same discipline.
+  text: Upwork gave me a way to build experience across different kinds of digital work, without making freelancing my main focus. It's a skill-building track that runs parallel to creative projects.
+
+nav:
+  prev_link: greywithsign.html, prev_label: Previous, prev_title: Greywith the Sign
+  next_link: index.html, next_label: Back, next_title: Portfolio
+
+---
+
+## FINAL CHECKLIST
+
+For each file, verify:
+✓ Filename matches exactly (buzzandbloom.html, tropibite.html, greywithsign.html, upwork.html)
+✓ <title> tag has correct title
+✓ <meta description> has correct description
+✓ :root --brand color is correct
+✓ All 3 stats cards present with correct numbers/labels
+✓ Work grid has 4 work items with correct labels/headings/descriptions
+✓ Navigation links point to correct prev/next pages
+✓ All scripts included and unmodified
+✓ All CSS included and unmodified
+✓ HTML is readable (NOT minified)
+
+---
+
+WHEN DONE:
+Provide all 4 HTML files. I will handle verification and pushing to GitHub.
