@@ -135,3 +135,191 @@
     transform: none;
   }
 }
+
+/* Featured Work: simple 3 x 3 gallery with a focused detail panel. */
+#featured .card-deck {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  perspective: none !important;
+  isolation: auto !important;
+}
+
+#featured .stacked-card {
+  position: relative !important;
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  aspect-ratio: 4 / 3 !important;
+  transform: none !important;
+  z-index: auto !important;
+  cursor: pointer !important;
+  will-change: auto !important;
+  transition: transform .3s ease, filter .3s ease !important;
+}
+
+#featured .stacked-card:hover,
+#featured .card-deck:hover .stacked-card,
+#featured .card-deck:hover .stacked-card:hover {
+  transform: translateY(-4px) !important;
+}
+
+#featured .card-inner {
+  width: 100% !important;
+  height: 100% !important;
+  border: 2px solid var(--ink) !important;
+  box-shadow: 0 10px 26px rgba(20,18,16,.10) !important;
+  transition: border-color .25s ease, box-shadow .25s ease !important;
+}
+
+#featured .stacked-card:hover .card-inner {
+  border-color: #023020 !important;
+  box-shadow: 0 16px 32px rgba(20,18,16,.14) !important;
+}
+
+/* Focused project panel: stays on the right side rather than filling the viewport. */
+#featured .card-detail-modal {
+  position: fixed !important;
+  inset: 0 !important;
+  display: block !important;
+  padding: 0 !important;
+  background: rgba(20,18,16,.16) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  transition: opacity .3s ease, visibility .3s ease !important;
+}
+
+#featured .card-detail-modal.is-open {
+  display: block !important;
+}
+
+#featured .detail-content {
+  position: absolute !important;
+  top: 50% !important;
+  right: clamp(20px, 5vw, 72px) !important;
+  left: auto !important;
+  width: min(42vw, 520px) !important;
+  max-height: 88vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  overflow: hidden !important;
+  background: var(--paper) !important;
+  border: 2px solid var(--ink) !important;
+  box-shadow: 0 28px 70px rgba(20,18,16,.24) !important;
+  transform: translateY(-50%) translateX(18px) scale(.985) !important;
+  transition: transform .35s cubic-bezier(.22,1,.36,1) !important;
+}
+
+#featured .card-detail-modal.is-open .detail-content {
+  transform: translateY(-50%) translateX(0) scale(1) !important;
+}
+
+#featured .detail-image {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: 62vh !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: cover !important;
+  border: 0 !important;
+  background: var(--paper2) !important;
+  box-shadow: none !important;
+}
+
+#featured .detail-overlay {
+  position: static !important;
+  padding: 18px 20px 20px !important;
+  color: var(--ink) !important;
+  background: var(--paper) !important;
+  text-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+#featured .detail-client {
+  font-size: clamp(20px, 2.5vw, 30px) !important;
+  margin: 0 0 6px !important;
+}
+
+#featured .detail-story {
+  margin: 0 !important;
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+  max-width: 100% !important;
+  opacity: .68 !important;
+}
+
+#featured .close-btn {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  width: 38px !important;
+  height: 38px !important;
+  font-size: 23px !important;
+  background: var(--ink) !important;
+  border-color: var(--ink) !important;
+  z-index: 5 !important;
+}
+
+#featured .close-btn:hover {
+  background: #023020 !important;
+  border-color: #023020 !important;
+  transform: none !important;
+}
+
+@media (max-width: 900px) {
+  #featured .card-deck {
+    gap: 18px !important;
+  }
+
+  #featured .detail-content {
+    width: min(52vw, 480px) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  #featured .card-deck {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  #featured .stacked-card:hover,
+  #featured .card-deck:hover .stacked-card,
+  #featured .card-deck:hover .stacked-card:hover {
+    transform: none !important;
+  }
+
+  #featured .detail-content {
+    top: 50% !important;
+    right: 14px !important;
+    left: 14px !important;
+    width: auto !important;
+    max-height: 88vh !important;
+  }
+
+  #featured .detail-image {
+    max-height: 58vh !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #featured .card-deck {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #featured .stacked-card,
+  #featured .card-inner,
+  #featured .card-detail-modal,
+  #featured .detail-content {
+    transition: none !important;
+  }
+}
