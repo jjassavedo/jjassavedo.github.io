@@ -6,9 +6,7 @@
   #experience .swatch-card:focus-within { transform: scale(1.025); z-index: 2; }
   #experience .swatch-card { transition: transform .3s ease; }
 }
-@media (max-width: 520px) {
-  .hero h1 { font-size: 14vw !important; letter-spacing: -0.03em; }
-}
+@media (max-width: 520px) { .hero h1 { font-size: 14vw !important; letter-spacing: -0.03em; } }
 @media (max-width: 760px) {
   .reveal { opacity: 0; transform: translateY(18px); animation: mainMobileReveal .7s ease forwards; }
   .hero-kicker.reveal { animation-delay: .05s; }
@@ -21,102 +19,52 @@
   .swatch-card.reveal { animation-delay: .12s; }
   .hero h1 em { transition: none; }
 }
-@keyframes mainMobileReveal {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.section-head h2,
-.section-head:hover h2 { transition: none !important; letter-spacing: .01em !important; }
-.hero h1:hover em,
-.hero h1:focus-within em,
-.swatch-card-link:hover .card-cta,
-.tools-col li:hover,
-.email:hover { color: #023020; }
+@keyframes mainMobileReveal { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+.section-head h2,.section-head:hover h2 { transition: none !important; letter-spacing: .01em !important; }
+.hero h1:hover em,.hero h1:focus-within em,.swatch-card-link:hover .card-cta,.tools-col li:hover,.email:hover { color: #023020; }
 .hero h1:hover em { -webkit-text-stroke-color: #023020; }
 .swatch-card-link:hover .swatch-card { border-color: #023020; }
-.swatch-card-link:hover .swatch-card,
-.swatch-card-link:hover .card-cta,
-.email:hover { border-color: #023020; }
+.swatch-card-link:hover .swatch-card,.swatch-card-link:hover .card-cta,.email:hover { border-color: #023020; }
 .cta:hover { background: #023020; }
 .about-side:hover { border-color: #023020; }
 
 /* Warm, human portfolio voice */
-.about-grid > div:first-child p {
-  font-size: clamp(19px,2.4vw,25px) !important;
-  line-height: 1.45 !important;
-  font-weight: 500 !important;
-  letter-spacing: -.01em;
-}
-.about-grid > div:first-child p {
-  font-size: 0 !important;
-}
+.about-grid > div:first-child p { font-size: 0 !important; line-height: 1.45 !important; font-weight: 500 !important; letter-spacing: -.01em; }
 .about-grid > div:first-child p::after {
   content: "I’m a graphic designer and creative based in Accra. I like work that feels considered, looks good, and still feels human. I work with brands to turn ideas into identities, content, and visual systems people can connect with.";
   font-size: clamp(19px,2.4vw,25px);
 }
-.about-side {
-  font-size: 14px !important;
-  line-height: 1.85 !important;
-  max-width: 430px;
-}
-.about-side { font-size: 0 !important; }
+.about-side { font-size: 0 !important; line-height: 1.85 !important; max-width: 430px; }
 .about-side::after {
   content: "Good design should never feel distant. I care about the thinking behind the visuals, the people they are for, and the small details that make a brand feel like itself.";
   font-size: 14px;
 }
-
-/* What I do — warmer, less corporate presentation */
 .disciplines .discipline .d-tag { text-transform: none; letter-spacing: 0; }
 .disciplines .discipline { transition: background .3s ease, min-height .55s cubic-bezier(.22,1,.36,1); }
 .disciplines .discipline:hover { background: var(--paper2); }
 
-/* Featured Work — replace the old card/modal experiment with a simple future-page CTA. */
-#featured {
-  position: relative !important;
-  min-height: clamp(300px, 42vw, 460px) !important;
-  display: flex !important;
-  align-items: center !important;
-  overflow: hidden !important;
-}
-#featured .wrap {
-  width: 100%;
-}
-#featured .section-head {
-  margin-bottom: 28px !important;
-}
-#featured .card-deck,
-#featured .card-detail-modal,
-#featured .featured-grid,
-#featured .stacked-card,
-#featured .featured-transition-layer {
-  display: none !important;
-}
-#featured .featured-cta {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 32px;
-  width: 100%;
-  padding: clamp(28px,5vw,54px) 0 6px;
+/* Featured Work: replace the old card/modal experiment with a simple future-page CTA. */
+#featured { position: relative !important; min-height: clamp(300px,42vw,460px) !important; display: flex !important; align-items: center !important; overflow: hidden !important; }
+#featured .wrap { width: 100%; }
+#featured .section-head { display: none !important; }
+#featured .card-deck,#featured .card-detail-modal,#featured .featured-grid,#featured .stacked-card,#featured .featured-transition-layer { display: none !important; }
+#featured .wrap::before {
+  content: "CHECK OUT SOME OF MY WORK";
+  display: block;
+  padding: clamp(28px,5vw,54px) 0 10px;
   border-top: 1px solid var(--line);
-  text-decoration: none;
-  color: var(--ink);
-  cursor: default;
-}
-#featured .featured-cta-title {
-  margin: 0;
-  max-width: 820px;
   font-size: clamp(40px,7vw,82px);
   line-height: .92;
   letter-spacing: -.025em;
+  font-weight: 800;
   text-transform: uppercase;
+  transition: transform .5s cubic-bezier(.22,1,.36,1), color .3s ease;
 }
-#featured .featured-cta-title span {
-  display: inline-block;
-  transition: transform .45s cubic-bezier(.22,1,.36,1), color .3s ease;
-}
-#featured .featured-cta-arrow {
-  flex: 0 0 auto;
+#featured .wrap::after {
+  content: "→";
+  position: absolute;
+  right: clamp(20px,5vw,56px);
+  bottom: clamp(34px,6vw,64px);
   width: clamp(58px,7vw,86px);
   height: clamp(58px,7vw,86px);
   border: 1px solid var(--ink);
@@ -127,34 +75,14 @@
   line-height: 1;
   transition: transform .5s cubic-bezier(.22,1,.36,1), background .3s ease, color .3s ease, border-color .3s ease;
 }
-#featured .featured-cta:hover .featured-cta-arrow {
-  transform: translateX(7px);
-  background: #023020;
-  border-color: #023020;
-  color: var(--paper);
-}
-#featured .featured-cta:hover .featured-cta-title span {
-  transform: translateX(6px);
-  color: #023020;
-}
-#featured .featured-cta-note {
-  display: block;
-  margin-top: 12px;
-  font-size: 12px;
-  letter-spacing: .04em;
-  opacity: .58;
-  text-transform: uppercase;
-}
+#featured:hover .wrap::before { transform: translateX(6px); color: #023020; }
+#featured:hover .wrap::after { transform: translateX(8px); background: #023020; border-color: #023020; color: var(--paper); }
 @media (max-width: 700px) {
   #featured { min-height: 300px !important; }
-  #featured .featured-cta { align-items: center; gap: 20px; }
-  #featured .featured-cta-title { font-size: clamp(34px,10vw,56px); }
-  #featured .featured-cta-arrow { width: 58px; height: 58px; }
+  #featured .wrap::before { font-size: clamp(34px,10vw,56px); max-width: 75%; }
+  #featured .wrap::after { right: 20px; bottom: 38px; width: 58px; height: 58px; }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
-  #experience .swatch-card,
-  #featured .featured-cta-title span,
-  #featured .featured-cta-arrow { transition: none !important; }
+  #experience .swatch-card,#featured .wrap::before,#featured .wrap::after { transition: none !important; }
 }
