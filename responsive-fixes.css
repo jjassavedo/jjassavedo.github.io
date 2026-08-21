@@ -107,3 +107,31 @@
     transform: none !important;
   }
 }
+
+/* What I Do: keep each card compact until hover, then reveal its existing text using the same expand motion. */
+.discipline .d-tag {
+  font-size: 13.5px;
+  line-height: 1.9;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  opacity: 0;
+  max-height: 0;
+  transform: translateY(-8px);
+  overflow: hidden;
+  transition: opacity .4s ease, max-height .55s cubic-bezier(.22,1,.36,1), transform .45s cubic-bezier(.22,1,.36,1);
+}
+
+.discipline:hover .d-tag {
+  opacity: .82;
+  max-height: 180px;
+  transform: translateY(0);
+}
+
+@media (max-width: 700px) {
+  .discipline .d-tag {
+    opacity: .82;
+    max-height: none;
+    transform: none;
+  }
+}
