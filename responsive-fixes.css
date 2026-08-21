@@ -116,36 +116,55 @@
   #featured .detail-content { width: min(92vw, 620px) !important; max-height: 88vh !important; }
   #featured .detail-image { max-height: 60vh !important; }
 }
-@media (max-width: 480px) { #featured .card-deck { grid-template-columns: 1fr !important; } }
+@media (max-width: 480px) { #featured .card-deck { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) {
   #featured .stacked-card, #featured .card-inner, #featured .card-inner img,
   #featured .card-detail-modal, #featured .detail-content, #featured .close-btn { transition: none !important; }
   #featured .stacked-card:hover, #featured .stacked-card:hover .card-inner img { transform: none !important; }
 }
 
-/* Featured Work transition performance + handoff fix. */
+/* Featured Work: make the transition clone as cheap as possible to render. */
 #featured .featured-transition-layer {
   background: rgba(20,18,16,.42) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
+  contain: strict !important;
+  transform: translateZ(0) !important;
+  will-change: opacity !important;
 }
 #featured .card-detail-modal.featured-transition-modal {
   background: transparent !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
+  transition: none !important;
 }
 #featured .card-detail-modal.featured-transition-modal .detail-content,
 #featured .card-detail-modal.featured-transition-modal.is-open .detail-content {
   width: min(82vw, 820px) !important;
   max-height: 80vh !important;
-  transition: opacity .34s ease, transform .34s cubic-bezier(.22,1,.36,1) !important;
+  transition: opacity .2s linear !important;
+  transform: none !important;
 }
-#featured .card-detail-modal.featured-transition-modal .detail-image { max-height: 66vh !important; }
+#featured .card-detail-modal.featured-transition-modal .detail-image {
+  max-height: 66vh !important;
+}
 #featured .featured-transition-clone {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  transition: transform .58s cubic-bezier(.16,1,.3,1), opacity .26s ease !important;
+  will-change: transform, opacity !important;
+  transform-origin: top left !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  contain: layout paint style !important;
+  isolation: isolate !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+#featured .featured-transition-clone img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
 }
 #featured .card-detail-modal.featured-transition-modal .detail-overlay {
   backdrop-filter: none !important;
