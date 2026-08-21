@@ -1,0 +1,20 @@
+/* Featured Work interaction polish. Loaded after the existing portfolio styles. */
+#featured .card-deck{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important;width:100%!important;height:auto!important;margin:0!important;perspective:none!important;isolation:auto!important}
+#featured .stacked-card{position:relative!important;inset:auto!important;width:100%!important;aspect-ratio:4/3!important;transform:none!important;z-index:auto!important;cursor:pointer!important;will-change:transform!important;transition:transform .42s cubic-bezier(.22,1,.36,1)!important}
+#featured .card-deck:hover .stacked-card{transform:translateY(0)!important}
+#featured .stacked-card:hover{transform:translateY(-7px)!important;z-index:3!important}
+#featured .card-inner{width:100%!important;height:100%!important;border:2px solid var(--ink)!important;box-shadow:0 14px 34px rgba(20,18,16,.18)!important;transition:border-color .42s cubic-bezier(.22,1,.36,1),box-shadow .42s cubic-bezier(.22,1,.36,1)!important}
+#featured .stacked-card:hover .card-inner{border-color:#023020!important;box-shadow:0 22px 48px rgba(20,18,16,.26)!important}
+#featured .card-inner img{transition:transform .55s cubic-bezier(.22,1,.36,1),filter .45s ease!important}
+#featured .stacked-card:hover .card-inner img{transform:scale(1.025)!important;filter:saturate(1.04)!important}
+#featured .card-detail-modal{position:fixed!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:32px!important;background:rgba(20,18,16,.42)!important;backdrop-filter:blur(7px)!important;-webkit-backdrop-filter:blur(7px)!important}
+#featured .detail-content{position:relative!important;width:min(88vw,760px)!important;max-height:86vh!important;margin:0 auto!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:center!important;transform:translateY(14px) scale(.985)!important;opacity:0!important;transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .35s ease!important}
+#featured .card-detail-modal.is-open .detail-content{transform:translateY(0) scale(1)!important;opacity:1!important}
+#featured .detail-image{display:block!important;width:100%!important;max-width:100%!important;max-height:68vh!important;object-fit:contain!important;margin:0 auto!important;border:2px solid var(--paper)!important;box-shadow:0 28px 70px rgba(0,0,0,.34)!important}
+#featured .detail-overlay{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;padding:18px 2px 0!important;color:var(--paper)!important;background:none!important;text-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+#featured .detail-client{font-size:clamp(24px,4vw,42px)!important;margin:0 0 6px!important}
+#featured .detail-story{margin:0!important;font-size:14px!important;opacity:.82!important;max-width:620px!important}
+#featured .close-btn{transition:background .3s cubic-bezier(.22,1,.36,1),transform .3s cubic-bezier(.22,1,.36,1),border-color .3s ease!important}
+@media(max-width:760px){#featured .card-deck{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important}}
+@media(max-width:520px){#featured .card-deck{grid-template-columns:1fr!important;gap:18px!important}#featured .stacked-card:hover{transform:translateY(-5px)!important}#featured .card-detail-modal{padding:20px!important}#featured .detail-content{width:min(92vw,520px)!important;max-height:88vh!important}#featured .detail-image{max-height:64vh!important}}
+@media(prefers-reduced-motion:reduce){#featured .stacked-card,#featured .card-inner,#featured .card-inner img,#featured .detail-content,#featured .close-btn{transition:none!important}#featured .stacked-card:hover,#featured .stacked-card:hover .card-inner img{transform:none!important}}
