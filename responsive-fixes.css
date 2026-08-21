@@ -83,6 +83,7 @@
   border-color: #023020;
 }
 
+.swatch-card-link:hover .swatch-card,
 .swatch-card-link:hover .card-cta,
 .email:hover {
   border-color: #023020;
@@ -136,7 +137,7 @@
   }
 }
 
-/* Featured Work: simple 3 x 3 gallery with a focused detail panel. */
+/* Featured Work: simple 3 x 3 gallery with a centered focused detail panel. */
 #featured .card-deck {
   display: grid !important;
   grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -155,69 +156,87 @@
   left: auto !important;
   width: 100% !important;
   aspect-ratio: 4 / 3 !important;
-  transform: none !important;
+  transform: translateY(0) !important;
   z-index: auto !important;
   cursor: pointer !important;
-  will-change: auto !important;
-  transition: transform .3s ease, filter .3s ease !important;
+  will-change: transform !important;
+  transition: transform .42s cubic-bezier(.22,1,.36,1) !important;
 }
 
-#featured .stacked-card:hover,
-#featured .card-deck:hover .stacked-card,
-#featured .card-deck:hover .stacked-card:hover {
-  transform: translateY(-4px) !important;
+#featured .card-deck:hover .stacked-card {
+  transform: translateY(0) !important;
+}
+
+/* Match the Selected Experience cards: restrained lift, stronger border and shadow. */
+#featured .stacked-card:hover {
+  transform: translateY(-7px) !important;
+  z-index: 3 !important;
 }
 
 #featured .card-inner {
   width: 100% !important;
   height: 100% !important;
   border: 2px solid var(--ink) !important;
-  box-shadow: 0 10px 26px rgba(20,18,16,.10) !important;
-  transition: border-color .25s ease, box-shadow .25s ease !important;
+  box-shadow: 0 14px 34px rgba(20,18,16,.18) !important;
+  transition: border-color .42s cubic-bezier(.22,1,.36,1), box-shadow .42s cubic-bezier(.22,1,.36,1) !important;
 }
 
 #featured .stacked-card:hover .card-inner {
   border-color: #023020 !important;
-  box-shadow: 0 16px 32px rgba(20,18,16,.14) !important;
+  box-shadow: 0 22px 48px rgba(20,18,16,.26) !important;
 }
 
-/* Focused project panel: stays on the right side rather than filling the viewport. */
+#featured .card-inner img {
+  transition: transform .55s cubic-bezier(.22,1,.36,1), filter .45s ease !important;
+}
+
+#featured .stacked-card:hover .card-inner img {
+  transform: scale(1.025) !important;
+  filter: saturate(1.04) !important;
+}
+
+/* Keep the focused project centered instead of pushing it to one side. */
 #featured .card-detail-modal {
   position: fixed !important;
   inset: 0 !important;
-  display: block !important;
-  padding: 0 !important;
-  background: rgba(20,18,16,.16) !important;
-  backdrop-filter: blur(4px) !important;
-  -webkit-backdrop-filter: blur(4px) !important;
-  transition: opacity .3s ease, visibility .3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 32px !important;
+  background: rgba(20,18,16,.42) !important;
+  backdrop-filter: blur(7px) !important;
+  -webkit-backdrop-filter: blur(7px) !important;
+  transition: opacity .38s ease, visibility .38s ease !important;
 }
 
 #featured .card-detail-modal.is-open {
-  display: block !important;
+  display: flex !important;
 }
 
 #featured .detail-content {
-  position: absolute !important;
-  top: 50% !important;
-  right: clamp(20px, 5vw, 72px) !important;
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
   left: auto !important;
-  width: min(42vw, 520px) !important;
-  max-height: 88vh !important;
+  width: min(88vw, 760px) !important;
+  max-height: 86vh !important;
+  margin: 0 auto !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: stretch !important;
-  justify-content: flex-start !important;
+  justify-content: center !important;
   overflow: hidden !important;
   background: var(--paper) !important;
   border: 2px solid var(--ink) !important;
-  box-shadow: 0 28px 70px rgba(20,18,16,.24) !important;
-  transform: translateY(-50%) translateX(18px) scale(.985) !important;
-  transition: transform .35s cubic-bezier(.22,1,.36,1) !important;
+  box-shadow: 0 28px 70px rgba(20,18,16,.28) !important;
+  transform: translateY(14px) scale(.985) !important;
+  opacity: 0 !important;
+  transition: transform .48s cubic-bezier(.22,1,.36,1), opacity .32s ease !important;
 }
 
 #featured .card-detail-modal.is-open .detail-content {
-  transform: translateY(-50%) translateX(0) scale(1) !important;
+  transform: translateY(0) scale(1) !important;
+  opacity: 1 !important;
 }
 
 #featured .detail-image {
@@ -225,7 +244,7 @@
   width: 100% !important;
   height: auto !important;
   max-width: none !important;
-  max-height: 62vh !important;
+  max-height: 68vh !important;
   aspect-ratio: 4 / 3 !important;
   object-fit: cover !important;
   border: 0 !important;
@@ -244,16 +263,16 @@
 }
 
 #featured .detail-client {
-  font-size: clamp(20px, 2.5vw, 30px) !important;
+  font-size: clamp(24px, 4vw, 42px) !important;
   margin: 0 0 6px !important;
 }
 
 #featured .detail-story {
   margin: 0 !important;
-  font-size: 12px !important;
+  font-size: 14px !important;
   line-height: 1.55 !important;
-  max-width: 100% !important;
-  opacity: .68 !important;
+  max-width: 620px !important;
+  opacity: .82 !important;
 }
 
 #featured .close-btn {
@@ -266,6 +285,7 @@
   background: var(--ink) !important;
   border-color: var(--ink) !important;
   z-index: 5 !important;
+  transition: background .3s cubic-bezier(.22,1,.36,1), transform .3s cubic-bezier(.22,1,.36,1), border-color .3s ease !important;
 }
 
 #featured .close-btn:hover {
@@ -278,10 +298,6 @@
   #featured .card-deck {
     gap: 18px !important;
   }
-
-  #featured .detail-content {
-    width: min(52vw, 480px) !important;
-  }
 }
 
 @media (max-width: 700px) {
@@ -293,19 +309,16 @@
   #featured .stacked-card:hover,
   #featured .card-deck:hover .stacked-card,
   #featured .card-deck:hover .stacked-card:hover {
-    transform: none !important;
+    transform: translateY(-5px) !important;
   }
 
   #featured .detail-content {
-    top: 50% !important;
-    right: 14px !important;
-    left: 14px !important;
-    width: auto !important;
+    width: min(92vw, 620px) !important;
     max-height: 88vh !important;
   }
 
   #featured .detail-image {
-    max-height: 58vh !important;
+    max-height: 60vh !important;
   }
 }
 
@@ -318,8 +331,15 @@
 @media (prefers-reduced-motion: reduce) {
   #featured .stacked-card,
   #featured .card-inner,
+  #featured .card-inner img,
   #featured .card-detail-modal,
-  #featured .detail-content {
+  #featured .detail-content,
+  #featured .close-btn {
     transition: none !important;
+  }
+
+  #featured .stacked-card:hover,
+  #featured .stacked-card:hover .card-inner img {
+    transform: none !important;
   }
 }
