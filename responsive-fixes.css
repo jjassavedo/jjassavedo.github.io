@@ -1,39 +1,15 @@
 @media (max-width: 700px) {
-  #experience .swatch-card {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  #experience .swatch-face {
-    min-height: 116px;
-  }
-
-  /* On mobile, the card currently in focus gets a tiny lift/zoom to invite a tap. */
+  #experience .swatch-card { grid-template-columns: minmax(0, 1fr); }
+  #experience .swatch-face { min-height: 116px; }
   #experience .swatch-card:focus,
-  #experience .swatch-card:focus-within {
-    transform: scale(1.025);
-    z-index: 2;
-  }
-
-  #experience .swatch-card {
-    transition: transform .3s ease;
-  }
+  #experience .swatch-card:focus-within { transform: scale(1.025); z-index: 2; }
+  #experience .swatch-card { transition: transform .3s ease; }
 }
-
 @media (max-width: 520px) {
-  .hero h1 {
-    font-size: 14vw !important;
-    letter-spacing: -0.03em;
-  }
+  .hero h1 { font-size: 14vw !important; letter-spacing: -0.03em; }
 }
-
-/* Main portfolio only: restore the same entrance motion on mobile as desktop. */
 @media (max-width: 760px) {
-  .reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    animation: mainMobileReveal .7s ease forwards;
-  }
-
+  .reveal { opacity: 0; transform: translateY(18px); animation: mainMobileReveal .7s ease forwards; }
   .hero-kicker.reveal { animation-delay: .05s; }
   .hero h1.reveal { animation-delay: .15s; }
   .hero .role.reveal { animation-delay: .25s; }
@@ -42,304 +18,141 @@
   .about-grid .reveal { animation-delay: .12s; }
   .disciplines.reveal { animation-delay: .1s; }
   .swatch-card.reveal { animation-delay: .12s; }
-
-  .hero h1 em {
-    transition: none;
-  }
+  .hero h1 em { transition: none; }
 }
-
 @keyframes mainMobileReveal {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
-/* Section titles should not animate when hovered. */
 .section-head h2,
-.section-head:hover h2 {
-  transition: none !important;
-  letter-spacing: .01em !important;
-}
-
-/* Use dark green #023020 for hover accents that were previously red. */
+.section-head:hover h2 { transition: none !important; letter-spacing: .01em !important; }
 .hero h1:hover em,
 .hero h1:focus-within em,
 .swatch-card-link:hover .card-cta,
 .tools-col li:hover,
-.email:hover {
-  color: #023020;
-}
-
-.hero h1:hover em {
-  -webkit-text-stroke-color: #023020;
-}
-
-.swatch-card-link:hover .swatch-card {
-  border-color: #023020;
-}
-
+.email:hover { color: #023020; }
+.hero h1:hover em { -webkit-text-stroke-color: #023020; }
+.swatch-card-link:hover .swatch-card { border-color: #023020; }
 .swatch-card-link:hover .swatch-card,
 .swatch-card-link:hover .card-cta,
-.email:hover {
-  border-color: #023020;
-}
-
-.cta:hover {
-  background: #023020;
-}
-
-.about-side:hover {
-  border-color: #023020;
-}
-
+.email:hover { border-color: #023020; }
+.cta:hover { background: #023020; }
+.about-side:hover { border-color: #023020; }
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  #experience .swatch-card {
-    transition: none !important;
-    transform: none !important;
-  }
+  .reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
+  #experience .swatch-card { transition: none !important; transform: none !important; }
 }
-
-/* What I Do: keep each card compact until hover, then reveal its existing text using the same expand motion. */
 .discipline .d-tag {
-  font-size: 13.5px;
-  line-height: 1.9;
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
-  opacity: 0;
-  max-height: 0;
-  transform: translateY(-8px);
-  overflow: hidden;
+  font-size: 13.5px; line-height: 1.9; margin-top: 18px; padding-top: 14px;
+  border-top: 1px solid var(--line); opacity: 0; max-height: 0;
+  transform: translateY(-8px); overflow: hidden;
   transition: opacity .4s ease, max-height .55s cubic-bezier(.22,1,.36,1), transform .45s cubic-bezier(.22,1,.36,1);
 }
-
-.discipline:hover .d-tag {
-  opacity: .82;
-  max-height: 180px;
-  transform: translateY(0);
-}
-
-@media (max-width: 700px) {
-  .discipline .d-tag {
-    opacity: .82;
-    max-height: none;
-    transform: none;
-  }
-}
-
-/* Featured Work: simple 3 x 3 gallery with a centered focused detail panel. */
+.discipline:hover .d-tag { opacity: .82; max-height: 180px; transform: translateY(0); }
+@media (max-width: 700px) { .discipline .d-tag { opacity: .82; max-height: none; transform: none; } }
 #featured .card-deck {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  gap: 24px !important;
-  width: 100% !important;
-  height: auto !important;
-  margin: 0 !important;
-  perspective: none !important;
-  isolation: auto !important;
+  display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 24px !important; width: 100% !important; height: auto !important;
+  margin: 0 !important; perspective: none !important; isolation: auto !important;
 }
-
 #featured .stacked-card {
-  position: relative !important;
-  inset: auto !important;
-  top: auto !important;
-  left: auto !important;
-  width: 100% !important;
-  aspect-ratio: 4 / 3 !important;
-  transform: translateY(0) !important;
-  z-index: auto !important;
-  cursor: pointer !important;
-  will-change: transform !important;
+  position: relative !important; inset: auto !important; top: auto !important; left: auto !important;
+  width: 100% !important; aspect-ratio: 4 / 3 !important; transform: translateY(0) !important;
+  z-index: auto !important; cursor: pointer !important; will-change: transform !important;
   transition: transform .42s cubic-bezier(.22,1,.36,1) !important;
 }
-
-#featured .card-deck:hover .stacked-card {
-  transform: translateY(0) !important;
-}
-
-/* Match the Selected Experience cards: restrained lift, stronger border and shadow. */
-#featured .stacked-card:hover {
-  transform: translateY(-7px) !important;
-  z-index: 3 !important;
-}
-
+#featured .card-deck:hover .stacked-card { transform: translateY(0) !important; }
+#featured .stacked-card:hover { transform: translateY(-7px) !important; z-index: 3 !important; }
 #featured .card-inner {
-  width: 100% !important;
-  height: 100% !important;
-  border: 2px solid var(--ink) !important;
+  width: 100% !important; height: 100% !important; border: 2px solid var(--ink) !important;
   box-shadow: 0 14px 34px rgba(20,18,16,.18) !important;
   transition: border-color .42s cubic-bezier(.22,1,.36,1), box-shadow .42s cubic-bezier(.22,1,.36,1) !important;
 }
-
-#featured .stacked-card:hover .card-inner {
-  border-color: #023020 !important;
-  box-shadow: 0 22px 48px rgba(20,18,16,.26) !important;
-}
-
-#featured .card-inner img {
-  transition: transform .55s cubic-bezier(.22,1,.36,1), filter .45s ease !important;
-}
-
-#featured .stacked-card:hover .card-inner img {
-  transform: scale(1.025) !important;
-  filter: saturate(1.04) !important;
-}
-
-/* Keep the focused project centered instead of pushing it to one side. */
+#featured .stacked-card:hover .card-inner { border-color: #023020 !important; box-shadow: 0 22px 48px rgba(20,18,16,.26) !important; }
+#featured .card-inner img { transition: transform .55s cubic-bezier(.22,1,.36,1), filter .45s ease !important; }
+#featured .stacked-card:hover .card-inner img { transform: scale(1.025) !important; filter: saturate(1.04) !important; }
 #featured .card-detail-modal {
-  position: fixed !important;
-  inset: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 32px !important;
-  background: rgba(20,18,16,.42) !important;
-  backdrop-filter: blur(7px) !important;
-  -webkit-backdrop-filter: blur(7px) !important;
+  position: fixed !important; inset: 0 !important; display: flex !important; align-items: center !important;
+  justify-content: center !important; padding: 32px !important; background: rgba(20,18,16,.42) !important;
+  backdrop-filter: blur(7px) !important; -webkit-backdrop-filter: blur(7px) !important;
   transition: opacity .38s ease, visibility .38s ease !important;
 }
-
-#featured .card-detail-modal.is-open {
-  display: flex !important;
-}
-
+#featured .card-detail-modal.is-open { display: flex !important; }
 #featured .detail-content {
-  position: relative !important;
-  top: auto !important;
-  right: auto !important;
-  left: auto !important;
-  width: min(88vw, 760px) !important;
-  max-height: 86vh !important;
-  margin: 0 auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: stretch !important;
-  justify-content: center !important;
-  overflow: hidden !important;
-  background: var(--paper) !important;
-  border: 2px solid var(--ink) !important;
-  box-shadow: 0 28px 70px rgba(20,18,16,.28) !important;
-  transform: translateY(14px) scale(.985) !important;
-  opacity: 0 !important;
+  position: relative !important; top: auto !important; right: auto !important; left: auto !important;
+  width: min(88vw, 760px) !important; max-height: 86vh !important; margin: 0 auto !important;
+  display: flex !important; flex-direction: column !important; align-items: stretch !important;
+  justify-content: center !important; overflow: hidden !important; background: var(--paper) !important;
+  border: 2px solid var(--ink) !important; box-shadow: 0 28px 70px rgba(20,18,16,.28) !important;
+  transform: translateY(14px) scale(.985) !important; opacity: 0 !important;
   transition: transform .48s cubic-bezier(.22,1,.36,1), opacity .32s ease !important;
 }
-
-#featured .card-detail-modal.is-open .detail-content {
-  transform: translateY(0) scale(1) !important;
-  opacity: 1 !important;
-}
-
+#featured .card-detail-modal.is-open .detail-content { transform: translateY(0) scale(1) !important; opacity: 1 !important; }
 #featured .detail-image {
-  display: block !important;
-  width: 100% !important;
-  height: auto !important;
-  max-width: none !important;
-  max-height: 68vh !important;
-  aspect-ratio: 4 / 3 !important;
-  object-fit: cover !important;
-  border: 0 !important;
-  background: var(--paper2) !important;
-  box-shadow: none !important;
+  display: block !important; width: 100% !important; height: auto !important; max-width: none !important;
+  max-height: 68vh !important; aspect-ratio: 4 / 3 !important; object-fit: cover !important;
+  border: 0 !important; background: var(--paper2) !important; box-shadow: none !important;
+}
+#featured .detail-overlay {
+  position: static !important; padding: 18px 20px 20px !important; color: var(--ink) !important;
+  background: var(--paper) !important; text-shadow: none !important; backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+#featured .detail-client { font-size: clamp(24px, 4vw, 42px) !important; margin: 0 0 6px !important; }
+#featured .detail-story { margin: 0 !important; font-size: 14px !important; line-height: 1.55 !important; max-width: 620px !important; opacity: .82 !important; }
+#featured .close-btn {
+  position: absolute !important; top: 16px !important; right: 16px !important; width: 38px !important;
+  height: 38px !important; font-size: 23px !important; background: var(--ink) !important;
+  border-color: var(--ink) !important; z-index: 5 !important;
+  transition: background .3s cubic-bezier(.22,1,.36,1), transform .3s cubic-bezier(.22,1,.36,1), border-color .3s ease !important;
+}
+#featured .close-btn:hover { background: #023020 !important; border-color: #023020 !important; transform: none !important; }
+@media (max-width: 900px) { #featured .card-deck { gap: 18px !important; } }
+@media (max-width: 700px) {
+  #featured .card-deck { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 16px !important; }
+  #featured .stacked-card:hover,
+  #featured .card-deck:hover .stacked-card,
+  #featured .card-deck:hover .stacked-card:hover { transform: translateY(-5px) !important; }
+  #featured .detail-content { width: min(92vw, 620px) !important; max-height: 88vh !important; }
+  #featured .detail-image { max-height: 60vh !important; }
+}
+@media (max-width: 480px) { #featured .card-deck { grid-template-columns: 1fr !important; } }
+@media (prefers-reduced-motion: reduce) {
+  #featured .stacked-card, #featured .card-inner, #featured .card-inner img,
+  #featured .card-detail-modal, #featured .detail-content, #featured .close-btn { transition: none !important; }
+  #featured .stacked-card:hover, #featured .stacked-card:hover .card-inner img { transform: none !important; }
 }
 
-#featured .detail-overlay {
-  position: static !important;
-  padding: 18px 20px 20px !important;
-  color: var(--ink) !important;
-  background: var(--paper) !important;
-  text-shadow: none !important;
+/* Featured Work transition performance + handoff fix. */
+#featured .featured-transition-layer {
+  background: rgba(20,18,16,.42) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
-
-#featured .detail-client {
-  font-size: clamp(24px, 4vw, 42px) !important;
-  margin: 0 0 6px !important;
+#featured .card-detail-modal.featured-transition-modal {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
-
-#featured .detail-story {
-  margin: 0 !important;
-  font-size: 14px !important;
-  line-height: 1.55 !important;
-  max-width: 620px !important;
-  opacity: .82 !important;
+#featured .card-detail-modal.featured-transition-modal .detail-content,
+#featured .card-detail-modal.featured-transition-modal.is-open .detail-content {
+  width: min(82vw, 820px) !important;
+  max-height: 80vh !important;
+  transition: opacity .34s ease, transform .34s cubic-bezier(.22,1,.36,1) !important;
 }
-
-#featured .close-btn {
-  position: absolute !important;
-  top: 16px !important;
-  right: 16px !important;
-  width: 38px !important;
-  height: 38px !important;
-  font-size: 23px !important;
-  background: var(--ink) !important;
-  border-color: var(--ink) !important;
-  z-index: 5 !important;
-  transition: background .3s cubic-bezier(.22,1,.36,1), transform .3s cubic-bezier(.22,1,.36,1), border-color .3s ease !important;
+#featured .card-detail-modal.featured-transition-modal .detail-image { max-height: 66vh !important; }
+#featured .featured-transition-clone {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform .58s cubic-bezier(.16,1,.3,1), opacity .26s ease !important;
 }
-
-#featured .close-btn:hover {
-  background: #023020 !important;
-  border-color: #023020 !important;
-  transform: none !important;
+#featured .card-detail-modal.featured-transition-modal .detail-overlay {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
-
-@media (max-width: 900px) {
-  #featured .card-deck {
-    gap: 18px !important;
-  }
-}
-
-@media (max-width: 700px) {
-  #featured .card-deck {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 16px !important;
-  }
-
-  #featured .stacked-card:hover,
-  #featured .card-deck:hover .stacked-card,
-  #featured .card-deck:hover .stacked-card:hover {
-    transform: translateY(-5px) !important;
-  }
-
-  #featured .detail-content {
-    width: min(92vw, 620px) !important;
-    max-height: 88vh !important;
-  }
-
-  #featured .detail-image {
-    max-height: 60vh !important;
-  }
-}
-
-@media (max-width: 480px) {
-  #featured .card-deck {
-    grid-template-columns: 1fr !important;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  #featured .stacked-card,
-  #featured .card-inner,
-  #featured .card-inner img,
-  #featured .card-detail-modal,
-  #featured .detail-content,
-  #featured .close-btn {
-    transition: none !important;
-  }
-
-  #featured .stacked-card:hover,
-  #featured .stacked-card:hover .card-inner img {
-    transform: none !important;
-  }
+  #featured .featured-transition-layer, #featured .featured-transition-clone,
+  #featured .card-detail-modal.featured-transition-modal .detail-content,
+  #featured .card-detail-modal.featured-transition-modal .detail-overlay { transition: none !important; }
 }
