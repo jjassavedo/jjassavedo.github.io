@@ -3,12 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Jeffrey Assavedo — Graphic Designer & Creative</title>
-    <meta
-        name="description"
-        content="Jeffrey Assavedo — Graphic Designer & Creative specializing in brand identity, creative direction and content."
-    >
+    <meta name="description" content="Jeffrey Assavedo — Graphic Designer & Creative specializing in brand identity, creative direction and content.">
 
     <style>
         :root {
@@ -34,7 +30,7 @@
             background: var(--cream);
             color: var(--dark-text);
             font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         a {
@@ -110,81 +106,39 @@
         }
 
         /* ==============================
-           GENERAL SECTION STYLES
+           SECTION 01 - INTRODUCTION
         ============================== */
 
-        .section {
-            width: min(1400px, calc(100% - 64px));
-            margin: 0 auto;
-            padding: 120px 0;
-        }
-
-        .section-heading {
-            display: grid;
-            grid-template-columns: 90px 1fr;
-            gap: 40px;
-            margin-bottom: 64px;
-        }
-
-        .section-number {
-            color: var(--primary-brown);
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-        }
-
-        .section-title {
-            max-width: 800px;
-            font-size: clamp(2.5rem, 5vw, 5.5rem);
-            font-weight: 500;
-            line-height: 0.98;
-            letter-spacing: -0.045em;
-        }
-
-        .section-subtitle {
-            margin-top: 20px;
-            color: var(--accent-brown);
-            font-size: 1.05rem;
-        }
-
-        /* ==============================
-           HERO
-        ============================== */
-
-        .hero {
-            width: min(1400px, calc(100% - 64px));
-            min-height: calc(100vh - 77px);
-            margin: 0 auto;
+        .intro-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            min-height: calc(100vh - 77px);
         }
 
-        .hero-visual {
-            min-height: 650px;
+        .intro-visual {
             background: var(--primary-brown);
             display: flex;
             align-items: flex-end;
             padding: 48px;
+            position: relative;
         }
 
-        .hero-number {
+        .intro-number {
             color: var(--cream);
             font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 0.12em;
         }
 
-        .hero-content {
-            min-height: 650px;
-            padding: 80px 8%;
+        .intro-content {
+            padding: 80px clamp(40px, 8%, 80px);
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border-right: 1px solid var(--taupe);
-            border-bottom: 1px solid var(--taupe);
+            border-left: 1px solid var(--taupe);
         }
 
-        .hero-label {
+        .intro-label {
             margin-bottom: 24px;
             color: var(--primary-brown);
             font-size: 0.85rem;
@@ -193,77 +147,149 @@
             text-transform: uppercase;
         }
 
-        .hero-title {
-            max-width: 680px;
+        .intro-title {
             font-size: clamp(3.5rem, 6vw, 7rem);
-            font-weight: 500;
+            font-weight: 700;
             line-height: 0.93;
             letter-spacing: -0.055em;
+            margin-bottom: 24px;
         }
 
-        .hero-role {
-            margin-top: 36px;
+        .intro-subtitle {
             font-size: clamp(1.25rem, 2vw, 1.8rem);
             font-weight: 500;
+            margin-bottom: 20px;
         }
 
-        .hero-bio {
-            max-width: 500px;
-            margin-top: 20px;
-            color: var(--accent-brown);
+        .intro-bio {
             font-size: 1.05rem;
+            color: var(--accent-brown);
+            max-width: 500px;
         }
 
         /* ==============================
-           ABOUT
+           SECTION 02 - ABOUT ME
         ============================== */
 
-        .about-grid {
+        .about-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            padding-left: 130px;
+            gap: 0;
+            min-height: auto;
+            border-bottom: 1px solid var(--taupe);
         }
 
-        .about-copy {
-            max-width: 620px;
+        .about-visual {
+            background: linear-gradient(135deg, var(--taupe) 0%, var(--accent-brown) 100%);
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 40px;
         }
 
-        .about-copy p {
-            color: var(--dark-text);
+        .about-visual-number {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            color: var(--cream);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+        }
+
+        .about-content {
+            padding: 80px clamp(40px, 8%, 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 1px solid var(--taupe);
+        }
+
+        .about-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            line-height: 0.98;
+            letter-spacing: -0.045em;
+            margin-bottom: 20px;
+        }
+
+        .about-subtitle {
+            font-size: 1.05rem;
+            color: var(--accent-brown);
+            margin-bottom: 40px;
+        }
+
+        .about-text {
             font-size: 1.15rem;
             line-height: 1.8;
+            margin-bottom: 48px;
+            max-width: 600px;
         }
 
-        .skills {
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 1px;
             background: var(--taupe);
             border: 1px solid var(--taupe);
         }
 
-        .skill {
-            min-height: 150px;
-            padding: 28px;
+        .skill-card {
             background: var(--cream);
+            padding: 28px;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .skill h3 {
-            margin-bottom: 12px;
-            color: var(--primary-brown);
+        .skill-card h3 {
             font-size: 1rem;
             font-weight: 700;
+            color: var(--primary-brown);
+            margin-bottom: 12px;
         }
 
-        .skill p {
-            color: var(--accent-brown);
+        .skill-card p {
             font-size: 0.95rem;
+            color: var(--accent-brown);
         }
 
         /* ==============================
-           PROJECTS
+           SECTION 03 - RECENT PROJECTS
         ============================== */
+
+        .projects-section {
+            padding: 80px clamp(40px, 5vw, 80px);
+            border-bottom: 1px solid var(--taupe);
+        }
+
+        .projects-header {
+            margin-bottom: 64px;
+        }
+
+        .section-number {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--primary-brown);
+            margin-bottom: 20px;
+        }
+
+        .projects-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            line-height: 0.98;
+            letter-spacing: -0.045em;
+            margin-bottom: 20px;
+        }
+
+        .projects-subtitle {
+            font-size: 1.05rem;
+            color: var(--accent-brown);
+        }
 
         .projects-grid {
             display: grid;
@@ -273,20 +299,14 @@
 
         .project-card {
             min-height: 430px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
             padding: 32px;
             background: var(--taupe);
             border: 1px solid var(--taupe);
-            transition:
-                transform 0.25s ease,
-                background 0.25s ease;
-        }
-
-        .project-card:nth-child(4),
-        .project-card:nth-child(7) {
-            grid-column: span 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, background 0.25s ease;
+            cursor: pointer;
         }
 
         .project-card:hover {
@@ -296,97 +316,96 @@
 
         .project-top {
             display: flex;
-            align-items: flex-start;
             justify-content: space-between;
+            align-items: flex-start;
             gap: 20px;
+            margin-bottom: 60px;
         }
 
         .project-number {
-            color: var(--primary-brown);
             font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 0.1em;
+            color: var(--primary-brown);
         }
 
         .project-color {
             width: 18px;
             height: 18px;
-            flex: 0 0 18px;
-            border: 1px solid rgba(44, 44, 44, 0.15);
             border-radius: 50%;
+            flex-shrink: 0;
         }
 
         .project-name {
-            margin-top: 60px;
             font-size: clamp(2rem, 3vw, 3.2rem);
-            font-weight: 500;
+            font-weight: 700;
             line-height: 1;
             letter-spacing: -0.04em;
+            margin-bottom: 60px;
         }
 
         .project-bottom {
-            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-stats {
-            padding-bottom: 18px;
-            border-bottom: 1px solid var(--accent-brown);
-            color: var(--dark-text);
             font-size: 0.85rem;
             line-height: 1.7;
+            color: var(--dark-text);
+            padding-bottom: 18px;
+            border-bottom: 1px solid var(--accent-brown);
+            margin-bottom: 18px;
         }
 
         .project-description {
-            margin-top: 18px;
-            color: var(--accent-brown);
             font-size: 0.9rem;
             line-height: 1.6;
+            color: var(--accent-brown);
+            margin-bottom: 24px;
         }
 
         .project-link {
-            display: inline-block;
-            margin-top: 24px;
-            color: var(--primary-brown);
             font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 0.05em;
             text-transform: uppercase;
+            color: var(--primary-brown);
         }
 
         /* ==============================
-           CONTACT
+           SECTION 04 - CONTACT/SIGN OFF
         ============================== */
 
-        .contact {
-            border-top: 1px solid var(--taupe);
+        .contact-section {
+            padding: 80px clamp(40px, 5vw, 80px);
         }
 
-        .contact-content {
-            padding-left: 130px;
+        .contact-header {
+            margin-bottom: 64px;
         }
 
         .contact-title {
-            max-width: 900px;
-            font-size: clamp(3rem, 7vw, 7.5rem);
-            font-weight: 500;
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 700;
             line-height: 0.95;
             letter-spacing: -0.055em;
+            margin-bottom: 48px;
         }
 
         .contact-email {
             display: inline-block;
-            margin-top: 48px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--primary-brown);
-            color: var(--primary-brown);
             font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--primary-brown);
+            border-bottom: 1px solid var(--primary-brown);
+            padding-bottom: 8px;
+            margin-bottom: 24px;
         }
 
         .contact-cta {
             max-width: 520px;
-            margin-top: 24px;
-            color: var(--accent-brown);
             font-size: 1rem;
+            color: var(--accent-brown);
         }
 
         /* ==============================
@@ -394,27 +413,23 @@
         ============================== */
 
         @media (max-width: 1000px) {
-            .hero {
+            .intro-section,
+            .about-section {
                 grid-template-columns: 1fr;
             }
 
-            .hero-visual {
+            .intro-visual {
                 min-height: 260px;
             }
 
-            .hero-content {
-                min-height: 500px;
-                border-right: 0;
+            .intro-content,
+            .about-content {
+                border-left: 0;
+                border-top: 1px solid var(--taupe);
             }
 
-            .about-grid {
-                grid-template-columns: 1fr;
-                padding-left: 0;
-                gap: 60px;
-            }
-
-            .contact-content {
-                padding-left: 0;
+            .about-visual {
+                order: -1;
             }
 
             .projects-grid {
@@ -423,14 +438,8 @@
         }
 
         @media (max-width: 700px) {
-            .header-inner,
-            .section,
-            .hero {
-                width: min(100% - 40px, 1400px);
-            }
-
             .header-inner {
-                min-height: 68px;
+                width: min(100% - 40px, 1400px);
             }
 
             .logo {
@@ -445,49 +454,38 @@
                 font-size: 0.8rem;
             }
 
-            .section {
-                padding: 80px 0;
-            }
-
-            .section-heading {
+            .intro-section,
+            .about-section {
                 grid-template-columns: 1fr;
-                gap: 16px;
-                margin-bottom: 44px;
             }
 
-            .hero {
-                width: 100%;
-            }
-
-            .hero-visual {
+            .intro-visual {
                 min-height: 220px;
                 padding: 24px 20px;
             }
 
-            .hero-content {
-                min-height: 500px;
+            .intro-content,
+            .about-content {
                 padding: 60px 20px;
+                border-left: 0;
+                border-top: 1px solid var(--taupe);
             }
 
-            .hero-title {
-                font-size: clamp(3rem, 14vw, 5rem);
+            .intro-title {
+                font-size: clamp(2.5rem, 12vw, 4rem);
             }
 
-            .hero-role {
-                margin-top: 28px;
-                font-size: 1.25rem;
+            .about-title {
+                font-size: clamp(2rem, 10vw, 3.5rem);
             }
 
-            .hero-bio {
-                font-size: 0.95rem;
+            .contact-title {
+                font-size: clamp(2rem, 12vw, 4rem);
             }
 
-            .skills {
-                grid-template-columns: 1fr;
-            }
-
-            .skill {
-                min-height: auto;
+            .projects-section,
+            .contact-section {
+                padding: 60px 20px;
             }
 
             .projects-grid {
@@ -501,26 +499,22 @@
             }
 
             .project-name {
-                margin-top: 48px;
+                margin-bottom: 48px;
             }
 
-            .project-bottom {
-                margin-top: 48px;
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
 
-            .contact-title {
-                font-size: clamp(3rem, 15vw, 5.5rem);
-            }
-
-            .contact-email {
-                font-size: 1rem;
-                word-break: break-word;
+            .skill-card {
+                min-height: auto;
             }
         }
 
         @media (max-width: 420px) {
             .header-inner,
-            .section {
+            .projects-section,
+            .contact-section {
                 width: calc(100% - 32px);
             }
 
@@ -528,16 +522,15 @@
                 gap: 14px;
             }
 
-            .hero-content {
-                padding: 50px 16px;
+            .intro-visual,
+            .intro-content,
+            .about-content {
+                padding: 40px 16px;
             }
 
-            .hero-visual {
-                padding: 20px 16px;
-            }
-
-            .project-card {
-                min-height: 360px;
+            .about-visual-number {
+                top: 20px;
+                left: 16px;
             }
         }
     </style>
@@ -552,7 +545,6 @@
     <header class="site-header">
         <div class="header-inner">
             <a href="#top" class="logo">JEFFREY.ASSAVEDO</a>
-
             <nav class="main-nav" aria-label="Main navigation">
                 <a href="#about">About</a>
                 <a href="#work">Work</a>
@@ -564,77 +556,47 @@
     <main id="top">
 
         <!-- ==============================
-             HERO — 01
+             SECTION 01 - INTRODUCTION
         ============================== -->
 
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-visual">
-                <span class="hero-number">01</span>
+        <section class="intro-section">
+            <div class="intro-visual">
+                <span class="intro-number">01</span>
             </div>
-
-            <div class="hero-content">
-                <p class="hero-label">Jeffrey Assavedo</p>
-
-                <h1 id="hero-title" class="hero-title">
-                    Jeffrey Assavedo
-                </h1>
-
-                <p class="hero-role">
-                    Graphic Designer &amp; Creative
-                </p>
-
-                <p class="hero-bio">
-                    Brand identity, creative direction &amp; content, start to finish
-                </p>
+            <div class="intro-content">
+                <p class="intro-label">Jeffrey Assavedo</p>
+                <h1 class="intro-title">Graphic Designer &amp; Creative</h1>
+                <p class="intro-subtitle">Brand identity, creative direction &amp; content</p>
+                <p class="intro-bio">Working across brand identity, creative direction, content and social media. I help turn ideas into clear, considered visual experiences from start to finish.</p>
             </div>
         </section>
 
         <!-- ==============================
-             ABOUT — 02
+             SECTION 02 - ABOUT ME
         ============================== -->
 
-        <section class="section" id="about" aria-labelledby="about-title">
-            <div class="section-heading">
-                <span class="section-number">02</span>
-
-                <div>
-                    <h2 id="about-title" class="section-title">
-                        About me
-                    </h2>
-
-                    <p class="section-subtitle">
-                        Who I am, and how I can help
-                    </p>
-                </div>
+        <section class="about-section" id="about">
+            <div class="about-visual">
+                <span class="about-visual-number">02</span>
             </div>
-
-            <div class="about-grid">
-                <div class="about-copy">
-                    <p>
-                        I’m Jeffrey Assavedo, a graphic designer and creative working
-                        across brand identity, creative direction, content and social
-                        media. I help turn ideas into clear, considered visual
-                        experiences from start to finish.
-                    </p>
-                </div>
-
-                <div class="skills">
-                    <div class="skill">
+            <div class="about-content">
+                <h2 class="about-title">About me</h2>
+                <p class="about-subtitle">Who I am, and how I can help</p>
+                <p class="about-text">I'm Jeffrey Assavedo, a graphic designer and creative working across brand identity, creative direction, content and social media. I help turn ideas into clear, considered visual experiences from start to finish.</p>
+                <div class="skills-grid">
+                    <div class="skill-card">
                         <h3>Strategy</h3>
                         <p>Creative thinking and brand-focused direction.</p>
                     </div>
-
-                    <div class="skill">
+                    <div class="skill-card">
                         <h3>Design</h3>
                         <p>Visual identities, graphics and brand systems.</p>
                     </div>
-
-                    <div class="skill">
+                    <div class="skill-card">
                         <h3>Content</h3>
                         <p>Creative concepts and visual content development.</p>
                     </div>
-
-                    <div class="skill">
+                    <div class="skill-card">
                         <h3>Social Media</h3>
                         <p>Creative support for social-first brand communication.</p>
                     </div>
@@ -643,22 +605,14 @@
         </section>
 
         <!-- ==============================
-             PROJECTS — 03
+             SECTION 03 - RECENT PROJECTS
         ============================== -->
 
-        <section class="section" id="work" aria-labelledby="work-title">
-            <div class="section-heading">
-                <span class="section-number">03</span>
-
-                <div>
-                    <h2 id="work-title" class="section-title">
-                        Recent Projects
-                    </h2>
-
-                    <p class="section-subtitle">
-                        A few projects I'm proud to share
-                    </p>
-                </div>
+        <section class="projects-section" id="work">
+            <div class="projects-header">
+                <p class="section-number">03</p>
+                <h2 class="projects-title">Recent Projects</h2>
+                <p class="projects-subtitle">A few projects I'm proud to share</p>
             </div>
 
             <div class="projects-grid">
@@ -668,25 +622,13 @@
                     <div>
                         <div class="project-top">
                             <span class="project-number">01</span>
-                            <span
-                                class="project-color"
-                                style="background-color: #FF3D2E;"
-                                aria-label="Casestody brand color"
-                            ></span>
+                            <span class="project-color" style="background-color: #FF3D2E;"></span>
                         </div>
-
                         <h3 class="project-name">Casestody</h3>
                     </div>
-
                     <div class="project-bottom">
-                        <p class="project-stats">
-                            34.4K followers · 470 posts · 53.3K peak views
-                        </p>
-
-                        <p class="project-description">
-                            Phone accessories brand · Graphic Design, Content, Social Media
-                        </p>
-
+                        <p class="project-stats">34.4K followers · 470 posts · 53.3K peak views</p>
+                        <p class="project-description">Phone accessories brand · Graphic Design, Content, Social Media</p>
                         <span class="project-link">View project →</span>
                     </div>
                 </a>
@@ -696,25 +638,13 @@
                     <div>
                         <div class="project-top">
                             <span class="project-number">02</span>
-                            <span
-                                class="project-color"
-                                style="background-color: #FFED4E;"
-                                aria-label="Greysole brand color"
-                            ></span>
+                            <span class="project-color" style="background-color: #FFED4E;"></span>
                         </div>
-
                         <h3 class="project-name">Greysole</h3>
                     </div>
-
                     <div class="project-bottom">
-                        <p class="project-stats">
-                            12.1K followers · 236 posts · 4.5K engagement
-                        </p>
-
-                        <p class="project-description">
-                            Footwear/retail · Graphic Design, Content, Social Media
-                        </p>
-
+                        <p class="project-stats">12.1K followers · 236 posts · 4.5K engagement</p>
+                        <p class="project-description">Footwear/retail · Graphic Design, Content, Social Media</p>
                         <span class="project-link">View project →</span>
                     </div>
                 </a>
@@ -724,25 +654,13 @@
                     <div>
                         <div class="project-top">
                             <span class="project-number">03</span>
-                            <span
-                                class="project-color"
-                                style="background-color: #8A5CF6;"
-                                aria-label="Buzz &amp; Bloom brand color"
-                            ></span>
+                            <span class="project-color" style="background-color: #8A5CF6;"></span>
                         </div>
-
                         <h3 class="project-name">Buzz &amp; Bloom</h3>
                     </div>
-
                     <div class="project-bottom">
-                        <p class="project-stats">
-                            582+ followers · 10+ posts · 25.3K views
-                        </p>
-
-                        <p class="project-description">
-                            Cocktails &amp; mocktails · Content, Brand Creative
-                        </p>
-
+                        <p class="project-stats">582+ followers · 10+ posts · 25.3K views</p>
+                        <p class="project-description">Cocktails &amp; mocktails · Content, Brand Creative</p>
                         <span class="project-link">View project →</span>
                     </div>
                 </a>
@@ -752,25 +670,13 @@
                     <div>
                         <div class="project-top">
                             <span class="project-number">04</span>
-                            <span
-                                class="project-color"
-                                style="background-color: #1F8A5C;"
-                                aria-label="TropiBite brand color"
-                            ></span>
+                            <span class="project-color" style="background-color: #1F8A5C;"></span>
                         </div>
-
                         <h3 class="project-name">TropiBite</h3>
                     </div>
-
                     <div class="project-bottom">
-                        <p class="project-stats">
-                            97 followers · 17 posts · 2.3K views (30d)
-                        </p>
-
-                        <p class="project-description">
-                            Tropical juice &amp; wellness · Content, Brand Creative
-                        </p>
-
+                        <p class="project-stats">97 followers · 17 posts · 2.3K views (30d)</p>
+                        <p class="project-description">Tropical juice &amp; wellness · Content, Brand Creative</p>
                         <span class="project-link">View project →</span>
                     </div>
                 </a>
@@ -780,25 +686,13 @@
                     <div>
                         <div class="project-top">
                             <span class="project-number">05</span>
-                            <span
-                                class="project-color"
-                                style="background-color: #B08C2E;"
-                                aria-label="Greywith the Sign brand color"
-                            ></span>
+                            <span class="project-color" style="background-color: #B08C2E;"></span>
                         </div>
-
                         <h3 class="project-name">Greywith the Sign</h3>
                     </div>
-
                     <div class="project-bottom">
-                        <p class="project-stats">
-                            1,002 followers · 482.5K views (30d) · 39 posts
-                        </p>
-
-                        <p class="project-description">
-                            Ghanaian content creator · Design, Creative Support
-                        </p>
-
+                        <p class="project-stats">1,002 followers · 482.5K views (30d) · 39 posts</p>
+                        <p class="project-description">Ghanaian content creator · Design, Creative Support</p>
                         <span class="project-link">View project →</span>
                     </div>
                 </a>
@@ -808,25 +702,13 @@
                     <div>
                         <div class="project-top">
                             <span class="project-number">06</span>
-                            <span
-                                class="project-color"
-                                style="background-color: #141210;"
-                                aria-label="HARMATAN brand color"
-                            ></span>
+                            <span class="project-color" style="background-color: #141210;"></span>
                         </div>
-
                         <h3 class="project-name">HARMATAN</h3>
                     </div>
-
                     <div class="project-bottom">
-                        <p class="project-stats">
-                            Personal creative agency
-                        </p>
-
-                        <p class="project-description">
-                            Founder · Creative &amp; Marketing
-                        </p>
-
+                        <p class="project-stats">Personal creative agency</p>
+                        <p class="project-description">Founder · Creative &amp; Marketing</p>
                         <span class="project-link">View project →</span>
                     </div>
                 </a>
@@ -836,25 +718,13 @@
                     <div>
                         <div class="project-top">
                             <span class="project-number">07</span>
-                            <span
-                                class="project-color"
-                                style="background-color: #14A800;"
-                                aria-label="Upwork brand color"
-                            ></span>
+                            <span class="project-color" style="background-color: #14A800;"></span>
                         </div>
-
                         <h3 class="project-name">Upwork</h3>
                     </div>
-
                     <div class="project-bottom">
-                        <p class="project-stats">
-                            $1K+ earned · 3 years on platform
-                        </p>
-
-                        <p class="project-description">
-                            AI &amp; Creative freelance work
-                        </p>
-
+                        <p class="project-stats">$1K+ earned · 3 years on platform</p>
+                        <p class="project-description">AI &amp; Creative freelance work</p>
                         <span class="project-link">View project →</span>
                     </div>
                 </a>
@@ -863,33 +733,16 @@
         </section>
 
         <!-- ==============================
-             CONTACT — 04
+             SECTION 04 - CONTACT/SIGN OFF
         ============================== -->
 
-        <section class="section contact" id="contact" aria-labelledby="contact-title">
-            <div class="section-heading">
-                <span class="section-number">04</span>
-
-                <div>
-                    <h2 id="contact-title" class="section-title">
-                        Let's work together
-                    </h2>
-                </div>
+        <section class="contact-section" id="contact">
+            <div class="contact-header">
+                <p class="section-number">04</p>
+                <h2 class="contact-title">Let's work together</h2>
             </div>
-
-            <div class="contact-content">
-                <a
-                    href="mailto:assavedojeffreywork@gmail.com"
-                    class="contact-email"
-                >
-                    assavedojeffreywork@gmail.com
-                </a>
-
-                <p class="contact-cta">
-                    Have a project, brand or creative idea you'd like to bring to life?
-                    Get in touch and let's work together.
-                </p>
-            </div>
+            <a href="mailto:assavedojeffreywork@gmail.com" class="contact-email">assavedojeffreywork@gmail.com</a>
+            <p class="contact-cta">Have a project, brand or creative idea you'd like to bring to life? Get in touch and let's work together.</p>
         </section>
 
     </main>
