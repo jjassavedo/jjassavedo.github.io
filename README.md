@@ -9,8 +9,8 @@ Create an `images/` folder at the repository root and upload JPG files using the
 - Hero: `hero-1.jpg`
 - TropiBite: `tropibite-4.jpg`, `tropibite-20.jpg`, `tropibite-19.jpg`, `tropibite-24.jpg`, `tropibite-10.jpg`, `tropibite-13.jpg`
 - Buzz & Bloom: `buzzbloom-11.jpg` through `buzzbloom-16.jpg`
-- Graphic design gallery: `graphic-design-1.jpg` through `graphic-design-12.jpg`
-- Grey with the Sign: `greywiththesign-1.jpg` through `greywiththesign-6.jpg`
+- Graphic design gallery: any image beginning `design-` (JPG, PNG, WEBP, AVIF, or GIF). The gallery sorts files automatically by filename.
+- Grey with the Sign: any image beginning `greywiththesign-` (JPG, PNG, WEBP, AVIF, or GIF). The gallery sorts files automatically by filename; view counts are keyed by filename in `site.js`.
 - CASESTODY: `casestody-1.jpg` through `casestody-6.jpg`
 - Greysole: `greysole-1.jpg` through `greysole-6.jpg`
 - HARMATAN: `harmatan-1.jpg` through `harmatan-6.jpg`
@@ -20,7 +20,7 @@ Use the same spelling and lowercase filenames. Pages are built to render placeho
 ## Pages
 
 - `index.html` — homepage, navigation, skills, brand links, sliding work gallery, contact
-- `graphic-design.html` — phone-inspired graphic design gallery
+- `graphic-design.html` — graphic design image archive with full-size artwork view
 - `harmatan.html` — creative studio page
 - `tropibite.html`, `buzz-and-bloom.html`, `greywiththesign.html`, `casestody.html`, `greysole.html` — client showcase pages
 
