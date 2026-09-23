@@ -163,3 +163,9 @@ body{font-size:17px;line-height:1.8}
 .showcase-grid.casestody-reels .instagram-reel-card iframe{width:100%!important;max-width:100%!important}
 .showcase-grid.casestody-reels .instagram-reel-card figcaption{font-size:10px;right:8px;bottom:8px;padding:4px 6px}
 @media(max-width:740px){.showcase-grid.casestody-reels{grid-template-columns:repeat(2,minmax(0,1fr));justify-content:stretch;gap:10px}.showcase-grid.casestody-reels .instagram-reel-card{grid-column:auto;width:100%;max-width:none;min-width:0;aspect-ratio:9/16;padding:3px}.showcase-grid.casestody-reels .instagram-media{width:100%!important;transform:scale(.5);transform-origin:center center}.showcase-grid.casestody-reels .instagram-reel-card figcaption{font-size:8px;right:4px;bottom:4px;padding:3px 4px}}
+
+/* HARMATAN identity artwork */
+.harmatan-image img{object-fit:contain;background:#f5f0e8;padding:clamp(24px,5vw,60px)}
+.hmt-brand-assets{height:440px;margin:0;display:flex;align-items:center;justify-content:center;gap:7%;padding:clamp(20px,4vw,48px);background:#f5f0e8}
+.hmt-brand-assets img{width:46%;height:auto;max-height:100%;object-fit:contain}
+@media(max-width:740px){.hmt-brand-assets{height:310px;gap:5%;padding:20px}.hmt-brand-assets img{width:47%}}
