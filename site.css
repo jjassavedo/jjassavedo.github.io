@@ -155,3 +155,11 @@ body{font-size:17px;line-height:1.8}
 .instagram-reel-card iframe{max-width:100%!important}
 .instagram-reel-card figcaption{z-index:3;right:12px;bottom:12px}
 @media(max-width:740px){.showcase-grid .instagram-reel-card{grid-column:1/-1;min-height:570px}}
+
+/* Compact video-only CASESTODY selection; ready for two more Reel embeds. */
+.showcase-grid.casestody-reels{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),360px));justify-content:start;gap:14px}
+.showcase-grid.casestody-reels .instagram-reel-card{grid-column:auto;width:100%;max-width:360px;min-height:0;aspect-ratio:9/16;padding:6px;border-radius:2px}
+.showcase-grid.casestody-reels .instagram-media{width:100%!important;max-width:380px!important;min-width:0!important;margin:0 auto!important;transform:scale(.82);transform-origin:center center}
+.showcase-grid.casestody-reels .instagram-reel-card iframe{width:100%!important;max-width:100%!important}
+.showcase-grid.casestody-reels .instagram-reel-card figcaption{font-size:10px;right:8px;bottom:8px;padding:4px 6px}
+@media(max-width:740px){.showcase-grid.casestody-reels{grid-template-columns:minmax(0,1fr)}.showcase-grid.casestody-reels .instagram-reel-card{max-width:340px;aspect-ratio:9/16}.showcase-grid.casestody-reels .instagram-media{transform:scale(.8)}}
