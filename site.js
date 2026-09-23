@@ -11,3 +11,18 @@ if(track){
  track.addEventListener('keydown',event=>{if(event.key==='ArrowRight')move(1);if(event.key==='ArrowLeft')move(-1)});
  window.setInterval(()=>{if(!paused&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)move(1)},4200);
 }
+const lightbox=document.querySelector('#design-lightbox');
+if(lightbox){
+ const expanded=lightbox.querySelector('img');
+ const close=lightbox.querySelector('.lightbox-close');
+ let lastFocus=null;
+ const closeView=()=>{lightbox.hidden=true;document.body.style.overflow='';if(lastFocus)lastFocus.focus()};
+ document.querySelectorAll('[data-design-view]').forEach(button=>button.addEventListener('click',()=>{
+  const image=button.querySelector('img');
+  lastFocus=button;expanded.src=button.dataset.designView;expanded.alt=image?.alt||'Graphic design work';
+  lightbox.hidden=false;document.body.style.overflow='hidden';close.focus();
+ }));
+ close.addEventListener('click',closeView);
+ lightbox.addEventListener('click',event=>{if(event.target===lightbox)closeView()});
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!lightbox.hidden)closeView()});
+}
