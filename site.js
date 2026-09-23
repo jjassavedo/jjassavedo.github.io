@@ -38,8 +38,8 @@ const getPortfolioImages=async()=>{
   const response=await fetch('https://api.github.com/repos/jjassavedo/jjassavedo.github.io/contents/images?ref=main',{headers:{Accept:'application/vnd.github+json'}});
   if(!response.ok)return null;
   const entries=await response.json();
-  const files=entries.filter(entry=>entry.type==='file'&&/\\.(?:jpe?g|png|webp|avif|gif)$/i.test(entry.name)).map(entry=>entry.name);
-  sessionStorage.setItem(imageIndexKey,JSON.stringify({time:Date.now(),files}));
+  const files=entries.filter(entry=>entry.type==='file'&&/\.(?:jpe?g|png|webp|avif|gif)$/i.test(entry.name)).map(entry=>entry.name);
+  try{sessionStorage.setItem(imageIndexKey,JSON.stringify({time:Date.now(),files}))}catch{}
   return files;
  }catch{return null}
 };
@@ -61,7 +61,7 @@ const populatePrefixedImages=async()=>{
     const affordance=document.createElement('span');affordance.className='tile-open';affordance.setAttribute('aria-hidden','true');affordance.textContent='↗';button.append(image,affordance);container.append(button);
    }else if(prefix==='greywiththesign-'){
     const figure=document.createElement('figure');const caption=document.createElement('figcaption');caption.className='view-count';
-    const base=name.replace(/\\.[^.]+$/,'').toLowerCase();const count=greySignViewCounts[base];caption.textContent=count?count+' views':'Views pending';figure.append(image,caption);container.append(figure);
+    const base=name.replace(/\.[^.]+$/,'').toLowerCase();const count=greySignViewCounts[base];caption.textContent=count?count+' views':'Views pending';figure.append(image,caption);container.append(figure);
    }
   });
  });
