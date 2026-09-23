@@ -97,3 +97,50 @@ body{font-size:16px;line-height:1.75}
  .design-page-end .wrap{font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){.design-tile img,.tile-open{transition:none}}
+
+/* Larger type across the portfolio for easier reading. */
+body{font-size:17px;line-height:1.8}
+.nav-links a{font-size:13px}
+.eyebrow,.section-label,.hero-foot,.page-nav,.site-footer{font-size:12px}
+.hero-copy>p:not(.eyebrow),.about-bottom>p,.section-heading>p,.design-copy>p:not(.eyebrow),.harmatan-copy>p:not(.hmt-word),.contact-inner>p:not(.eyebrow){font-size:clamp(16px,1.3vw,19px);line-height:1.85}
+.role-list span,.skill-list span{font-size:13px}
+.brand-card h3{font-size:25px}
+.page-top>p,.detail-story>div:last-child>p,.detail-roles>div:last-child>p{font-size:clamp(17px,1.35vw,20px);line-height:1.9}
+.detail-nums span{font-size:13px;line-height:1.5}
+.detail-nums p{font-size:clamp(18px,1.8vw,24px);line-height:1.35}
+.social-links a,.social-links span{font-size:14px}
+.detail-gallery-heading p,.showcase-grid figcaption{font-size:13px}
+.page-nav a{font-size:15px}
+.design-back,.design-page-end .wrap{font-size:14px}
+.design-intro-grid>p{font-size:17px;line-height:1.85}
+.hmt-hero-layout>div>p:not(.hmt-mark),.hmt-intro>div:last-child>p,.hmt-section-content>p,.hmt-editorial-layout>div:last-child>p{font-size:16px;line-height:1.9}
+.hmt-mark{font-size:14px}
+.voice-tags span{font-size:13px}
+.hmt-services article>span{font-size:12px}
+.hmt-services h3{font-size:23px}
+.hmt-foot,.hmt-outro .wrap{font-size:12px}
+.hmt-gallery-grid figcaption,.slide-card figcaption{font-size:12px}
+.contact-inner>a{font-size:16px}
+@media(max-width:740px){
+ body{font-size:16px;line-height:1.8}
+ .nav-links a{font-size:11px}
+ .eyebrow,.section-label{font-size:10px}
+ .hero-copy>p:not(.eyebrow),.about-bottom>p,.section-heading>p,.design-copy>p:not(.eyebrow),.harmatan-copy>p:not(.hmt-word),.contact-inner>p:not(.eyebrow){font-size:16px;line-height:1.8}
+ .role-list span,.skill-list span{font-size:12px}
+ .brand-card h3{font-size:21px}
+ .page-top>p,.detail-story>div:last-child>p,.detail-roles>div:last-child>p{font-size:16px;line-height:1.85}
+ .detail-nums span{font-size:11px}
+ .detail-nums p{font-size:19px}
+ .social-links a,.social-links span{font-size:13px}
+ .detail-gallery-heading p,.showcase-grid figcaption{font-size:12px}
+ .page-nav a{font-size:13px}
+ .design-back,.design-page-end .wrap{font-size:12px}
+ .design-intro-grid>p{font-size:16px}
+ .hmt-hero-layout>div>p:not(.hmt-mark),.hmt-intro>div:last-child>p,.hmt-section-content>p,.hmt-editorial-layout>div:last-child>p{font-size:16px;line-height:1.85}
+ .hmt-services article>span,.voice-tags span{font-size:12px}
+ .hmt-services h3{font-size:21px}
+ .hmt-foot,.hmt-outro .wrap{font-size:10px}
+ .hmt-gallery-grid figcaption,.slide-card figcaption{font-size:11px}
+ .contact-inner>a{font-size:15px}
+ .site-footer{font-size:10px}
+}
