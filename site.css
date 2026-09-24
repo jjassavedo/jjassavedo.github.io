@@ -271,3 +271,28 @@ body .harmatan-home .cream-link:hover span,body .harmatan-home .cream-link:focus
 .hmt-services article:hover{transform:translateY(-4px);background:#8c3a1e;border-color:#8c3a1e;box-shadow:0 12px 28px #0003}
 .hmt-services article:hover>span{color:#f5f0e8}
 @media(prefers-reduced-motion:reduce){.hmt-services article{transition:none}}
+
+/* Homepage Upwork experience pop-up */
+.upwork-section{padding-top:0;padding-bottom:100px}
+.upwork-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:28px;padding:clamp(26px,4vw,50px);border:1px solid #ffffff38;background:#201f1d;color:var(--ink);text-align:left;cursor:pointer;transition:background-color .22s,border-color .22s,transform .22s,box-shadow .22s}
+.upwork-trigger>span:first-child{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.upwork-trigger strong{font:700 clamp(38px,6vw,72px)/.98 "Space Grotesk",sans-serif;letter-spacing:-.055em}
+.upwork-trigger-copy{color:#c4bfb7;font-size:clamp(15px,1.25vw,18px)}
+.upwork-trigger-arrow{font:400 32px/1 Arial,sans-serif;font-variant-emoji:text;color:var(--ochre);transition:transform .22s}
+.upwork-trigger:hover,.upwork-trigger:focus-visible{transform:translateY(-3px);background:#26231f;border-color:var(--ochre);box-shadow:0 12px 30px #0003}
+.upwork-trigger:hover .upwork-trigger-arrow,.upwork-trigger:focus-visible .upwork-trigger-arrow{transform:translate(4px,-4px)}
+.upwork-dialog{width:min(680px,88vw);max-width:none;padding:0;border:1px solid #ffffff36;background:#201f1d;color:var(--ink);box-shadow:0 24px 90px #0009}
+.upwork-dialog::backdrop{background:#090909c9;backdrop-filter:blur(3px)}
+.upwork-dialog-inner{position:relative;padding:clamp(28px,6vw,58px)}
+.upwork-close{position:absolute;top:18px;right:18px;width:42px;height:42px;border:1px solid #ffffff50;border-radius:50%;background:transparent;color:var(--ink);font:300 26px/1 Arial,sans-serif;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s}
+.upwork-close:hover,.upwork-close:focus-visible{background:var(--ochre);border-color:var(--ochre);color:#151515}
+.upwork-dialog h2{font-size:clamp(42px,7vw,76px);margin:18px 0}
+.upwork-dialog .upwork-intro{max-width:58ch;color:#d0cbc3;font-size:clamp(16px,1.4vw,19px);line-height:1.85}
+.upwork-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:24px 0;border-block:1px solid var(--line);margin-top:28px}
+.upwork-facts div{display:flex;flex-direction:column;gap:5px}
+.upwork-facts strong{font:600 clamp(23px,3vw,34px)/1.1 "Space Grotesk",sans-serif;color:var(--ochre)}
+.upwork-facts span,.upwork-services{font-size:13px;line-height:1.7;color:#bdb8af}
+.upwork-services{margin:22px 0 0}
+.upwork-services span{color:var(--ochre);padding:0 3px}
+@media(max-width:600px){.upwork-section{padding-bottom:72px}.upwork-trigger{padding:24px 20px}.upwork-trigger strong{font-size:clamp(34px,9vw,50px)}.upwork-trigger-copy{font-size:14px}.upwork-facts{grid-template-columns:1fr;gap:16px;padding:20px 0}.upwork-dialog-inner{padding:30px 23px}.upwork-dialog h2{padding-right:35px}.upwork-services{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.upwork-trigger,.upwork-trigger-arrow,.upwork-close{transition:none}}
