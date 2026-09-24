@@ -68,7 +68,7 @@ const populatePrefixedImages=async()=>{
  previews.forEach(image=>{const match=sortedPrefixed(files,image.dataset.prefixImage)[0];if(match)image.src='images/'+match});
 };
 // Fill in each verified post count here as Jeffrey provides it, using the filename without its extension.
-const greySignViewCounts={'greywiththesign-1':'50K'};
+const greySignViewCounts={'greywiththesign-1':'61.9K','greywiththesign-2':'79.5K','greywiththesign-3':'359K','greywiththesign-4':'96.7K'};
 populatePrefixedImages();
 
 const navLinks=document.querySelector('.nav-links');
