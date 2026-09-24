@@ -204,3 +204,12 @@ body{font-size:17px;line-height:1.8}
 @media(max-width:740px){.nav-inner{gap:8px}.nav-inner .logo{font-size:12px}.nav-links{gap:clamp(4px,1vw,8px)}.nav-links a{font-size:10px;padding:7px 0}}
 @media(max-width:390px){.nav-inner .logo{font-size:11px}.nav-links{gap:5px}.nav-links a{font-size:9.5px}}
 @media(prefers-reduced-motion:reduce){.nav-hover-oval{transition:none}}
+
+/* Homepage About: use the full row for the introduction and skill list */
+.about-section{display:block;padding:clamp(72px,8vw,112px) 0}
+.about-content{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(36px,7vw,100px);align-items:center}
+.about-intro h2{font-size:clamp(48px,7vw,86px);line-height:.95;margin:0 0 24px}
+.about-intro h2 em{font-style:normal;color:#aaa49a}
+.about-intro p{max-width:540px;color:#c4bfb7;font-size:clamp(16px,1.3vw,19px);line-height:1.85;margin:0}
+.about-content>.skill-list{align-content:center}
+@media(max-width:740px){.about-section{padding:75px 0}.about-content{grid-template-columns:1fr;gap:28px}.about-intro h2{font-size:clamp(44px,11vw,68px);margin-bottom:18px}}
