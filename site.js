@@ -70,3 +70,14 @@ const populatePrefixedImages=async()=>{
 // Fill in each verified post count here as Jeffrey provides it, using the filename without its extension.
 const greySignViewCounts={'greywiththesign-1':'50K'};
 populatePrefixedImages();
+
+const navLinks=document.querySelector('.nav-links');
+if(navLinks){
+ const oval=document.createElement('span');oval.className='nav-hover-oval';oval.setAttribute('aria-hidden','true');navLinks.prepend(oval);
+ const showOval=link=>{if(!link)return;const navRect=navLinks.getBoundingClientRect(),linkRect=link.getBoundingClientRect();navLinks.style.setProperty('--oval-x',(linkRect.left-navRect.left-10)+'px');navLinks.style.setProperty('--oval-y',(linkRect.top-navRect.top-6)+'px');navLinks.style.setProperty('--oval-w',(linkRect.width+20)+'px');navLinks.style.setProperty('--oval-h',(linkRect.height+12)+'px');oval.style.left='var(--oval-x)';oval.style.top='var(--oval-y)';oval.style.width='var(--oval-w)';oval.style.height='var(--oval-h)';navLinks.classList.add('has-hover-target')};
+ navLinks.addEventListener('pointerover',event=>{if(event.pointerType==='touch')return;showOval(event.target.closest('a'))});
+ navLinks.addEventListener('pointermove',event=>{if(event.pointerType==='touch')return;showOval(event.target.closest('a'))});
+ navLinks.addEventListener('pointerleave',()=>navLinks.classList.remove('has-hover-target'));
+ navLinks.addEventListener('focusin',event=>showOval(event.target.closest('a')));
+ navLinks.addEventListener('focusout',event=>{if(!navLinks.contains(event.relatedTarget))navLinks.classList.remove('has-hover-target')});
+}
