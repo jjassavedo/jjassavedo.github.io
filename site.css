@@ -213,3 +213,11 @@ body{font-size:17px;line-height:1.8}
 .about-intro p{max-width:540px;color:#c4bfb7;font-size:clamp(16px,1.3vw,19px);line-height:1.85;margin:0}
 .about-content>.skill-list{align-content:center}
 @media(max-width:740px){.about-section{padding:75px 0}.about-content{grid-template-columns:1fr;gap:28px}.about-intro h2{font-size:clamp(44px,11vw,68px);margin-bottom:18px}}
+
+/* Graphic Design archive CTA */
+.design-copy .line-link{align-items:center;gap:24px;margin-top:24px;padding:13px 17px;border:1px solid #ffffff70;border-radius:999px;font-size:16px;line-height:1.35;color:#f2f0eb;transition:transform .22s ease,background-color .22s ease,color .22s ease,border-color .22s ease,box-shadow .22s ease}
+.design-copy .line-link span{font-size:19px;transition:transform .22s ease,color .22s ease}
+.design-copy .line-link:hover,.design-copy .line-link:focus-visible{transform:translateY(-3px);background:#c9973a;border-color:#c9973a;color:#151515;box-shadow:0 8px 24px #c9973a38}
+.design-copy .line-link:hover span,.design-copy .line-link:focus-visible span{transform:translateX(5px);color:#151515}
+@media(max-width:740px){.design-copy .line-link{font-size:15px;padding:12px 15px}}
+@media(prefers-reduced-motion:reduce){.design-copy .line-link,.design-copy .line-link span{transition:none}}
