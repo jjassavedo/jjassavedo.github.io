@@ -65,7 +65,21 @@ const populatePrefixedImages=async()=>{
    }
   });
  });
- previews.forEach(image=>{const match=sortedPrefixed(files,image.dataset.prefixImage)[0];if(match)image.src='images/'+match});
+ previews.forEach(image=>{
+  const matches=sortedPrefixed(files,image.dataset.prefixImage);
+  if(!matches.length)return;
+  let current=0;
+  image.src='images/'+matches[current];
+  if(image.dataset.prefixRotate===undefined||matches.length<2)return;
+  window.setInterval(()=>{
+   current=(current+1)%matches.length;
+   image.style.opacity='0';
+   window.setTimeout(()=>{
+    image.src='images/'+matches[current];
+    image.onload=()=>{image.style.opacity='1'};
+   },220);
+  },3800);
+ });
 };
 // Fill in each verified post count here as Jeffrey provides it, using the filename without its extension.
 const greySignViewCounts={'greywiththesign-1':'61.9K','greywiththesign-2':'79.5K','greywiththesign-3':'359K','greywiththesign-4':'96.7K'};
