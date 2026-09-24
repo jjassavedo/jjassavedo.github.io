@@ -195,3 +195,12 @@ body{font-size:17px;line-height:1.8}
 .hmt-contact-links a{border-bottom:1px solid #1c1c1c55;padding:8px 0;font:500 15px/1.5 "Space Grotesk",sans-serif}
 .hmt-contact-links a span{color:#8c3a1e;padding-left:10px}
 @media(max-width:740px){.hmt-clients{padding:70px 0}.hmt-client-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.hmt-client-card>span{font-size:12px;padding:10px}.hmt-join{padding:65px 0}.hmt-join-inner{grid-template-columns:1fr;gap:24px}.hmt-join-inner>div:last-child>p{font-size:16px}.hmt-contact{padding:70px 0}.hmt-contact-links{flex-direction:column;align-items:flex-start}}
+
+/* Home navigation: larger labels with a cursor-following oval */
+.nav-links{position:relative;isolation:isolate;align-items:center;gap:clamp(12px,2vw,28px)}
+.nav-links a{position:relative;z-index:1;display:inline-flex;align-items:center;padding:8px 2px;font-size:15px;white-space:nowrap}
+.nav-hover-oval{position:absolute;left:0;top:0;width:0;height:0;border:1px solid #c9973a;border-radius:999px;background:#c9973a14;box-shadow:0 0 16px #c9973a30;opacity:0;pointer-events:none;z-index:0;transition:left .26s cubic-bezier(.2,.8,.2,1),top .26s cubic-bezier(.2,.8,.2,1),width .26s cubic-bezier(.2,.8,.2,1),height .26s cubic-bezier(.2,.8,.2,1),opacity .18s}
+.nav-links.has-hover-target .nav-hover-oval{opacity:1}
+@media(max-width:740px){.nav-inner{gap:8px}.nav-inner .logo{font-size:12px}.nav-links{gap:clamp(4px,1vw,8px)}.nav-links a{font-size:10px;padding:7px 0}}
+@media(max-width:390px){.nav-inner .logo{font-size:11px}.nav-links{gap:5px}.nav-links a{font-size:9.5px}}
+@media(prefers-reduced-motion:reduce){.nav-hover-oval{transition:none}}
