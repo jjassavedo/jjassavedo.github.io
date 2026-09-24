@@ -221,3 +221,12 @@ body{font-size:17px;line-height:1.8}
 .design-copy .line-link:hover span,.design-copy .line-link:focus-visible span{transform:translateX(5px);color:#151515}
 @media(max-width:740px){.design-copy .line-link{font-size:15px;padding:12px 15px}}
 @media(prefers-reduced-motion:reduce){.design-copy .line-link,.design-copy .line-link span{transition:none}}
+
+/* Homepage HARMATAN call-to-action sizing and text-style arrow glyphs */
+.harmatan-home .cream-link{width:min(100%,320px);min-height:82px;justify-content:space-between;gap:18px;padding:20px 24px;font-size:18px;line-height:1.25;transition:transform .22s ease,background-color .22s ease,box-shadow .22s ease}
+.harmatan-home .cream-link span{font:400 24px/1 Arial,sans-serif;font-variant-emoji:text;transition:transform .22s ease}
+.harmatan-home .cream-link:hover,.harmatan-home .cream-link:focus-visible{transform:translateY(-3px);background:#fff;box-shadow:0 10px 26px #0003}
+.harmatan-home .cream-link:hover span,.harmatan-home .cream-link:focus-visible span{transform:translate(3px,-3px)}
+.nav-hover-oval,.cream-link span,.hero-link span,.line-link span,.hmt-contact-links a span,.hmt-client-card b{font-variant-emoji:text}
+@media(max-width:740px){.harmatan-home .cream-link{width:100%;min-height:74px;padding:18px 20px;font-size:17px}.harmatan-home .cream-link span{font-size:23px}}
+@media(prefers-reduced-motion:reduce){.harmatan-home .cream-link,.harmatan-home .cream-link span{transition:none}}
