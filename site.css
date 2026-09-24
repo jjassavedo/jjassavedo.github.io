@@ -273,7 +273,7 @@ body .harmatan-home .cream-link:hover span,body .harmatan-home .cream-link:focus
 @media(prefers-reduced-motion:reduce){.hmt-services article{transition:none}}
 
 /* Homepage Upwork experience pop-up */
-.upwork-section{padding-top:0;padding-bottom:100px}
+.upwork-section{padding-top:clamp(90px,12vw,150px);padding-bottom:100px}
 .upwork-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:28px;padding:clamp(26px,4vw,50px);border:1px solid #ffffff38;background:#201f1d;color:var(--ink);text-align:left;cursor:pointer;transition:background-color .22s,border-color .22s,transform .22s,box-shadow .22s}
 .upwork-trigger>span:first-child{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
 .upwork-trigger strong{font:700 clamp(38px,6vw,72px)/.98 "Space Grotesk",sans-serif;letter-spacing:-.055em}
