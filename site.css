@@ -242,3 +242,9 @@ body .harmatan-home .cream-link{width:min(100%,360px);min-height:72px;padding:17
 
 body .harmatan-home .cream-link:hover,body .harmatan-home .cream-link:focus-visible{background:#c9973a;border-color:#c9973a;color:#151515;box-shadow:0 8px 24px #c9973a38}
 body .harmatan-home .cream-link:hover span,body .harmatan-home .cream-link:focus-visible span{transform:translate(4px,-3px);color:#151515}
+
+/* Brand story and contribution copy now use the full content column */
+.detail-story,.detail-roles{grid-template-columns:minmax(0,1fr);gap:0;padding:clamp(56px,6vw,78px) 0}
+.detail-story>div,.detail-roles>div{grid-column:1/-1;width:100%}
+.detail-story>div>p,.detail-roles>div>p{max-width:min(920px,84ch);font-size:clamp(17px,1.35vw,20px);line-height:1.85}
+@media(max-width:740px){.detail-story,.detail-roles{grid-template-columns:1fr;gap:0;padding:48px 0}.detail-story>div>p,.detail-roles>div>p{max-width:100%;font-size:16px;line-height:1.8}}
