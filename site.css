@@ -296,3 +296,10 @@ body .harmatan-home .cream-link:hover span,body .harmatan-home .cream-link:focus
 .upwork-services span{color:var(--ochre);padding:0 3px}
 @media(max-width:600px){.upwork-section{padding-bottom:72px}.upwork-trigger{padding:24px 20px}.upwork-trigger strong{font-size:clamp(34px,9vw,50px)}.upwork-trigger-copy{font-size:14px}.upwork-facts{grid-template-columns:1fr;gap:16px;padding:20px 0}.upwork-dialog-inner{padding:30px 23px}.upwork-dialog h2{padding-right:35px}.upwork-services{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.upwork-trigger,.upwork-trigger-arrow,.upwork-close{transition:none}}
+
+/* Mobile-only project-card arrow: draw it so phones don't substitute an emoji glyph. */
+@media(max-width:740px){
+ .brand-photo>span{display:inline-flex;flex-direction:row-reverse;align-items:center;gap:8px;font-size:0}
+ .brand-photo>span:after{content:"View project";font-size:10px}
+ .brand-photo>span:before{content:"";display:block;width:14px;height:14px;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%238c3a1e' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12 12 4M5 4h7v7'/%3E%3C/svg%3E") center/contain no-repeat}
+}
