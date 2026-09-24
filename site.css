@@ -195,15 +195,3 @@ body{font-size:17px;line-height:1.8}
 .hmt-contact-links a{border-bottom:1px solid #1c1c1c55;padding:8px 0;font:500 15px/1.5 "Space Grotesk",sans-serif}
 .hmt-contact-links a span{color:#8c3a1e;padding-left:10px}
 @media(max-width:740px){.hmt-clients{padding:70px 0}.hmt-client-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.hmt-client-card>span{font-size:12px;padding:10px}.hmt-join{padding:65px 0}.hmt-join-inner{grid-template-columns:1fr;gap:24px}.hmt-join-inner>div:last-child>p{font-size:16px}.hmt-contact{padding:70px 0}.hmt-contact-links{flex-direction:column;align-items:flex-start}}
-
-/* Full-width cream HARMATAN wordmark hero */
-.hmt-hero{background:#f5f0e8;color:#1c1c1c;padding:125px 0 34px}
-.hmt-hero .eyebrow{color:#8c3a1e}
-.hmt-hero-layout{min-height:0;grid-template-columns:minmax(0,1fr);gap:0;padding:48px 0 52px}
-.hmt-hero-layout>div{max-width:920px}
-.hmt-hero-wordmark{width:min(100%,760px);height:clamp(300px,42vw,520px);object-fit:contain;object-position:left center;margin:0 0 26px}
-.hmt-hero-layout>div>p:not(.hmt-mark){max-width:650px;color:#45423d;font-size:16px;line-height:1.8}
-.hmt-hero .cream-link{background:#8c3a1e;color:#f5f0e8}
-.hmt-hero .cream-link span{color:#f5f0e8}
-.hmt-foot{border-color:#1c1c1c30;color:#5b5a54}
-@media(max-width:740px){.hmt-hero{padding:100px 0 25px}.hmt-hero-layout{padding:42px 0}.hmt-hero-wordmark{height:clamp(250px,72vw,360px);margin-bottom:18px}}
