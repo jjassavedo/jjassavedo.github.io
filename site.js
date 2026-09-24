@@ -95,3 +95,12 @@ if(navLinks){
  navLinks.addEventListener('focusin',event=>showOval(event.target.closest('a')));
  navLinks.addEventListener('focusout',event=>{if(!navLinks.contains(event.relatedTarget))navLinks.classList.remove('has-hover-target')});
 }
+
+const upworkDialog=document.querySelector('#upwork-dialog');
+if(upworkDialog){
+ const openButton=document.querySelector('[aria-controls="upwork-dialog"]');
+ const closeButton=upworkDialog.querySelector('.upwork-close');
+ openButton?.addEventListener('click',()=>upworkDialog.showModal());
+ closeButton?.addEventListener('click',()=>upworkDialog.close());
+ upworkDialog.addEventListener('click',event=>{if(event.target===upworkDialog)upworkDialog.close()});
+}
