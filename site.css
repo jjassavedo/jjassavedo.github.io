@@ -308,3 +308,19 @@ body .harmatan-home .cream-link:hover span,body .harmatan-home .cream-link:focus
 @media(max-width:740px){
  .upwork-trigger-arrow{width:20px;height:20px;flex:none;font-size:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23c9973a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12 12 4M5 4h7v7'/%3E%3C/svg%3E") center/contain no-repeat}
 }
+
+/* Mobile-only motion inspired by desktop hover details. */
+@media(max-width:740px) and (prefers-reduced-motion:no-preference){
+ .mobile-motion{opacity:0;transform:translate3d(0,20px,0);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.75,.25,1);transition-delay:calc(var(--mobile-motion-order,0)*45ms);will-change:opacity,transform}
+ .mobile-motion.is-in-view{opacity:1;transform:translate3d(0,0,0)}
+ .upwork-dialog[open]{animation:mobile-dialog-rise .26s ease-out both}
+ @keyframes mobile-dialog-rise{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+}
+@media(max-width:740px){
+ .brand-card:active .brand-photo img,.slide-card:active img,.design-photo:active img,.hmt-client-card:active img{transform:scale(1.04)}
+ .upwork-trigger:active,.cream-link:active,.hero-link:active,.line-link:active{transform:scale(.985)}
+ .slider-controls button:active{background:var(--ochre);color:#111;transform:scale(.94)}
+}
+@media(max-width:740px) and (prefers-reduced-motion:reduce){
+ .mobile-motion{opacity:1;transform:none;transition:none}
+}
