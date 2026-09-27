@@ -104,3 +104,22 @@ if(upworkDialog){
  closeButton?.addEventListener('click',()=>upworkDialog.close());
  upworkDialog.addEventListener('click',event=>{if(event.target===upworkDialog)upworkDialog.close()});
 }
+
+/* Mobile-only scroll reveals and touch feedback. Desktop behavior remains unchanged. */
+const mobileMotionQuery=window.matchMedia('(max-width:740px)');
+const reducedMotionQuery=window.matchMedia('(prefers-reduced-motion: reduce)');
+if(mobileMotionQuery.matches&&!reducedMotionQuery.matches&&'IntersectionObserver'in window){
+ const motionTargets=document.querySelectorAll('.hero-copy,.about-content,.design-copy,.design-photo,.brand-card,.harmatan-image,.harmatan-copy,.slide-card,.upwork-trigger,.contact-inner,.page-top,.detail-story,.detail-roles,.detail-gallery,.design-page-intro,.design-tile,.design-page-end,.hmt-hero-layout,.hmt-intro-content,.hmt-clients,.hmt-services article,.hmt-editorial,.hmt-gallery-grid figure,.hmt-outro,.hmt-contact');
+ const revealObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+   if(!entry.isIntersecting)return;
+   entry.target.classList.add('is-in-view');
+   revealObserver.unobserve(entry.target);
+  });
+ },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+ motionTargets.forEach((element,index)=>{
+  element.style.setProperty('--mobile-motion-order',String(index%4));
+  element.classList.add('mobile-motion');
+  revealObserver.observe(element);
+ });
+}
