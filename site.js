@@ -123,3 +123,59 @@ if(mobileMotionQuery.matches&&!reducedMotionQuery.matches&&'IntersectionObserver
   revealObserver.observe(element);
  });
 }
+
+
+// Interactive brand visual archive page.
+const archivePage=document.querySelector('.archive-page');
+if(archivePage){
+ const slides=[
+  {name:'TropiBite',prefix:'tropibite-',image:'tropibite-38.JPG',alt:'TropiBite campaign image'},
+  {name:'Buzz & Bloom',prefix:'buzzbloom-',image:'buzzbloom-18.jpg',alt:'Buzz & Bloom cocktail campaign'},
+  {name:'Grey with the Sign',prefix:'greywiththesign-',image:'greywiththesign-3.jpg',alt:'Grey with the Sign social content'},
+  {name:'CASESTODY',prefix:'casestody-',image:'casestody-1.jpg',alt:'CASESTODY product image'},
+  {name:'Greysole',prefix:'greysole-',image:'greysole-4.png',alt:'Greysole brand mark'}
+ ];
+ const hero=archivePage.querySelector('.archive-hero'),heroImage=hero.querySelector('.archive-hero-image'),heroTitle=hero.querySelector('.archive-hero-caption h1'),heroCount=hero.querySelector('.archive-hero-count'),dots=[...hero.querySelectorAll('.archive-hero-dots button')];
+ const cards=[...archivePage.querySelectorAll('[data-archive-brand]')],results=archivePage.querySelector('#archive-results'),grid=archivePage.querySelector('.archive-image-grid'),resultTitle=archivePage.querySelector('#archive-results-title'),back=archivePage.querySelector('.archive-back'),lightbox=archivePage.querySelector('.archive-lightbox'),lightboxImage=lightbox.querySelector('img'),lightboxCount=lightbox.querySelector('.archive-lightbox-count');
+ let slideIndex=0,selected=null,brandImages=[],lightboxIndex=0,timer=null;
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+ const setSlide=index=>{
+  slideIndex=(index+slides.length)%slides.length;const slide=slides[slideIndex];
+  hero.classList.add('is-changing');
+  window.setTimeout(()=>{heroImage.src='images/'+slide.image;heroImage.alt=slide.alt;heroTitle.textContent=slide.name;heroCount.innerHTML=String(slideIndex+1).padStart(2,'0')+' <i>/</i> '+String(slides.length).padStart(2,'0');dots.forEach((dot,i)=>dot.setAttribute('aria-current',String(i===slideIndex)));hero.classList.remove('is-changing')},reduced.matches?0:150);
+ };
+ const stopTimer=()=>{if(timer){clearInterval(timer);timer=null}};
+ const startTimer=()=>{stopTimer();if(!reduced.matches)timer=window.setInterval(()=>setSlide(slideIndex+1),5200)};
+ hero.querySelector('.archive-hero-prev').addEventListener('click',()=>{setSlide(slideIndex-1);startTimer()});
+ hero.querySelector('.archive-hero-next').addEventListener('click',()=>{setSlide(slideIndex+1);startTimer()});
+ dots.forEach((dot,i)=>dot.addEventListener('click',()=>{setSlide(i);startTimer()}));
+ hero.addEventListener('mouseenter',stopTimer);hero.addEventListener('mouseleave',startTimer);hero.addEventListener('focusin',stopTimer);hero.addEventListener('focusout',event=>{if(!hero.contains(event.relatedTarget))startTimer()});
+ startTimer();
+ const openLightbox=index=>{lightboxIndex=index;const file=brandImages[index];lightboxImage.src='images/'+file;lightboxImage.alt=selected.name+' image '+(index+1);lightboxCount.textContent=String(index+1).padStart(2,'0')+' / '+String(brandImages.length).padStart(2,'0');lightbox.showModal()};
+ const moveLightbox=direction=>{lightboxIndex=(lightboxIndex+direction+brandImages.length)%brandImages.length;openLightbox(lightboxIndex)};
+ lightbox.querySelector('.archive-lightbox-close').addEventListener('click',()=>lightbox.close());
+ lightbox.querySelector('.archive-lightbox-prev').addEventListener('click',()=>moveLightbox(-1));
+ lightbox.querySelector('.archive-lightbox-next').addEventListener('click',()=>moveLightbox(1));
+ lightbox.addEventListener('click',event=>{if(event.target===lightbox)lightbox.close()});
+ document.addEventListener('keydown',event=>{if(!lightbox.open)return;if(event.key==='ArrowLeft')moveLightbox(-1);if(event.key==='ArrowRight')moveLightbox(1)});
+ const renderCollection=async card=>{
+  const key=card.dataset.archiveBrand;selected=slides.find(slide=>slide.prefix===key+'-')||slides.find(slide=>slide.prefix===key);
+  if(!selected)return;
+  cards.forEach(item=>{const active=item===card;item.setAttribute('aria-expanded',String(active));item.classList.toggle('is-active',active)});
+  results.hidden=false;resultTitle.textContent=selected.name;grid.replaceChildren();
+  const loading=document.createElement('p');loading.className='archive-empty';loading.textContent='Loading images…';grid.append(loading);
+  results.scrollIntoView({behavior:reduced.matches?'auto':'smooth',block:'start'});
+  const files=await getPortfolioImages();
+  brandImages=files?sortedPrefixed(files,selected.prefix):[selected.image];
+  grid.replaceChildren();
+  if(!brandImages.length){const empty=document.createElement('p');empty.className='archive-empty';empty.textContent='Images for this collection will appear here.';grid.append(empty);return}
+  brandImages.forEach((name,index)=>{
+   const button=document.createElement('button');button.type='button';button.className='archive-image-card';button.setAttribute('aria-label','Open '+selected.name+' image '+(index+1));
+   const image=document.createElement('img');image.src='images/'+name;image.alt=selected.name+' selected work '+(index+1);image.loading='lazy';
+   const count=document.createElement('span');count.textContent=String(index+1).padStart(2,'0');
+   button.append(image,count);button.addEventListener('click',()=>openLightbox(index));grid.append(button);
+  });
+ };
+ cards.forEach(card=>card.addEventListener('click',()=>renderCollection(card)));
+ back.addEventListener('click',()=>{results.hidden=true;cards.forEach(card=>{card.setAttribute('aria-expanded','false');card.classList.remove('is-active')});archivePage.querySelector('.archive-brands').scrollIntoView({behavior:reduced.matches?'auto':'smooth',block:'start'})});
+}
