@@ -151,7 +151,7 @@ if(archivePage){
  dots.forEach((dot,i)=>dot.addEventListener('click',()=>{setSlide(i);startTimer()}));
  hero.addEventListener('mouseenter',stopTimer);hero.addEventListener('mouseleave',startTimer);hero.addEventListener('focusin',stopTimer);hero.addEventListener('focusout',event=>{if(!hero.contains(event.relatedTarget))startTimer()});
  startTimer();
- const openLightbox=index=>{lightboxIndex=index;const file=brandImages[index];lightboxImage.src='images/'+file;lightboxImage.alt=selected.name+' image '+(index+1);lightboxCount.textContent=String(index+1).padStart(2,'0')+' / '+String(brandImages.length).padStart(2,'0');lightbox.showModal()};
+ const openLightbox=index=>{lightboxIndex=index;const file=brandImages[index];lightboxImage.src='images/'+file;lightboxImage.alt=selected.name+' image '+(index+1);lightboxCount.textContent=String(index+1).padStart(2,'0')+' / '+String(brandImages.length).padStart(2,'0');if(!lightbox.open)lightbox.showModal()};
  const moveLightbox=direction=>{lightboxIndex=(lightboxIndex+direction+brandImages.length)%brandImages.length;openLightbox(lightboxIndex)};
  lightbox.querySelector('.archive-lightbox-close').addEventListener('click',()=>lightbox.close());
  lightbox.querySelector('.archive-lightbox-prev').addEventListener('click',()=>moveLightbox(-1));
