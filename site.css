@@ -406,3 +406,4 @@ body .harmatan-home .cream-link:hover span,body .harmatan-home .cream-link:focus
 /* Keep the longer navigation usable on narrow screens without shrinking links into unreadable text. */
 @media(max-width:740px){.nav-links{flex:0 1 auto;min-width:0;max-width:calc(100vw - 150px);overflow-x:auto;overflow-y:hidden;scrollbar-width:none;justify-content:flex-start;margin-left:auto}.nav-links::-webkit-scrollbar{display:none}.nav-links a{flex:0 0 auto}.archive-hero:after{display:none}.archive-hero-dots{padding:7px 10px;border-radius:99px;background:#151515c2}}
 @media(max-width:390px){.nav-links{max-width:calc(100vw - 132px)}}
+.archive-hero:after{display:none}.archive-hero-dots{padding:7px 10px;border-radius:99px;background:#151515c2}
