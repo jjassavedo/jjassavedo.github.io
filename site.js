@@ -132,6 +132,7 @@ if(archivePage){
   {name:'TropiBite',prefix:'tropibite-',image:'tropibite-38.JPG',alt:'TropiBite campaign image'},
   {name:'Buzz & Bloom',prefix:'buzzbloom-',image:'buzzbloom-18.jpg',alt:'Buzz & Bloom cocktail campaign'},
   {name:'Grey with the Sign',prefix:'greywiththesign-',image:'greywiththesign-3.jpg',alt:'Grey with the Sign social content'},
+  {name:'Everpages',prefix:'everpages-',image:null,alt:'Everpages brand archive'},
   {name:'CASESTODY',prefix:'casestody-',image:'casestody-1.jpg',alt:'CASESTODY product image'},
   {name:'Greysole',prefix:'greysole-',image:'greysole-4.png',alt:'Greysole brand mark'}
  ];
@@ -142,7 +143,7 @@ if(archivePage){
  const setSlide=index=>{
   slideIndex=(index+slides.length)%slides.length;const slide=slides[slideIndex];
   hero.classList.add('is-changing');
-  window.setTimeout(()=>{heroImage.src='images/'+slide.image;heroImage.alt=slide.alt;heroTitle.textContent=slide.name;heroCount.innerHTML=String(slideIndex+1).padStart(2,'0')+' <i>/</i> '+String(slides.length).padStart(2,'0');dots.forEach((dot,i)=>dot.setAttribute('aria-current',String(i===slideIndex)));hero.classList.remove('is-changing')},reduced.matches?0:150);
+  window.setTimeout(()=>{if(slide.image){heroImage.src='images/'+slide.image;heroImage.alt=slide.alt;heroImage.style.display='block';hero.classList.remove('is-typographic')}else{heroImage.removeAttribute('src');heroImage.alt='';heroImage.style.display='none';hero.classList.add('is-typographic')}heroTitle.textContent=slide.name;heroCount.innerHTML=String(slideIndex+1).padStart(2,'0')+' <i>/</i> '+String(slides.length).padStart(2,'0');dots.forEach((dot,i)=>dot.setAttribute('aria-current',String(i===slideIndex)));hero.classList.remove('is-changing')},reduced.matches?0:150);
  };
  const stopTimer=()=>{if(timer){clearInterval(timer);timer=null}};
  const startTimer=()=>{stopTimer();if(!reduced.matches)timer=window.setInterval(()=>setSlide(slideIndex+1),5200)};
@@ -166,9 +167,9 @@ if(archivePage){
   const loading=document.createElement('p');loading.className='archive-empty';loading.textContent='Loading images…';grid.append(loading);
   results.scrollIntoView({behavior:reduced.matches?'auto':'smooth',block:'start'});
   const files=await getPortfolioImages();
-  brandImages=files?sortedPrefixed(files,selected.prefix):[selected.image];
+  brandImages=files?sortedPrefixed(files,selected.prefix):(selected.image?[selected.image]:[]);
   grid.replaceChildren();
-  if(!brandImages.length){const empty=document.createElement('p');empty.className='archive-empty';empty.textContent='Images for this collection will appear here.';grid.append(empty);return}
+  if(!brandImages.length){const empty=document.createElement('p');empty.className='archive-empty';empty.textContent='No images have been added to this collection yet. Upload files starting with '+selected.prefix+' to fill this gallery.';grid.append(empty);return}
   brandImages.forEach((name,index)=>{
    const button=document.createElement('button');button.type='button';button.className='archive-image-card';button.setAttribute('aria-label','Open '+selected.name+' image '+(index+1));
    const image=document.createElement('img');image.src='images/'+name;image.alt=selected.name+' selected work '+(index+1);image.loading='lazy';
