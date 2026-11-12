@@ -633,3 +633,33 @@ body.portfolio-theme-preview .graphic-work-page h2{color:#1c1c1c}
 body.portfolio-theme-preview .hmt-gallery-grid figure{background:#ebe4d9}
 body.portfolio-theme-preview .hmt-gallery-grid figcaption{background:linear-gradient(transparent,#1c1c1c9c);color:#f5f0e8}
 body.portfolio-theme-preview.archive-page{--archive-ink:#1c1c1c;--archive-soft:#68645e;--archive-line:#1c1c1c2b}
+
+/* Contrast tuning for the cream theme preview. */
+body.portfolio-theme-preview .about-content>p,
+body.portfolio-theme-preview .about-content p,
+body.portfolio-theme-preview .about-bottom>p,
+body.portfolio-theme-preview .section-heading>p,
+body.portfolio-theme-preview .everpages-summary,
+body.portfolio-theme-preview .everpages-section-head>p,
+body.portfolio-theme-preview .everpages-selected-heading>p,
+body.portfolio-theme-preview .everpages-about>div+div>p,
+body.portfolio-theme-preview .hmt-intro-copy>p,
+body.portfolio-theme-preview .archive-section-head>p,
+body.portfolio-theme-preview .archive-results-copy,
+body.portfolio-theme-preview .detail-story>div>p,
+body.portfolio-theme-preview .detail-roles>div>p,
+body.portfolio-theme-preview .design-copy>p:not(.eyebrow),
+body.portfolio-theme-preview .upwork-trigger-copy,
+body.portfolio-theme-preview .upwork-dialog .upwork-intro,
+body.portfolio-theme-preview .upwork-services,
+body.portfolio-theme-preview .upwork-facts span{color:#514d47}
+body.portfolio-theme-preview .skill-list span,
+body.portfolio-theme-preview .voice-tags span{color:#1c1c1c;border-color:#1c1c1c3a}
+body.portfolio-theme-preview .about-content h2 em,
+body.portfolio-theme-preview .section-heading h2 em,
+body.portfolio-theme-preview .everpages-section-head h2 em{color:#777068}
+body.portfolio-theme-preview .archive-brand-number,
+body.portfolio-theme-preview .archive-brand-count,
+body.portfolio-theme-preview .section-label,
+body.portfolio-theme-preview .detail-nums span,
+body.portfolio-theme-preview .everpages-supporting-stats span{color:#68645e}
