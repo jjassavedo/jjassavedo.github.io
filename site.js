@@ -132,7 +132,7 @@ if(archivePage){
   {name:'TropiBite',prefix:'tropibite-',image:'tropibite-38.JPG',alt:'TropiBite campaign image'},
   {name:'Buzz & Bloom',prefix:'buzzbloom-',image:'buzzbloom-18.jpg',alt:'Buzz & Bloom cocktail campaign'},
   {name:'Grey with the Sign',prefix:'greywiththesign-',image:'greywiththesign-3.jpg',alt:'Grey with the Sign social content'},
-  {name:'Everpages',prefix:'everpages-',image:null,alt:'Everpages brand archive'},
+  {name:'Everpages',prefix:'everpage-',image:null,alt:'Everpages brand archive'},
   {name:'CASESTODY',prefix:'casestody-',image:'casestody-1.jpg',alt:'CASESTODY product image'},
   {name:'Greysole',prefix:'greysole-',image:'greysole-4.png',alt:'Greysole brand mark'}
  ];
