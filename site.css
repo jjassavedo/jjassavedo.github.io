@@ -663,3 +663,13 @@ body.portfolio-theme-preview .archive-brand-count,
 body.portfolio-theme-preview .section-label,
 body.portfolio-theme-preview .detail-nums span,
 body.portfolio-theme-preview .everpages-supporting-stats span{color:#68645e}
+
+/* Preserve readable light hero typography over the homepage photograph. */
+body.portfolio-theme-preview .hero-copy,
+body.portfolio-theme-preview .hero-copy h1,
+body.portfolio-theme-preview .hero-copy>p:not(.eyebrow),
+body.portfolio-theme-preview .hero-foot,
+body.portfolio-theme-preview .role-list span{color:#fff}
+body.portfolio-theme-preview .hero-copy .eyebrow{color:#c9973a}
+body.portfolio-theme-preview .hero-link{color:#fff;border-color:#ffffff80}
+body.portfolio-theme-preview .hero-link span{color:#c9973a}
