@@ -55,10 +55,12 @@ const populatePrefixedImages=async()=>{
   container.replaceChildren();
   matches.forEach((name,index)=>{
    const src='images/'+name;
-   const image=document.createElement('img');image.src=src;image.alt=prefix==='design-'?'Graphic design work '+(index+1):'Grey with the Sign post '+(index+1);image.loading='lazy';
+   const image=document.createElement('img');image.src=src;image.alt=prefix==='design-'?'Graphic design work '+(index+1):prefix==='everpage-'?'Everpages selected advertising creative '+(index+1):'Grey with the Sign post '+(index+1);image.loading='lazy';
    if(prefix==='design-'){
     const button=document.createElement('button');button.type='button';button.className='design-tile';button.dataset.designView=src;button.setAttribute('aria-label','View graphic design work '+(index+1));
     const affordance=document.createElement('span');affordance.className='tile-open';affordance.setAttribute('aria-hidden','true');affordance.textContent='↗';button.append(image,affordance);container.append(button);
+   }else if(prefix==='everpage-'){
+    const figure=document.createElement('figure');figure.append(image);container.append(figure);
    }else if(prefix==='greywiththesign-'){
     const figure=document.createElement('figure');const caption=document.createElement('figcaption');caption.className='view-count';
     const base=name.replace(/\.[^.]+$/,'').toLowerCase();const count=greySignViewCounts[base];caption.textContent=count?count+' views':'Views pending';figure.append(image,caption);container.append(figure);
@@ -132,7 +134,7 @@ if(archivePage){
   {name:'TropiBite',prefix:'tropibite-',image:'tropibite-38.JPG',alt:'TropiBite campaign image'},
   {name:'Buzz & Bloom',prefix:'buzzbloom-',image:'buzzbloom-18.jpg',alt:'Buzz & Bloom cocktail campaign'},
   {name:'Grey with the Sign',prefix:'greywiththesign-',image:'greywiththesign-3.jpg',alt:'Grey with the Sign social content'},
-  {name:'Everpages',prefix:'everpage-',image:null,alt:'Everpages brand archive'},
+  {name:'Everpages',prefix:'everpage-',image:'Everpage-1.jpg',alt:'Everpages advertising campaign'},
   {name:'CASESTODY',prefix:'casestody-',image:'casestody-1.jpg',alt:'CASESTODY product image'},
   {name:'Greysole',prefix:'greysole-',image:'greysole-4.png',alt:'Greysole brand mark'}
  ];
@@ -179,4 +181,24 @@ if(archivePage){
  };
  cards.forEach(card=>card.addEventListener('click',()=>renderCollection(card)));
  back.addEventListener('click',()=>{results.hidden=true;cards.forEach(card=>{card.setAttribute('aria-expanded','false');card.classList.remove('is-active')});archivePage.querySelector('.archive-brands').scrollIntoView({behavior:reduced.matches?'auto':'smooth',block:'start'})});
+}
+/* Everpages ad campaign counters and bar chart. */
+const everpagesChart=document.querySelector('[data-everpages-chart]');
+if(everpagesChart){
+ const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ let animated=false;
+ const animateEverpages=()=>{
+  if(animated)return;animated=true;
+  everpagesChart.classList.add('is-active');
+  everpagesChart.querySelectorAll('[data-bar-width]').forEach(bar=>{bar.style.setProperty('--bar-width',bar.dataset.barWidth)});
+  document.querySelectorAll('.everpages-page [data-count-up]').forEach(node=>{
+   const target=Number(node.dataset.countUp);
+   if(reduceMotion){node.textContent=target.toLocaleString('en-US');return}
+   const start=performance.now(),duration=1100;
+   const tick=now=>{const progress=Math.min(1,(now-start)/duration);const eased=1-Math.pow(1-progress,3);node.textContent=Math.round(target*eased).toLocaleString('en-US');if(progress<1)requestAnimationFrame(tick)};
+   requestAnimationFrame(tick);
+  });
+ };
+ if(reduceMotion||!('IntersectionObserver'in window))animateEverpages();
+ else{const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){animateEverpages();observer.disconnect()}},{threshold:.2});observer.observe(everpagesChart)}
 }

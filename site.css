@@ -415,3 +415,57 @@ body .harmatan-home .cream-link:hover span,body .harmatan-home .cream-link:focus
 .archive-hero.is-typographic:before{content:"EVERPAGES";position:absolute;inset:0;display:grid;place-items:center;color:#fff;opacity:.16;font:700 clamp(48px,13vw,170px)/1 "Space Grotesk",sans-serif;letter-spacing:.04em}
 .archive-hero.is-typographic .archive-hero-image{opacity:0}
 @media(max-width:740px){.archive-everpages-word{font-size:clamp(17px,5vw,27px)}.archive-hero.is-typographic:before{font-size:clamp(42px,14vw,88px)}}
+
+/* Everpages: campaign results first, with compact animated performance bars. */
+.everpages-main{padding-top:132px}
+.everpages-heading{padding:24px 0 clamp(64px,9vw,112px);border-bottom:1px solid var(--line)}
+.everpages-heading>.eyebrow{display:inline-block;margin-bottom:42px}
+.everpages-kicker,.everpages-section-head>.eyebrow{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre);margin:0 0 16px}
+.everpages-heading h1{font-size:clamp(64px,12vw,148px);line-height:.86}
+.everpages-heading h1 span{color:var(--ochre)}
+.everpages-summary{margin:26px 0 0;color:#c4bfb7;font-size:clamp(17px,1.5vw,21px);max-width:48ch;line-height:1.7}
+.everpages-performance{padding:clamp(68px,9vw,116px) 0;border-bottom:1px solid var(--line)}
+.everpages-section-head,.everpages-selected-heading{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:42px}
+.everpages-section-head h2,.everpages-selected-heading h2,.everpages-about h2{font-size:clamp(42px,6.5vw,78px);line-height:.94}
+.everpages-section-head h2 em{font-style:normal;color:#aaa49a}
+.everpages-section-head>p,.everpages-selected-heading>p{max-width:270px;color:#bdb8af;font-size:14px;line-height:1.8;margin:0 2% 5px}
+.everpages-chart{display:grid;gap:28px}
+.everpages-bar-row{display:grid;gap:10px}
+.everpages-bar-label{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.everpages-bar-label strong{font:500 clamp(16px,2vw,20px) Poppins,Arial,sans-serif}
+.everpages-bar-label span{font:600 clamp(22px,3vw,32px)/1 "Space Grotesk",sans-serif;color:var(--ochre);font-variant-numeric:tabular-nums}
+.everpages-bar-track{height:14px;background:#ffffff14;overflow:hidden;border-radius:20px}
+.everpages-bar-track i{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,#8c3a1e,#c9973a);transition:width 1s cubic-bezier(.2,.75,.25,1)}
+.everpages-chart.is-active .everpages-bar-track i{width:var(--bar-width)}
+.everpages-supporting-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(42px,6vw,74px);border-block:1px solid var(--line)}
+.everpages-supporting-stats>div{display:flex;flex-direction:column;gap:8px;padding:22px 18px 22px 0}
+.everpages-supporting-stats>div+div{border-left:1px solid var(--line);padding-left:clamp(16px,3vw,38px)}
+.everpages-supporting-stats strong{font:600 clamp(24px,3vw,38px)/1.1 "Space Grotesk",sans-serif;color:var(--ink);font-variant-numeric:tabular-nums}
+.everpages-supporting-stats span{font-size:12px;color:#aaa49a}
+.everpages-about{display:grid;grid-template-columns:.9fr 1.1fr;gap:7%;align-items:start;padding:clamp(72px,9vw,110px) 0;border-bottom:1px solid var(--line)}
+.everpages-about .eyebrow,.everpages-selected .eyebrow{margin-bottom:18px}
+.everpages-about>div+div>p{max-width:62ch;color:#c4bfb7;font-size:clamp(16px,1.4vw,19px);line-height:1.85;margin:4px 0 24px}
+.everpages-about .social-links{display:flex;gap:20px;flex-wrap:wrap}
+.everpages-selected{padding:clamp(72px,9vw,110px) 0}
+.everpages-work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.everpages-work-grid figure{margin:0;aspect-ratio:1/1.12;overflow:hidden;background:#242321}
+.everpages-work-grid img{transition:transform .45s ease}
+.everpages-work-grid figure:hover img{transform:scale(1.035)}
+.everpages-page .page-nav{margin-top:0}
+@media(max-width:740px){
+ .everpages-main{padding-top:104px}
+ .everpages-heading>.eyebrow{margin-bottom:32px}
+ .everpages-section-head,.everpages-selected-heading{align-items:start;flex-direction:column;gap:15px}
+ .everpages-section-head>p,.everpages-selected-heading>p{margin:0}
+ .everpages-chart{gap:23px}
+ .everpages-bar-track{height:11px}
+ .everpages-supporting-stats{grid-template-columns:1fr; margin-top:38px}
+ .everpages-supporting-stats>div{padding:17px 0}
+ .everpages-supporting-stats>div+div{border-left:0;border-top:1px solid var(--line);padding-left:0}
+ .everpages-about{grid-template-columns:1fr;gap:22px}
+ .everpages-work-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .everpages-work-grid figure{aspect-ratio:1/1.1}
+}
+@media(prefers-reduced-motion:reduce){.everpages-bar-track i,.everpages-work-grid img{transition:none}}
+.archive-brand-image-everpages{display:block;background:#242321}
+.archive-brand-image-everpages>img{transition:transform .5s ease,opacity .25s}
